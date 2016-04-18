@@ -1,0 +1,14 @@
+/* line 1, /home/dao/rails/myproject/app/assets/stylesheets/jqueries.scss */
+.letters {
+  width: 200px;
+  border-right: 1px solid;
+  margin: 20px;
+  float: left;
+  height: 500px;
+}
+
+/* line 8, /home/dao/rails/myproject/app/assets/stylesheets/jqueries.scss */
+.letter {
+  line-height: 40px;
+  padding-left: 20px;
+}

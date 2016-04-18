@@ -1,0 +1,24 @@
+<br>
+<strong>Body:</strong>
+<%= @comment.body %>
+<br>
+<strong>Title_artcle:</strong>
+<%= @comment.article.title %>
+<br>
+<strong>Name_user:</strong>
+<%= @comment.user.name_user %>
+<br>
+<%= form_for @comment, url: comment_path(@comment) do |f| %>
+<p>
+  <%= f.text_area :body,style: "display:none" %>
+  <%if (@approve == true)%>
+  <%= radio_button_tag "comment[approve]",true,true%><strong>Approve</strong>
+  <%= radio_button_tag "comment[approve]",false,false %><strong>Disapprove</strong>
+  <% else %>
+   <%= radio_button_tag "comment[approve]",true,false%><strong>Approve</strong>
+  <%= radio_button_tag "comment[approve]",false,true %><strong>Disapprove</strong>
+  <% end -%>
+</p>
+<p><%= f.submit "Check" %></p>
+  <% end -%>
+  <%= link_to "Index",comments_path %>

@@ -1,0 +1,20 @@
+/* line 2, /home/dao/rails/myproject/app/assets/stylesheets/common.scss */
+.table {
+  border-collapse: collapse;
+}
+
+/* line 5, /home/dao/rails/myproject/app/assets/stylesheets/common.scss */
+.table td {
+  border: 1px solid #adadad;
+  padding: 4px 8px;
+}
+
+/* line 9, /home/dao/rails/myproject/app/assets/stylesheets/common.scss */
+.title td {
+  font-weight: bold;
+}
+
+/* line 12, /home/dao/rails/myproject/app/assets/stylesheets/common.scss */
+.notice {
+  color: red;
+}

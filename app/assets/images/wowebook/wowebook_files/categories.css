@@ -1,0 +1,32 @@
+/*** SHOW CATEGORY ***/
+/* line 3, /home/dao/rails/myproject/app/assets/stylesheets/categories.scss */
+.top-content-left {
+  height: 50px;
+  background: white;
+  border-bottom: 1px solid #AAAAAA;
+}
+
+/* line 10, /home/dao/rails/myproject/app/assets/stylesheets/categories.scss */
+.top-content-left .category {
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 10px 0 0 20px;
+  color: #AAAAAA;
+  width: 400px;
+  color: #33363B;
+  font-weight: bold;
+}
+
+/* line 20, /home/dao/rails/myproject/app/assets/stylesheets/categories.scss */
+.top-content-left .category img {
+  height: 20px;
+  width: 20px;
+}
+
+/* line 25, /home/dao/rails/myproject/app/assets/stylesheets/categories.scss */
+.top-content-left .category span {
+  color: #AAAAAA;
+  padding: 0px 5px;
+}
+
+/*** SHOW CATEGORY ***/

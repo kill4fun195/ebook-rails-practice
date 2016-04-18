@@ -1,0 +1,88 @@
+  <div class="row top-content-left">
+    <div class="col-sm-8">
+          <ul class="list-inline article-categories ">
+            <% @article.categories.each do |f| %>
+              <li><%= link_to f.name_category, category_path(f)%></li><span><strong>/</strong></span>
+            <% end -%>
+          </ul>
+    </div>  
+    <div class="col-sm-4">
+      <a href="<%= article_path(@article)%>#currentComment" class="comment"><i class="fa fa-comments-o"></i> <%= @article.comments.count %></a>
+    </div>   
+  </div>
+  <p class = "introduce">Good news! Our friend site will continue updating latest books at <a href="https://www.google.com/search?q=1bookcase.com&ie=utf-8&oe=utf-8">https://1bookcase.com/</a>.</p>
+  <h2><%= @article.title %></h2>
+  <ul class="list-inline">
+    <li><i class="fa fa-clock-o fa-fw"></i><%= @article.created_at.strftime("%m/%d/%y")%></li>.
+    <% if(@article.comments.count == 0)%>
+      <li><i class="fa fa-comments-o fa-fw"></i><a href="<%= article_path(@article)%>#currentComment">NO RESPONSES</a></li>.
+    <% else %>
+      <li><a href="<%= article_path(@article)%>#currentComment"><i class="fa fa-comments-o fa-fw"></i><%= @article.comments.count %> RESPONES</a></li>.
+    <% end -%>
+    <li><i class="fa fa-eye"></i> <%= @article.viewer %></li>.
+    <li><i class="fa fa-user"></i> <%= @article.user.name_user %></li>
+  </ul>
+  <div class="clearfix">
+    <div class="content-show-article">
+      <%= image_tag("wowebook/img_article")%>
+      <span><%= @article.title %></span>
+    </div>
+  </div>
+  <div class="clearfix">
+  <a href="#" ><button class="btn btn-warning btn-download"><i class="fa fa-download"></i> Download</button></a>
+  </div>
+  <div class="clearfix">
+    <div class="introducce-show-article">
+      <h4><i class="fa fa-hand-o-right"> </i>YOU MAY ALSO LIKE...</h4>
+      <ul class="bxslider">
+        <% @article.categories.first.articles.each do |f| %>
+          <li><a href="<%= article_path(f)%>"><%= image_tag("wowebook/img_article")%><span><%= f.title %></span></a></li>
+        <% end -%>
+      </ul>
+    </div>
+  </div>
+    <a name="currentComment"> asas</a>
+    <div class="comment-show-article">
+      <h4><%= @article.comments.count %> RESPONSES</h4>
+      <ul class="list-inline top-comment-show-article">
+        <li class="active"><a href="#"><i class="fa fa-comments-o"></i> Comments <span class="badge"><%=@article.comments.count%></span></a></li>
+        <li><a href="#"><i class="fa fa-share"></i> Pingbacks <span class="badge">0</span></a></li>
+      </ul>
+      <% @article.comments.each do |f| %>
+      <div class="clearfix user-comment-show-article">
+          <div class="col-sm-1">
+            <%= image_tag("wowebook/logo_user")%>
+          </div>
+          <div class="col-sm-11">
+            <ul class="list-inline">
+              <li><strong><%= f.user.name_user %></strong></li>
+              <li class="time"><i class="fa fa-clock-o"></i><%= f.created_at.strftime("%m/%d/%Y at %I:%M%p ") %></li>
+            </ul>
+            <span><%= f.body %></span>
+        </div>
+      </div>
+      <% end -%>
+    </div>
+ <% if current_user != nil %>
+    <div class="login-article">
+      <%= form_for "comment" , url: article_comments_path(@article.id) do |c| %>
+       <fieldset>
+          <legend>Comment:</legend>
+          <p>
+            Thinking for this article 
+          </p>
+          <p>
+           <%= c.text_area :body %>
+          </p>
+          <p>
+            <%= c.submit "Write Comment" %>
+          </p>
+          </fieldset>
+      <% end -%>
+    </div>
+  <% else %>
+     <div class="no-login-article">
+      <h3>Leave a Reply </h3>
+      <p>You must be <%= link_to "logged in", new_session_path %> to post a comment.</p>
+    </div>
+  <% end -%>

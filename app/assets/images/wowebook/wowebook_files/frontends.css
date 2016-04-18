@@ -1,0 +1,596 @@
+/* line 1, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+* {
+  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 8, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+a {
+  outline: 0;
+}
+
+/* line 11, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+body {
+  font-family: 'Open Sans', arial, sans-serif;
+  font-size: 14;
+  font-weight: 300;
+}
+
+/* line 18, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+#container {
+  background: #EAEAEA;
+}
+
+/* line 22, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.both {
+  clear: both;
+}
+
+/*** MENU ***/
+/* line 27, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+#wrapper-menu {
+  background-color: #26272B;
+}
+
+/* line 31, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+#menu {
+  width: 1100px;
+  height: 41px;
+  margin: auto;
+}
+
+/* line 37, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+#menu ul li {
+  float: left;
+  position: relative;
+  padding: 10px 10px;
+}
+
+/* line 43, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+#menu ul li a {
+  color: #BCC9BB;
+}
+
+/* line 47, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+#menu ul li ul {
+  display: none;
+}
+
+/* line 51, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+#menu ul li:hover ul {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 39px;
+}
+
+/* line 58, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+#menu li li {
+  width: 100%;
+  background: #26272B;
+}
+
+/* line 62, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+#menu li li:hover a {
+  color: white;
+}
+
+/* line 65, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+#menu form {
+  float: right;
+}
+
+/***
+ #menu .search
+ {
+  float:right;
+  position:relative;
+ }
+ .search .txt-search
+ {
+  padding:4px;
+  padding-right:25px;
+ }
+ #menu .search a 
+ {
+  position:absolute;
+  right:2px;
+ }
+ #menu .search img
+ {
+  height:30px;
+ }
+ ***/
+/*** END MENU ***/
+/*** BANNER ***/
+/* line 94, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+#wrapper-banner {
+  background-color: #33363B;
+}
+
+/* line 98, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+#banner {
+  width: 1100px;
+  margin: auto;
+  padding: 30px 0px 120px 30px;
+}
+
+/* line 104, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+#banner h1 {
+  width: 220px;
+  float: left;
+}
+
+/* line 109, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+#banner h1 a {
+  color: white;
+  font-size: 35px;
+}
+
+/* line 114, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+#banner p {
+  color: #b2b5ae;
+  float: left;
+  font-size: 15px;
+  font-style: italic;
+  padding-top: 10px;
+  width: 200px;
+}
+
+/*** END BANNER ***/
+/*** CONTENT ***/
+/* line 126, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+#content {
+  width: 1100px;
+  margin: auto;
+  background: white;
+  margin-top: -50px;
+  overflow: hidden;
+}
+
+/* line 134, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.content-left {
+  width: 55%;
+  float: left;
+}
+
+/* line 139, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.top-content-left {
+  height: 50px;
+  background: white;
+  border-bottom: 1px solid #E4E4E4;
+}
+
+/* line 145, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.top-content-left p {
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 20px 0 0 20px;
+  color: #AAAAAA;
+}
+
+/* line 152, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.top-content-left strong {
+  color: #666666;
+}
+
+/* line 156, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.mid-content-left .introduce {
+  margin: 15px 0px 15px 30px;
+  border-left: 10px solid #D2691E;
+  font-size: 25px;
+  padding: 0 10px;
+  color: #444444;
+  font-weight: bold;
+}
+
+/* line 165, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.mid-content-left .introduce a {
+  color: #D2691E;
+}
+
+/* line 169, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.mid-content-left .introduce a:hover {
+  color: #444444;
+}
+
+/* line 177, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.content-right {
+  width: 45%;
+  float: right;
+  background: #F5F5F5;
+  overflow: hidden;
+}
+
+/* line 184, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.sidebar-left {
+  width: 40%;
+  float: left;
+}
+
+/* line 189, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.top-sidebar-left {
+  height: 50px;
+  background: #004B80;
+}
+
+/* line 194, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.top-sidebar-left p {
+  color: white;
+  padding: 15px;
+  font-size: 16px;
+}
+
+/* line 200, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.mid-sidebar-left {
+  border-right: 1px solid #E4E4E4;
+  padding: 20px;
+  height: 1650px;
+}
+
+/* line 206, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.mid-sidebar-left h3 {
+  text-transform: uppercase;
+  font-weight: none;
+  font-size: 15px;
+  padding-bottom: 10px;
+}
+
+/* line 213, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.mid-sidebar-left p {
+  border-bottom: 1px solid #E4E4E4;
+  padding: 10px 0px 20px 0px;
+}
+
+/* line 218, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.mid-sidebar-left img {
+  height: 20px;
+  width: 20px;
+}
+
+/* line 223, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.mid-sidebar-left a {
+  color: #33363B;
+}
+
+/* line 227, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.mid-sidebar-left span {
+  color: #C9C9C9;
+}
+
+/* line 231, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.sidebar-right {
+  width: 60%;
+  float: left;
+}
+
+/* line 236, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.top-sidebar-right {
+  height: 50px;
+  background: #D2691E;
+}
+
+/* line 241, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.top-sidebar-right h3 {
+  color: white;
+  text-transform: uppercase;
+  padding: 15px;
+  width: 100px;
+  float: left;
+  font-size: 16px;
+}
+
+/* line 250, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.top-sidebar-right ul li {
+  display: inline;
+  float: right;
+  padding: 10px 5px 5px 5px;
+}
+
+/* line 256, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.top-sidebar-right img {
+  height: 30px;
+  width: 30px;
+}
+
+/* line 261, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.mid-sidebar-right a {
+  color: #666673;
+}
+
+/* line 265, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.mid-sidebar-right ul {
+  border-bottom: 2px solid #DDDDDD;
+  margin: 20px;
+  padding-bottom: 5px;
+}
+
+/* line 271, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.mid-sidebar-right ul img {
+  height: 30px;
+  width: 30px;
+}
+
+/* line 276, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.mid-sidebar-right ul li {
+  display: inline;
+  padding: 0px 25px;
+  padding-top: 15px;
+}
+
+/* line 282, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.mid-sidebar-right ul li:hover {
+  padding-bottom: 5px;
+  border-bottom: 3px solid  #33363B;
+}
+
+/* line 287, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.content-mid-sidebar-right-1 {
+  margin: 0px 20px;
+}
+
+/* line 291, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.content-mid-sidebar-right-1 a {
+  display: block;
+  float: left;
+}
+
+/* line 296, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.content-mid-sidebar-right-1 img {
+  height: 120px;
+  width: 100px;
+}
+
+/* line 301, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.content-mid-sidebar-right-1 p {
+  padding-top: 20px;
+  width: 150px;
+  float: left;
+}
+
+/* line 307, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.content-mid-sidebar-right-2 {
+  margin: 0px 20px;
+}
+
+/* line 311, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.content-mid-sidebar-right-2 a {
+  display: block;
+  float: left;
+  padding: 10px 0px;
+  padding-right: 10px;
+}
+
+/* line 319, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.content-mid-sidebar-right-2 img {
+  height: 120px;
+  width: 100px;
+}
+
+/* line 324, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.content-mid-sidebar-right-2 p {
+  padding-top: 10px;
+  width: 140px;
+  float: left;
+}
+
+/* line 330, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.content-mid-sidebar-right-3 {
+  margin: 0px 20px;
+}
+
+/* line 334, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.content-mid-sidebar-right-3 a {
+  display: block;
+  float: left;
+  padding: 10px 0px;
+  padding-right: 10px;
+}
+
+/* line 342, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.content-mid-sidebar-right-3 img {
+  height: 120px;
+  width: 100px;
+  float: left;
+  margin-right: 5px;
+  padding: 10px 0px;
+}
+
+/* line 350, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.content-mid-sidebar-right-3 p {
+  padding-top: 10px;
+  width: 150px;
+  float: left;
+}
+
+/* line 356, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.border-content-mid-sidebar-right {
+  border-bottom: 1px solid #EAEAEA;
+}
+
+/* line 360, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.border-content-mid-sidebar-right:hover a {
+  color: #D2691E;
+}
+
+/* line 365, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.bot-sidebar-right p {
+  padding: 10px 20px;
+}
+
+/* line 369, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.bot-sidebar-right span {
+  padding: 10px 20px;
+}
+
+/*** END CONTENT ***/
+/*** FOOTER ***/
+/* line 376, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+#wrapper-footer {
+  background: #33363B;
+}
+
+/* line 380, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+#footer {
+  width: 1100px;
+  margin: auto;
+  padding: 20px 0px 60px 10px;
+}
+
+/* line 386, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.footer-left {
+  width: 300px;
+  float: left;
+}
+
+/* line 391, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.footer-right ul {
+  float: right;
+  padding: 10px;
+}
+
+/* line 396, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.footer-right ul li {
+  display: inline;
+  align: right;
+  padding: 10px;
+}
+
+/* line 402, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.footer-right img {
+  height: 30px;
+  width: 30px;
+}
+
+/*** END FOOTER ***/
+/*** ARTICLE ***/
+/* line 410, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.article {
+  margin: 20px;
+  border-bottom: 1px solid #E4E4E4;
+  overflow: hidden;
+}
+
+/* line 417, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.left-article {
+  width: 35%;
+  position: relative;
+  padding: 10px;
+  float: left;
+}
+
+/* line 424, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.left-article img {
+  height: 250px;
+  width: 180px;
+}
+
+/* line 429, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.left-article a.comment {
+  background: #4D789F;
+  display: block;
+  width: 35px;
+  position: absolute;
+  float: left;
+  top: 15px;
+  left: 175px;
+}
+
+/* line 439, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.left-article a.comment img {
+  height: 12px;
+  width: 12px;
+  display: block-inline;
+  padding: 0 5px;
+}
+
+/* line 446, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.right-article {
+  padding: 10px 0px;
+  width: 60%;
+  float: left;
+}
+
+/* line 452, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.head-right-article ul {
+  float: left;
+  padding-right: 5px;
+}
+
+/* line 457, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.head-right-article li {
+  display: inline;
+  padding: 0 5px;
+  border-right: 1px solid black;
+}
+
+/* line 463, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.head-right-article li a {
+  color: #D2691E;
+}
+
+/* line 467, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.head-right-article li:hover a {
+  color: #504444;
+}
+
+/* line 471, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.head-right-article span {
+  color: #AAAAAA;
+  font-size: 14px;
+}
+
+/* line 476, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.body-right-article {
+  padding: 10px 0 0 5px;
+}
+
+/* line 480, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.body-right-article h3 a {
+  color: #33363B;
+}
+
+/* line 484, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.body-right-article p {
+  padding: 15px 0px;
+  color: #94A18E;
+}
+
+/* line 489, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.article:hover .body-right-article h3 a {
+  color: #D2691E;
+}
+
+/* line 493, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.paging {
+  width: 300px;
+  margin: auto;
+}
+
+/* line 498, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.paging .paging-head {
+  text-align: center;
+}
+
+/* line 502, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.paging .paging-head img {
+  height: 20px;
+  width: 20px;
+}
+
+/* line 507, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.paging .paging-body {
+  text-align: center;
+  padding: 10px 0px;
+}
+
+/* line 512, /home/dao/rails/myproject/app/assets/stylesheets/frontends.scss */
+.paging .paging-body span a {
+  padding: 5px;
+  margin: 2px;
+  border: 1px 0px solid;
+}
+
+/*** END ARTICLE ***/

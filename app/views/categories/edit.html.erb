@@ -1,0 +1,9 @@
+<%= form_for @category ,url: category_path(@category) do |f| %>
+<p>
+  <%= f.label :Category_name %>
+  <br>
+  <%= f.text_field :name_category %>
+</p>
+<p><%= f.submit %></p>
+<% end -%>
+

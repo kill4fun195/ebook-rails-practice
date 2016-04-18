@@ -1,0 +1,18 @@
+<h1>Categories !!!</h1>
+<table class = "table">
+  <tr class = "title">
+    <td>STT</td>
+    <td>Name</td>
+    <td>Article_number</td>
+  </tr>
+  <% @categories.each do|f| %>
+  <tr>
+    <td><%= f.id %></td>
+    <td><%= link_to f.name_category,category_path(f) %></td>
+    <td><%= f.articles.count %></td>
+    <td><%= link_to "Update",edit_category_path(f) %></td>
+    <td><%= link_to "Delete",category_path(f),method: :delete,data:{confirm: "Are you sure?"} %></td>
+  </tr>
+  <% end -%>
+</table>
+<%= link_to "New category",new_category_path %>

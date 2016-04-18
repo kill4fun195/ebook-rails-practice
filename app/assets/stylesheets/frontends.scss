@@ -1,0 +1,283 @@
+*
+{
+  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a, a:hover, a:active, a:focus, a img, object, embed {
+    outline: none;
+    ie-dummy: expression(this.hideFocus=true); /* MSIE - Microsoft Internet Explorer 9 remove outline */
+}
+a:hover
+{
+   text-decoration: none;
+  list-style: none;
+}
+:target{
+    background:red;
+}
+p
+{
+  color:#AAAAAA;
+}
+.form-search
+{
+  float:right;
+}
+.navbar-nav li.dropdown ul.dropdown-menu
+{
+  background:#222222;
+}
+.navbar-nav li.dropdown ul.dropdown-menu a
+{
+  color:#EAEAEA;
+}
+.navbar-nav li.dropdown ul.dropdown-menu li:hover a
+{
+  background:#222222;
+}
+.navbar-nav li.dropdown ul.dropdown-menu li:hover a
+{
+  opacity:0.6;
+}
+.navbar  > .col-sm-3
+{
+  position:relative;
+}
+.navbar  .col-sm-3 .toggle-search
+{
+  width:80px;
+  float:right;
+  background:#202125;
+  cursor:pointer;
+  border-left:1px solid #33363B;
+  padding:0px 20px;
+}
+.navbar  .col-sm-3 .toggle-search i
+{
+  color:white;
+  padding:10px;
+}
+.navbar  .col-sm-3 .form-search
+{
+  position:absolute;
+  right:15px;
+  top:49px;
+  padding:10px;
+  background:#202125;
+  display:none;
+}
+.navbar  .col-sm-3 .form-search form 
+{
+  position:relative;
+}
+.navbar  .col-sm-3 .form-search form i
+{
+  position:absolute;
+  top:8px;
+  left:10px;
+  font-size:20px;
+  opacity:0.5;
+}
+.navbar  .col-sm-3 .form-search form input
+{
+  padding:5px;
+  width:300px;
+  padding-left:30px;
+}
+.banner
+{
+  height:180px;
+  background: #33363B;
+  margin-top:50px;
+}
+.banner h1{
+  margin-top:50px;
+}
+.banner h1 a{
+    color:white;
+}
+.banner p{
+  margin-left:-60px;
+  margin-top:60px;
+}
+#content
+{
+  background:#EAEAEA;
+}
+#content > .container-fluid
+{
+  padding-bottom:20px;
+
+}
+.main-content
+{
+  margin-top:-69px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-shadow: 0px 3px 1px 0px rgba(216,216,216,1);
+    -moz-box-shadow: 0px 3px 1px 0px rgba(216,216,216,1);
+    box-shadow: 0px 3px 1px 0px rgba(216,216,216,1);
+}
+
+.main-content > .col-sm-7
+{
+  background:white;
+}
+.sidebar-left 
+{
+  background: #F5F5F5;
+  border-right:1px solid #EAEAEA;
+}
+
+.top-sidebar-left
+{
+  background: #004B80;
+  padding:14px;
+  padding-left:30px;
+}
+.top-sidebar-left p
+{
+  color:#CCDBE6;
+}
+.category-mid-sidebar-left a
+{
+  color:#33363B;
+}
+.category-mid-sidebar-left a span 
+{
+  opacity:0.5;
+}
+.category-mid-sidebar-left a:hover span
+{
+  opacity:0.8;
+}
+.sidebar-right
+{
+  background: #F5F5F5;
+}
+.top-sidebar-right
+{
+  background: #D2691E;
+  padding:10px;
+}
+.top-sidebar-right p
+{
+  margin-top:15px;
+  font-weight:bold;
+  color:#EAEAEA;
+}
+.top-sidebar-right ul,p
+{
+  margin-top:10px;
+}
+.top-sidebar-right ul
+{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.top-sidebar-right ul li i
+{
+  color:white;
+  opacity:0.5;
+}
+.mid-sidebar-right .nav-tabs 
+{
+  padding-top: 20px;
+}
+.mid-sidebar-right .nav-tabs li
+{
+  padding:0px;
+}
+.mid-sidebar-right .nav-tabs a
+{
+   padding: 10px 25px;
+}
+
+.mid-sidebar-right img
+{
+  height: 130px;
+  margin-left: -17px;
+  width: 100px;
+}
+.mid-sidebar-right .content-popular-viewer
+{
+  padding:10px 0px;
+  border-bottom:1px solid #EAEAEA;
+  margin:0px 3px;
+  transition:opacity 3s ;
+}
+.mid-sidebar-right .content-popular-viewer:hover
+{
+  opacity:0.6;
+}
+.mid-sidebar-right .content-popular-viewer:hover .col-sm-8 a
+{
+  color:#D2691E;
+}
+.mid-sidebar-right .content-popular-viewer > .col-sm-8 a
+{
+  padding-left:10px;
+  display:block;
+  width:150px;
+  color:#26272B;
+}
+.mid-sidebar-right .new-comment img
+{
+  width:60px;
+  height:80px;
+  margin-top:10px;
+}
+.mid-sidebar-right .new-comment a
+{
+  color:#33363B;
+  opacity:0.7;
+}
+.category-mid-sidebar-left
+{
+  padding:10px 0px;
+  border-bottom:1px solid #EAEAEA;
+}
+/*** Footer ***/
+#footer
+{
+  background:#33363B;
+  position:relative;
+  padding-bottom:20px;
+}
+#footer .top-footer a
+{
+  background:#EAEAEA;
+  border-top:1px solid #DEDEDE;
+  padding:15px 20px 0px 20px;
+  border-radius:0px 0px 5px 5px;
+
+}
+#footer .top-footer p
+{
+  text-align:center;
+  margin-top: -6px;
+}
+#footer .mid-footer p 
+{
+  display:inline;
+}
+#footer .mid-footer ul 
+{
+  display:inline;
+  float:right;
+}
+#footer .mid-footer ul li a
+{
+  color:#AAAAAA;
+}
+#footer .mid-footer ul li:hover a
+{
+  color:white;
+}
+

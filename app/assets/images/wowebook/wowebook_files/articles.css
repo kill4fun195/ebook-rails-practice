@@ -1,0 +1,239 @@
+/*** Show-Article ***/
+/* line 3, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.top-content-left .show-article {
+  padding: 15px 20px;
+}
+
+/* line 7, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.top-content-left .show-article li {
+  display: inline;
+  padding: 0px 5px;
+  border-right: 2px solid #B2B2B2;
+}
+
+/* line 13, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.top-content-left .show-article li a {
+  font-size: 17px;
+  font-weight: bold;
+  color: #B2B2B2;
+}
+
+/* line 19, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article {
+  padding: 30px 0px 0px 30px;
+  overflow: hidden;
+}
+
+/* line 24, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .introduce-article {
+  padding-right: 70px;
+  padding-bottom: 20px;
+  overflow: hidden;
+}
+
+/* line 30, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .introduce-article .title-article {
+  font-size: 25px;
+  padding-bottom: 10px;
+}
+
+/* line 35, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .introduce-article ul {
+  padding-bottom: 30px;
+}
+
+/* line 39, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .introduce-article ul li {
+  display: inline;
+}
+
+/* line 43, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .introduce-article ul img {
+  height: 15px;
+  width: 15px;
+}
+
+/* line 48, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .introduce-article .img-article {
+  float: left;
+}
+
+/* line 52, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .introduce-article .img-article img {
+  height: 250px;
+  width: 180px;
+  padding: 0px 20px 20px 20px;
+}
+
+/* line 60, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .introduce-article .download {
+  background: #FF622E;
+  border-radius: 5px;
+  width: 150px;
+  text-align: center;
+  padding: 5px;
+  margin-top: 10px;
+  overflow: hidden;
+  clear: both;
+}
+
+/* line 72, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .introduce-article .download img {
+  height: 15px;
+  width: 15px;
+}
+
+/* line 77, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .advertisement-article {
+  border-bottom: 2px solid #EEEEEE;
+  overflow: hidden;
+}
+
+/* line 82, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .advertisement-article h3 {
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+
+/* line 87, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .advertisement-article h3 img {
+  height: 30px;
+  width: 30px;
+}
+
+/* line 92, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .advertisement-article p {
+  width: 130px;
+  float: left;
+  padding-right: 10px;
+  padding-bottom: 20px;
+}
+
+/* line 99, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .advertisement-article p img {
+  height: 150px;
+  width: 110px;
+  margin: 5px;
+}
+
+/* line 105, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .advertisement-article span {
+  display: block;
+  text-align: center;
+}
+
+/* line 110, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.clear-both {
+  clear: both;
+}
+
+/* line 114, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .comment-article {
+  padding-top: 30px;
+}
+
+/* line 118, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .comment-article .responses {
+  text-transform: uppercase;
+  font-size: 20px;
+  padding: 10px 0px;
+}
+
+/* line 124, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .comment-article ul {
+  border-bottom: 2px solid #EEEEEE;
+  padding-bottom: 5px;
+}
+
+/* line 129, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .comment-article ul li {
+  display: inline;
+}
+
+/* line 133, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .comment-article ul li span {
+  background: #EEEEEE;
+  padding: 0px 3px;
+  border-radius: 2px #EEEEEE solid;
+}
+
+/* line 139, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .comment-article li img {
+  height: 20px;
+  width: 20px;
+}
+
+/* line 144, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .comment-article .user-comment-article {
+  padding: 10px 0px;
+}
+
+/* line 149, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .comment-article .user-comment-article img {
+  height: 60px;
+  width: 60px;
+  float: left;
+}
+
+/* line 156, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .comment-article .user-comment-article p img {
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  left: 155px;
+}
+
+/* line 163, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .comment-article .user-comment-article p {
+  padding-left: 5px;
+  color: #C5C5C5;
+  position: relative;
+  font-size: 12px;
+  padding-bottom: 5px;
+}
+
+/* line 171, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .comment-article .user-comment-article p span {
+  color: black;
+  float: left;
+  padding-right: 20px;
+}
+
+/* line 177, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.show-article .comment-article .both {
+  clear: both;
+  padding: 10px 0px;
+}
+
+/* line 182, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.no-login-article {
+  padding: 10px 0px 10px 0px;
+}
+
+/* line 186, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.no-login-article h3 {
+  padding: 20px 0px;
+  text-transform: uppercase;
+}
+
+/* line 191, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.login-article {
+  padding: 0px 0px 20px 20px;
+}
+
+/* line 195, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.login-article p {
+  padding: 5px 0px;
+}
+
+/* line 199, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.login-article fieldset {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/*** End-Show-Article ***/
+/* line 207, /home/dao/rails/myproject/app/assets/stylesheets/articles.scss */
+.loading {
+  background: url("/assets/ajax-loader.gif") center center no-repeat;
+}
