@@ -49,7 +49,7 @@
         <li class="active"><a href="#"><i class="fa fa-comments-o"></i> Comments <span class="badge"><%=@article.comments.count%></span></a></li>
         <li><a href="#"><i class="fa fa-share"></i> Pingbacks <span class="badge">0</span></a></li>
       </ul>
-      <% @article.comments.each do |f| %>
+      <% @comments.limit(15).offset(@q).each do |f| %>
       <div class="clearfix user-comment-show-article">
           <div class="col-sm-1">
             <%= image_tag("wowebook/logo_user")%>
@@ -63,8 +63,22 @@
         </div>
       </div>
       <% end -%>
+      <div class="paging">
+       <p class = "paging-head"><i class="fa fa-file-text-o"></i> Page 
+       <% if @a == 0 %>
+        <%= @a = 1 %>
+       <% else %>
+        <%= @a %>
+       <% end -%>
+        of <span><%= @t %></span></p>
+       <ul  class="pagination">
+         <% (1..@t).each do |i| %>
+         <li><a href="<%= article_path(@article)%>/?page=<%=i%>"><%= i %></a></li>
+         <% end -%>
+       </ul>
+       </div>
     </div>
- <% if current_user != nil %>
+ <% if current_user != nil &&  %>
     <div class="login-article">
       <%= form_for "comment" , url: article_comments_path(@article.id) do |c| %>
        <fieldset>

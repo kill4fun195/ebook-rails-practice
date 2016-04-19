@@ -6,7 +6,6 @@ class Articles::CommentsController < ApplicationController
     @comment = @artile.comments.create(comment_params)
     redirect_to article_path(@artile), notice: @comment.errors.full_messages.to_sentence
   end
- 
   private
 
   def comment_params

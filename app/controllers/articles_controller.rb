@@ -34,9 +34,20 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-    @comments = @article.comments.all
+    @comments = @article.comments.all.order(created_at: :desc )
     a = @article.viewer.to_i + 1
     @article.update(viewer: a)
+
+    i = 15
+        n = @article.comments.count
+        if (n % i == 0)
+          @t = n/i
+        else
+          @t = n/i + 1
+        end
+        @a = params[:page].to_i 
+        @c = @a - 1
+        @q = @c*i
   end
   def update
     @article = Article.find(params[:id])
