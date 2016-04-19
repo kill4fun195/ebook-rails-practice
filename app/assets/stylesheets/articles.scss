@@ -158,6 +158,7 @@ color:#D2693E;
 .btn-download
 {
   width:300px;
+  margin:20px 0px;
 }
 .introducce-show-article
 {
@@ -207,6 +208,11 @@ color:#D2693E;
 .user-comment-show-article 
 {
   padding:10px 0px;
+}
+.user-comment-show-article > .col-sm-11 p
+{
+  width: 620px;
+  word-wrap: break-word;
 }
 .user-comment-show-article > .col-sm-1 img
 {

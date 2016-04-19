@@ -92,7 +92,7 @@
                     <% article_viewers.limit(10).each do |f| %>
                       <div class="row content-popular-viewer">
                         <div class="col-sm-4">
-                          <a href="<%= article_path(f) %>" data-toggle="tooltip" data-placement="bottom" title="<%= f.title %>"><%= image_tag f.avatar.url(:medium)%></a>
+                          <a href="<%= article_path(f) %>"   title="<%= f.title %>"><%= image_tag f.avatar.url(:medium)%></a>
                         </div>
                         <div class="col-sm-8">
                           <a href="<%= article_path(f) %>" data-toggle="tooltip" data-placement="bottom" title="<%= f.title %>"><%= f.title %></a>

@@ -16,6 +16,9 @@
   <%= f.text_area  :description %>
 </p>
 <p>
+  <%= f.file_field :avatar %>
+</p>
+<p>
   <% @categories.each do |c| %>
   <% checked = (@category_ids.include? c.id)? true : false %>
     <p><%= check_box_tag "category_id[]", c.id, checked %> <%= c.name_category %></p>

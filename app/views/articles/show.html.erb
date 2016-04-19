@@ -29,7 +29,7 @@
       <span><%= @article.description %></span>
     </div>
   </div>
-  <div class="clearfix">
+  <div class="clearfix download">
   <a href="#" ><button class="btn btn-warning btn-download"><i class="fa fa-download"></i> Download</button></a>
   </div>
   <div class="clearfix">
@@ -59,7 +59,7 @@
               <li><strong><%= f.user.name_user %></strong></li>
               <li class="time"><i class="fa fa-clock-o"></i><%= f.created_at.strftime("%m/%d/%Y at %I:%M%p ") %></li>
             </ul>
-            <span><%= f.body %></span>
+            <p><%= f.body %></p>
         </div>
       </div>
       <% end -%>
