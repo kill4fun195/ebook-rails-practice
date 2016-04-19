@@ -43,8 +43,9 @@ $(document).ready(function(){
 
   $("body").on('click', ".comment-show-article .paging li a", function(e){
     var i = Number($(this).text().trim());
+
     $.ajax({ 
-      url: "http://localhost:3000/articles/99/?page="+ i,
+      url: window.location.href+"/?page="+ i,
       success: function(response) {
         comments = $("<div></div>").append(response).find(".comment-show-article");
         $("body .comment-show-article").html(comments.html());

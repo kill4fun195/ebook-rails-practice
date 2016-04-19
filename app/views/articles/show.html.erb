@@ -63,6 +63,9 @@
         </div>
       </div>
       <% end -%>
+      <% if @comments.count == 0 %>
+      <p>No one comment, you be the first to comment</p>
+      <%else%>
       <div class="paging">
        <p class = "paging-head"><i class="fa fa-file-text-o"></i> Page 
        <% if @a == 0 %>
@@ -71,12 +74,13 @@
         <%= @a %>
        <% end -%>
         of <span><%= @t %></span></p>
-       <ul  class="pagination">
+       <ul class="pagination">
          <% (1..@t).each do |i| %>
          <li><a href="<%= article_path(@article)%>/?page=<%=i%>"><%= i %></a></li>
          <% end -%>
        </ul>
        </div>
+       <% end -%>
     </div>
  <% if current_user != nil &&  %>
     <div class="login-article">

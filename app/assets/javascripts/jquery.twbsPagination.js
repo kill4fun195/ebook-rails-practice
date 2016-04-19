@@ -18,14 +18,9 @@
         this.$element = $(element);
         this.options = $.extend({}, $.fn.twbsPagination.defaults, options);
 
-        if (this.options.startPage < 1 || this.options.startPage > this.options.totalPages) {
-            throw new Error('Start page option is incorrect');
-        }
+       
 
-        this.options.totalPages = parseInt(this.options.totalPages);
-        if (isNaN(this.options.totalPages)) {
-            throw new Error('Total pages option is not correct!');
-        }
+      
 
         this.options.visiblePages = parseInt(this.options.visiblePages);
         if (isNaN(this.options.visiblePages)) {
