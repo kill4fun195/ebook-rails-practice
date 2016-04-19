@@ -1,5 +1,5 @@
 <h1>New Article!!!</h1>
-<%= form_for @article ,url: articles_path do |f| %>
+<%= form_for @article ,url: articles_path, html: { multipart: true } do |f| %>
 <p>
   <%= f.label :Title %>
   <br>
@@ -15,12 +15,15 @@
   <br>
   <%= f.text_area  :description %>
 </p>
-
+<p>
+    <%= f.file_field :avatar %>
+</p>
 <p>
   <% @categories.each do |c| %>
     <p><%= check_box_tag "category_id[]", c.id%> <%= c.name_category %></p>
   <% end %>
 </p>
+
 <p>
   <%= f.submit %>
 </p>

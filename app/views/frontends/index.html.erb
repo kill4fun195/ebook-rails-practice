@@ -7,7 +7,7 @@
 <% @articles.limit(5).offset(@q).each do |article| %>
 <div class = "row article">
   <div class="col-sm-4 left-article">
-     <a href="<%= article_path(article) %>" data-toggle="tooltip" data-placement="bottom" title="<%= article.title %>"><%= image_tag("wowebook/img_article.png")%></a>
+     <a href="<%= article_path(article) %>" data-toggle="tooltip" data-placement="bottom" title="<%= article.title %>"><%= image_tag article.avatar.url(:medium)%></a>
     <a class="comment" href="<%= article_path(article)%>#currentComment"><i class="fa fa-comments-o"></i> <%= article.comments.count %></a>
   </div>
   <div class="col-sm-8 right-article">
