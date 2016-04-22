@@ -33,6 +33,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    
      @session = User.new
     if current_user
       flash.now.notice = "logged"

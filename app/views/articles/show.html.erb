@@ -109,19 +109,48 @@
       <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog modal-sm">
           <div class="modal-content">
-              <h3>Login</h3>
-              <%= form_for @session, url: sessions_path do |f| %>
-                <p>  
-                  <%= f.text_field :email ,:placeholder => "Email Address"%>
-                </p>
-                <p>
-                  <%= f.text_field :password ,:placeholder => "Password" %>
-                </p>
-                <p>
-                <span class="loggin-account"><%= f.submit "Login"  %></span>
-                </p>
-                <% end -%>
-                <span class="create-account"><a href="<%= new_user_path %>">create account?</a></span>
+            <ul class="nav nav-tabs">
+              <li class="active"><a data-toggle="tab" href="#home">Login</a></li>
+              <li><a data-toggle="tab" href="#menu1">Create account</a></li>
+            </ul>
+            <div class="tab-content">
+               <div id="home" class="tab-pane fade in active">
+                  <%= form_for @session, url: sessions_path do |f| %>
+                    <p>  
+                      <%= f.text_field :email ,:placeholder => "Email Address"%>
+                    </p>
+                    <p>
+                      <%= f.text_field :password ,:placeholder => "Password" %>
+                    </p>
+                    <p>
+                    <%= f.submit "Login",class: :"loggin-account" ,id: :"loggin-account"  %>
+                    </p>
+                    <% end -%>
+                </div>
+                <div id="menu1" class="tab-pane fade">
+                  <%= form_for :user , url: users_path do |f|%>
+                    <p>
+                      <%= f.label :name_user %>:
+                      <br>
+                      <%= f.text_field :name_user ,:placeholder => "Your username"  %>
+                    </p>
+                    <p style="display:none">
+                      <%= f.text_field :role ,:readonly => true  ,:value => "member" %>
+                    </p>
+                    <p>
+                      <%= f.label :password %>:
+                      <br>
+                      <%= f.text_field :password , :placeholder => "your password" %>
+                    </p>
+                    <p>
+                      <%= f.label :email %>:
+                      <br>
+                      <%= f.text_field :email , :placeholder => "Your email" %>
+                    </p>
+                    <p> <%= f.submit "Create account" , class: :"loggin-account"%></p>
+                      <% end -%>
+                </div>
+            </div>   
           </div>
         </div>
       </div>

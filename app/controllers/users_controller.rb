@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :check_role
-  skip_before_action :require_login, only: [:new]
-  skip_before_action :check_role, only: [:new]
+  skip_before_action :require_login, only: [:new,:create]
+  skip_before_action :check_role, only: [:new,:create]
   def index
     @users = User.all
   end
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   end
   def create
     @user = User.create(user_params)
-    redirect_to user_path(@user)
+    redirect_to root_path
   end
   def show
     @user = User.find(params[:id])
