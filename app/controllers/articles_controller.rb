@@ -33,6 +33,12 @@ class ArticlesController < ApplicationController
   end
 
   def show
+     @session = User.new
+    if current_user
+      flash.now.notice = "logged"
+    else
+      flash.now.notice = "invalid"
+    end
     @article = Article.find(params[:id])
     @comments = @article.comments.all.order(created_at: :desc )
     a = @article.viewer.to_i + 1

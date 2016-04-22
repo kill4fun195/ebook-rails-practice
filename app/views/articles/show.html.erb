@@ -1,4 +1,6 @@
-
+<% if flash[:notice] %>
+        <div class="notice" ><%= flash[:notice] %></div>
+<% end %>
   <div class="row top-content-left">
     <div class="col-sm-8">
           <ul class="list-inline article-categories ">
@@ -102,6 +104,27 @@
   <% else %>
      <div class="no-login-article">
       <h3>Leave a Reply </h3>
-      <p>You must be <%= link_to "logged in", new_session_path %> to post a comment.</p>
+      <p>You must be <a href="#myModal" data-toggle="modal">logged in</a> to post a comment.</p>
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+              <h3>Login</h3>
+              <%= form_for @session, url: sessions_path do |f| %>
+                <p>  
+                  <%= f.text_field :email ,:placeholder => "Email Address"%>
+                </p>
+                <p>
+                  <%= f.text_field :password ,:placeholder => "Password" %>
+                </p>
+                <p>
+                <span class="loggin-account"><%= f.submit "Login"  %></span>
+                </p>
+                <% end -%>
+                <span class="create-account"><a href="<%= new_user_path %>">create account?</a></span>
+          </div>
+        </div>
+      </div>
     </div>
   <% end -%>
+  <p class="dangnhap"></p>

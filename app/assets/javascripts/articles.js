@@ -45,7 +45,7 @@ $(document).ready(function(){
     var i = Number($(this).text().trim());
 
     $.ajax({ 
-      url: window.location.href+"/?page="+ i,
+      url: window.location.href+"?page="+ i,
       success: function(response) {
         comments = $("<div></div>").append(response).find(".comment-show-article");
         $("body .comment-show-article").html(comments.html());
