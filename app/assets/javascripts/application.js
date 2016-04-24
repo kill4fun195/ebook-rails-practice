@@ -13,7 +13,10 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
+//= require jquery.validate.min
 //= require bootstrap-init
+//= require tinymce.min
+//= require jquery.tinymce.min
 //= require_tree .
 $(document).ready(function(){
     $("#tooltip").tooltip();

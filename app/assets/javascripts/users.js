@@ -1,6 +1,21 @@
 $(document).ready(function(){
-  $("#create-account").click(function(){
-    _this = $(this);
-    _this.attr("disabled",true);
-  });
+  $("#new-user").validate({
+    
+        // Specify the validation rules
+        rules: {
+            "user[name_user]": {
+              required: true,
+              minlength:5
+            },
+            "user[email]": {
+                required: true,
+                email: true
+            },
+            "user[password]": {
+                required: true,
+                minlength: 3
+            }
+        }
+        
+    });
 });

@@ -6,9 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-
-   <!-- Latest compiled and minified CSS -->
-
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application' %>
@@ -163,6 +160,7 @@
   </div>
 </div>  
 <script>
+tinymce.init({ selector:'textarea' });
 </script>
 </body>
 </html>

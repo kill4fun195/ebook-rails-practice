@@ -16,6 +16,9 @@
   <%= f.text_area  :description %>
 </p>
 <p>
+  <td><%= image_tag f.object.avatar.url(:thumb) %></td>
+</p>
+<p>
   <%= f.file_field :avatar %>
 </p>
 <p>
