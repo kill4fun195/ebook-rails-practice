@@ -10,6 +10,9 @@ class ArticlesController < ApplicationController
     end
   end
 
+
+
+
   def new
     @article = Article.new
     @categories = Category.all
