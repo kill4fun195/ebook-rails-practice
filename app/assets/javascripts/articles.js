@@ -53,22 +53,26 @@ $(document).ready(function(){
     });
     return false;
   });
-  $(".article .body-right-article p").each(function(index){
+  $(".article .body-right-article .content-body-right-article").each(function(index){
     if($(this).text().length > 200 )
     {
       content = $(this).html();
       $(this).html(content.substring(0,200) + "..." +
          "<a href = '#' class = 'read-more'>read more</a>");
     
-      $(".body-right-article p").on("click", ".read-more", function(){
+      $(".body-right-article ").on("click", ".read-more", function(){
         $(this).parents(".body-right-article p").html(content +"..." + " <a href = '#' class = 'read-less'>read less </a>");
         return false;
       });
-      $(".body-right-article p").on("click", ".read-less", function(){
+      $(".body-right-article ").on("click", ".read-less", function(){
        $(this).parents(".body-right-article p").html(content.substring(0,200)+"..." + "<a href = '#' class = 'read-more'>read more</a>");
         return false;
       });
     }
+  });
+  $(".description-article").each(function(){
+      content = $(this).html();
+      $(this).html(content.substring(0,200) + "...");
   });
    $('.bxslider').bxSlider({
   minSlides: 4,

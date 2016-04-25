@@ -22,7 +22,7 @@
     </div>
     <div class="body-right-article">
       <h3><a href="<%= article_path(article) %>" data-toggle="tooltip" data-placement="bottom" title="<%= article.title %>"><%= article.title %></a></h3>
-      <p><%= simple_format(article.description) %></p>
+      <div class="content-body-right-article"><%= simple_format(article.description) %></div>
     </div>
   </div>
 </div>

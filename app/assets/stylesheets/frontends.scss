@@ -5,6 +5,9 @@
   margin: 0;
   padding: 0;
 }
+.wraper {
+  font-size:14px;
+}
 a, a:hover, a:active, a:focus, a img, object, embed {
     outline: none;
     ie-dummy: expression(this.hideFocus=true); /* MSIE - Microsoft Internet Explorer 9 remove outline */
@@ -97,6 +100,7 @@ p
 }
 .banner h1 a{
     color:white;
+    font-size:40px;
 }
 .banner p{
   margin-left:-60px;
@@ -137,7 +141,7 @@ p
 .top-sidebar-left
 {
   background: #004B80;
-  padding:14px;
+  padding:14.5px;
   padding-left:30px;
 }
 .top-sidebar-left p
@@ -147,6 +151,7 @@ p
 .category-mid-sidebar-left a
 {
   color:#33363B;
+  font-size:16px;
 }
 .category-mid-sidebar-left a span 
 {
@@ -224,8 +229,9 @@ p
 {
   padding-left:10px;
   display:block;
-  width:150px;
+  width:170px;
   color:#26272B;
+  font-size:14px;
 }
 .mid-sidebar-right .new-comment img
 {

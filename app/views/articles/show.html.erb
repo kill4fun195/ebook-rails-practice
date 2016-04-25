@@ -28,7 +28,8 @@
   <div class="clearfix">
     <div class="content-show-article">
       <%= image_tag @article.avatar.url(:medium)%>
-      <span><%= @article.description %></span>
+      <span><%= simple_format(@article.description) %></span>
+      <span><%= simple_format(@article.details) %></span>
     </div>
   </div>
   <div class="clearfix download">
