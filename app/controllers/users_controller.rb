@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
+  layout "backend"
   before_action :check_role
   skip_before_action :require_login, only: [:new,:create]
   skip_before_action :check_role, only: [:new,:create]
   def index
     @users = User.all
+
   end
   
   def new

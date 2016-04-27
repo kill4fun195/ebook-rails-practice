@@ -33,7 +33,11 @@
     </div>
   </div>
   <div class="clearfix download">
-  <a href="#" ><button class="btn btn-warning btn-download"><i class="fa fa-download"></i> Download</button></a>
+  <% if @article.linkdownload != nil%>
+  <a href="<%= @article.linkdownload %>" target="_blank" ><button class="btn btn-warning btn-download"><i class="fa fa-download"></i> Download [<%= @article.weight %>]</button></a>
+  <%else%>
+  <a href="" target="_blank" ><button class="btn btn-warning btn-download"><i class="fa fa-download"></i> Download</button></a>
+  <% end -%>
   </div>
   <div class="clearfix">
     <div class="introducce-show-article">
@@ -53,7 +57,7 @@
         <li><a href="#"><i class="fa fa-share"></i> Pingbacks <span class="badge">0</span></a></li>
       </ul>
       <% @comments.limit(15).offset(@q).each do |f| %>
-      <div class="clearfix user-comment-show-article">
+      <div class="row clearfix user-comment-show-article">
           <div class="col-sm-1">
             <%= image_tag("wowebook/logo_user")%>
           </div>
@@ -62,7 +66,7 @@
               <li><strong><%= f.user.name_user %></strong></li>
               <li class="time"><i class="fa fa-clock-o"></i><%= f.created_at.strftime("%m/%d/%Y at %I:%M%p ") %></li>
             </ul>
-            <p><%= f.body %></p>
+            <%= simple_format(f.body) %>
         </div>
       </div>
       <% end -%>

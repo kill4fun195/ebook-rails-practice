@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160425083344) do
+ActiveRecord::Schema.define(version: 20160426101634) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160425083344) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "linkdownload"
+    t.string   "weight"
   end
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id"

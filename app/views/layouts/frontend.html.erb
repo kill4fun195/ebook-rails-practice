@@ -1,3 +1,4 @@
+<%= render :layout => "backend" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -127,7 +128,7 @@
                         </div>
                         <div class="col-sm-9 col-xs-9">
                         <p><%= f.user.name_user %> say:</p>
-                          <a href="<%= article_path(f.article)%>#currentComment"><%= f.body %></a>
+                          <a href="<%= article_path(f.article)%>#currentComment"><%= simple_format(f.body)%></a>
                         </div>
                       </div>
                     <% end -%>
@@ -160,7 +161,7 @@
   </div>
 </div>  
 <script>
-tinymce.init({ selector:'textarea' });
+tinymce.init({ selector:'textarea' , menubar: false });
 </script>
 </body>
 </html>

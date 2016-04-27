@@ -1,3 +1,9 @@
+<script>
+  tinymce.init({
+    selector: 'textarea',
+    menubar: false
+  });
+  </script>
   <%= form_for @comment do |f| %>
 <p>
   <%= f.label :Body %>

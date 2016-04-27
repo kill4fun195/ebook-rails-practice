@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  layout "backend"
   def index
     if current_user.role == "admin"
      @comments = Comment.all

@@ -216,8 +216,10 @@ color:#D2693E;
 }
 .user-comment-show-article > .col-sm-11 p
 {
-  width: 620px;
-  word-wrap: break-word;
+  margin-bottom: -35px;
+    padding-top: 10px;
+    width: 620px;
+    word-wrap: break-word;
 }
 .user-comment-show-article > .col-sm-1 img
 {
@@ -294,5 +296,9 @@ color:#D2693E;
 .modal-content .create-account a
 {
   color:white;
+}
+.modal-content label.error 
+{
+  color:red;
 }
 

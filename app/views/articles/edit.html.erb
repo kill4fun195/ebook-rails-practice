@@ -1,4 +1,7 @@
 <h1>Edit Article!!!</h1>
+<%= render "form" %>
+<%= link_to "back", articles_path %>
+<!--
 <%= form_for @article do |f| %>
 <p>
   <%= f.label :Title %>
@@ -16,6 +19,16 @@
   <%= f.text_area  :description %>
 </p>
 <p>
+  <%= f.label :Linkdownload %>
+  <br>
+  <%= f.text_field :linkdownload %>
+</p>
+<p>
+  <%= f.label :Weight %>
+  <br>
+  <%= f.text_field :weight %>
+</p>
+<p>
   <td><%= image_tag f.object.avatar.url(:thumb) %></td>
 </p>
 <p>
@@ -31,4 +44,6 @@
   <%= f.submit %>
 </p>
   <% end -%>
+  -->
+ 
 

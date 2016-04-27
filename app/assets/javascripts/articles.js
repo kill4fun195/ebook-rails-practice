@@ -27,7 +27,7 @@ $(document).ready(function(){
       url: form.attr("action"),
       type: "POST",
       data: {"comment": {
-          body: $("#comment_body").val()
+          body: tinyMCE.activeEditor.getContent()
         }
       },
       success: function(response) {
@@ -35,7 +35,7 @@ $(document).ready(function(){
         $("body .comment-show-article").html(comments.html());
         _this.removeAttr("disabled");
         _this.removeClass("loading");
-        $("#comment_body").val("");
+        tinyMCE.activeEditor.setContent('');
       }
     });
     return false;
@@ -70,6 +70,7 @@ $(document).ready(function(){
       });
     }
   });
+  
   $(".description-article").each(function(){
       content = $(this).html();
       $(this).html(content.substring(0,200) + "...");

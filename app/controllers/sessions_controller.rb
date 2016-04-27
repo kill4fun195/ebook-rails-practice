@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
       redirect_to sessions_path, :notice => "Logged in!"
     end
     @session = User.new
-
   end
   
   def create

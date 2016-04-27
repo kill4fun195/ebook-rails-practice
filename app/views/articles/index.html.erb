@@ -8,6 +8,7 @@
     <td>Author</td>
     <td>Comments</td>
     <td>Linkdownload</td>
+    <td>Weight</td>
     <td>Image</td>
     <td colspan ="3"></td>
   </tr>
@@ -15,11 +16,12 @@
   <tr>
     <td><%= f.id %></td>
     <td><%= f.title %></td>
-    <td><%= f.details %></td>
-    <td class ="description-article"><%= f.description %></td>
+    <td><%= simple_format(f.details) %></td>
+    <td class ="description-article"><%= simple_format(f.description) %></td>
     <td><%= f.user.name_user %></td>
     <td><%= f.comments.count %></td>
     <td><%= f.linkdownload %></td>
+    <td><%= f.weight %></td>
     <td><%= image_tag f.avatar.url(:thumb) %></td>
     <td><%= link_to "Show",article_path(f) %></td>
     <td><%= link_to "Update",edit_article_path(f) %></td>

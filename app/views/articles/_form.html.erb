@@ -1,0 +1,60 @@
+<script>
+  tinymce.init({
+    selector: 'textarea',
+    menubar: false
+  });
+  </script>
+
+
+<%= form_for @article do |f| %>
+<p>
+  <%= f.label :Title %>
+  <br>
+  <%= f.text_field :title %>
+</p>
+
+<%= f.label :Details %>
+<br>
+<%= f.text_area  :details  %>
+
+<p>
+  <%= f.label :Description %>
+  <br>
+  <%= f.text_area  :description %>
+</p>
+<p>
+  <%= f.label :Linkdownload %>
+  <br>
+  <%= f.text_field :linkdownload %>
+</p>
+<p>
+  <%= f.label :Weight %>
+  <br>
+  <%= f.text_field :weight %>
+</p>
+<p>
+    <%= f.label :Image %>
+  <br>
+    <%= f.file_field :avatar %>
+</p>
+<% if @article.id != nil  %>
+<p>
+  <td><%= image_tag f.object.avatar.url(:thumb) %></td>
+</p>
+<p>
+  <% @categories.each do |c| %>
+  <% checked = (@category_ids.include? c.id)? true : false %>
+    <p><%= check_box_tag "category_id[]", c.id, checked %> <%= c.name_category %></p>
+  <% end %>
+</p>
+<% else %>
+<p>
+  <% @categories.each do |c| %>
+    <p><%= check_box_tag "category_id[]", c.id%> <%= c.name_category %></p>
+  <% end %>
+</p>
+<% end -%>
+<p>
+  <%= f.submit %>
+</p>
+  <% end %>

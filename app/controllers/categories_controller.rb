@@ -1,12 +1,13 @@
 class CategoriesController < ApplicationController
-  layout "frontend" , only:[:show]
   before_action :check_role , only: [:index,:new,:edit]
   skip_before_action :require_login ,only: [:show]
   def index
     @categories = Category.all
+    render :layout => "backend"
   end
   def new
     @category = Category.new
+     render :layout => "backend"
   end
   def create
     @category = Category.create(category_params)
@@ -26,9 +27,11 @@ class CategoriesController < ApplicationController
         @a = params[:page].to_i 
         @c = @a - 1
         @q = @c*i
+         render :layout => "frontend"
   end
   def edit
     @category = Category.find(params[:id])
+     render :layout => "backend"
   end
   def update
     @category = Category.find(params[:id])

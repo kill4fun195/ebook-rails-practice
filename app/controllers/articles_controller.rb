@@ -1,27 +1,27 @@
 class ArticlesController < ApplicationController
-  layout "frontend" , only: [:show]
   skip_before_action :require_login, only: [:show]
 
   def index
     if current_user.role == "admin"
-      @articles = Article.all
+      @articles = Article.all.order(created_at: :desc)
+
     else
       @articles = current_user.articles
     end
+    render :layout => 'backend'
   end
-
-
-
 
   def new
     @article = Article.new
     @categories = Category.all
+    render :layout => 'backend'
   end
 
   def edit
     @article = Article.find(params[:id])
     @categories = Category.all
     @category_ids = @article.categories.ids
+    render :layout => 'backend'
   end
 
   def create 
@@ -58,6 +58,7 @@ class ArticlesController < ApplicationController
         @a = params[:page].to_i 
         @c = @a - 1
         @q = @c*i
+    render :layout => 'frontend'
   end
   def update
     @article = Article.find(params[:id])
@@ -78,7 +79,7 @@ class ArticlesController < ApplicationController
   end
   private 
   def article_params
-    params.require(:article).permit(:title,:details,:description,:avatar)
+    params.require(:article).permit(:title,:details,:description,:avatar,:linkdownload,:weight)
   end
  
 end
