@@ -64,6 +64,7 @@ Rails.application.routes.draw do
   resources :sessions
   resources :jqueries
   resources :bootstraps
+  resources :backends
 
   root 'frontends#index'
 

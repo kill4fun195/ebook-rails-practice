@@ -3,10 +3,10 @@ class ArticlesController < ApplicationController
 
   def index
     if current_user.role == "admin"
-      @articles = Article.all.order(created_at: :desc)
+      @articles = Article.order_desc
 
     else
-      @articles = current_user.articles
+      @articles = current_user.articles.order_desc
     end
     render :layout => 'backend'
   end

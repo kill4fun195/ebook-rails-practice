@@ -66,7 +66,7 @@
               <li><strong><%= f.user.name_user %></strong></li>
               <li class="time"><i class="fa fa-clock-o"></i><%= f.created_at.strftime("%m/%d/%Y at %I:%M%p ") %></li>
             </ul>
-            <%= simple_format(f.body) %>
+            <div><%= sanitize(f.body) %></div>
         </div>
       </div>
       <% end -%>

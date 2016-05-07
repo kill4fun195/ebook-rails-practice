@@ -5,11 +5,11 @@ class UsersController < ApplicationController
   skip_before_action :check_role, only: [:new,:create]
   def index
     @users = User.all
-
   end
   
   def new
     @user = User.new
+    render :layout => "application"
   end
   def edit
     @user = User.find(params[:id])

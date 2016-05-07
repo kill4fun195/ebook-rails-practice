@@ -31,6 +31,7 @@ p
 .navbar-nav li.dropdown ul.dropdown-menu
 {
   background:#222222;
+  border:none;
 }
 .navbar-nav li.dropdown ul.dropdown-menu a
 {
@@ -243,6 +244,10 @@ p
 {
   color:#33363B;
   opacity:0.7;
+}
+.mid-sidebar-right .new-comment a p
+{
+  margin:0px;
 }
 .category-mid-sidebar-left
 {

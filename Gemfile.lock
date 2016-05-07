@@ -70,6 +70,8 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.1)
+    datagrid (1.4.3)
+      rails (>= 3.2.22.2)
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.6.0)
@@ -169,6 +171,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
   byebug
   coffee-rails (~> 4.1.0)
+  datagrid (~> 1.4, >= 1.4.1)
   jbuilder (~> 2.0)
   jquery-rails
   paperclip!

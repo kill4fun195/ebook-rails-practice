@@ -10,7 +10,7 @@
   </tr>
   <% @comments.each do |f| %>
     <td><%= f.id %></td>
-    <td><%= simple_format(f.body) %></td>
+    <td><%= strip_tags(f.body.truncate(30)) %></td>
     <td><%= f.article.title %></td>
     <td><%= f.user.name_user %></td>
    <% if (f.approve == nil ) %>

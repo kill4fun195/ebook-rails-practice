@@ -1,4 +1,4 @@
-<%= render :layout => "backend" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -128,7 +128,7 @@
                         </div>
                         <div class="col-sm-9 col-xs-9">
                         <p><%= f.user.name_user %> say:</p>
-                          <a href="<%= article_path(f.article)%>#currentComment"><%= simple_format(f.body)%></a>
+                          <a href="<%= article_path(f.article)%>#currentComment"><%= sanitize(f.body) %></a>
                         </div>
                       </div>
                     <% end -%>
