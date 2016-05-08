@@ -5,9 +5,9 @@ class FrontendsController < ApplicationController
 
   def index
     if params[:search]
-      @articles = Article.search(params[:search]).order("created_at DESC")
+      @articles = Article.includes(:categories).search(params[:search]).order_desc
     else
-      @articles = Article.all.order('created_at DESC')
+      @articles = Article.includes(:categories).order_desc
     end
       
     i = 5

@@ -44,7 +44,7 @@ class ArticlesController < ApplicationController
       flash.now.notice = "invalid"
     end
     @article = Article.find(params[:id])
-    @comments = @article.comments.all.order(created_at: :desc )
+    @comments = @article.comments.order_desc
     a = @article.viewer.to_i + 1
     @article.update(viewer: a)
 

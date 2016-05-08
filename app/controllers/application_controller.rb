@@ -4,16 +4,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   helper_method :current_user
-  helper_method :categories
-  helper_method :comments
   before_action :require_login
-  helper_method :articles
-  helper_method :article_viewers
 
   private
-    def article_viewers
-      @article_viewers = Article.all.order(viewer: :desc)
-    end
 
     def current_user
       @current_user ||= session[:user_id] && User.find(session[:user_id])
@@ -23,18 +16,5 @@ class ApplicationController < ActionController::Base
       if current_user.blank?
         redirect_to new_session_path
       end
-    end
-
-    def categories
-      @categories = Category.all
-    end 
-    def articles
-        @articles = Article.all.order(created_at: :desc)
-    end
-    def comments
-      @comments = Comment.all.order(created_at: :desc)
-    end
-
-
-  
+    end  
 end

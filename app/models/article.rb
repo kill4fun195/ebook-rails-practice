@@ -16,12 +16,6 @@ class Article < ActiveRecord::Base
 
   scope :order_desc, -> { order(created_at: :desc) }
 
-  scope :user_scope, -> { where(user_id: 1) }
-
-  scope :view_scope, -> { where("viewer > 100") }
-
-  scope :user_11_view_scope, -> { "dsadsa"  }
-
   scope :search ,->(search){where("title LIKE ? OR description LIKE ?", "%#{search}%","%#{search}%")}
   
 
