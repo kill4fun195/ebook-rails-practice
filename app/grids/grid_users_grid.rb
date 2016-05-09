@@ -5,9 +5,13 @@ class GridUsersGrid
   scope do
     User
   end
-
-  filter(:id, :integer)
-  filter(:created_at, :date, :range => true)
+  filter(:role, :enum, :select => proc { User.all.map {|c| [c.role] }})
+  filter(:name_user) do |value|
+    where("name_user LIKE '%#{value}%'")
+  end
+  filter(:email) do |value|
+    where("email LIKE '%#{value}%'")
+  end
 
   column(:id)
   column(:name_user)
@@ -22,7 +26,8 @@ class GridUsersGrid
     render(
       "datagrid/actions", 
       edit_path: edit_user_path(model), 
-      view_path: user_path(model)
+      view_path: user_path(model),
+      delete_path: user_path(model)
     )
   end
 end

@@ -16,7 +16,7 @@
       <div class="tab-content">
         <div id="popular-post" class ="tab-pane fade in active">
           <div class="popular-post">
-            <% Article.order_desc.limit(10).each do |f| %>
+            <% @popular_post.each do |f| %>
               <div class="row content-popular-viewer">
                 <div class="col-sm-4 col-xs-4">
                   <a href="<%= article_path(f) %>"   title="<%= f.title %>"><%= image_tag f.avatar.url(:medium)%></a>
@@ -30,7 +30,7 @@
         </div>
         <div id = "new-post" class ="tab-pane fade">
            <div class="new-post">
-            <% Article.order_desc.limit(10).each do |f| %>
+            <% @new_post.each do |f| %>
               <div class="row content-popular-viewer">
                 <div class="col-sm-4 col-xs-4">
                   <a href="<%= article_path(f) %>" data-toggle="tooltip" data-placement="bottom" title="<%= f.title %>"><%= image_tag f.avatar.url(:medium)%></a>
@@ -44,7 +44,7 @@
         </div>
         <div id ="new-comment" class="tab-pane fade">
           <div class="new-comment">
-            <% Comment.order_desc.limit(10).each do |f| %>
+            <% @new_comment.each do |f| %>
               <div class="row content-popular-viewer">
                 <div class="col-sm-3 col-xs-3">
                   <%= image_tag("wowebook/logo_user") %>

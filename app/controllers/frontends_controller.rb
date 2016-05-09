@@ -5,9 +5,9 @@ class FrontendsController < ApplicationController
 
   def index
     if params[:search]
-      @articles = Article.includes(:categories).search(params[:search]).order_desc
+      @articles = Article.includes(:categories,:comments).search(params[:search]).order_desc
     else
-      @articles = Article.includes(:categories).order_desc
+      @articles = Article.includes(:categories,:comments).order_desc
     end
       
     i = 5

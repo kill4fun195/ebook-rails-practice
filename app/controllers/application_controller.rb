@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user
   before_action :require_login
+  before_action :initial_sidebar
 
   private
 
@@ -16,5 +17,12 @@ class ApplicationController < ActionController::Base
       if current_user.blank?
         redirect_to new_session_path
       end
-    end  
+    end 
+    def initial_sidebar
+      @popular_post = Article.includes(:comments,:categories).order(viewer: :desc).limit(10)
+      @new_post = Article.includes(:comments,:categories).order_desc.limit(10)
+      @new_comment = Comment.includes(:user,:article).order_desc.limit(10)
+      @categories = Category.includes(:articles).all
+    end 
+
 end
