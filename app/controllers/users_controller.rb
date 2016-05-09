@@ -5,6 +5,9 @@ class UsersController < ApplicationController
   skip_before_action :check_role, only: [:new,:create]
   def index
     @users = User.all
+     @grid = GridUsersGrid.new(params[:grid_users_grid]) do |scope|
+      scope.page(params[:page])
+    end
   end
   
   def new

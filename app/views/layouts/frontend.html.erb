@@ -14,46 +14,8 @@
 </head>
 <body id="#body">
 <div class="wraper">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="col-sm-9 col-xs-9">
-        <ul class="nav navbar-nav">
-          <li><%= link_to "Home" , root_path %></li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Category <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-               <% Category.all.each do |f| %>
-                <li><%= link_to f.name_category,category_path(f) %></li>
-               <% end -%>
-              </ul>
-            </li>  
-        </ul>
-        <div class="current-user" style="color: white;padding:15px 0px 0px 20px;text-align:center;">
-          <% if current_user %>
-            hello,<strong><%= current_user.name_user %></strong>,
-            <%= link_to "Logout", session_path(current_user) , method: :delete %>
-          <% end -%>
-        </div>
-      </div>
-      <div class = "col-sm-3 col-xs-3">
-      <div class="toggle-search"><i class="fa fa-search fa-2x"></i></div>
-        <div class="form-search">
-          <%= form_tag root_path, method: "get" do %>
-             <i class="fa fa-search "></i>
-            <%= text_field_tag :search , params[:search], :placeholder => "To search type and hit enter", autofocus: true %>
-         <% end %>
-       </div>
-     </div>
-    </nav>
-  <div class="banner">
-            <div class="container-fluid">
-              <div class="col-sm-3">
-                <h1 ><%= link_to "Wow! eBook",root_path %></h1>
-               </div>
-               <div class="col-sm-3">
-                 <p title="The best eBook site ever" data-toggle="tooltip">The best eBook site ever!</p>
-               </div>
-           </div>
-  </div>
+  <%= render "partials/menu" %>  
+  <%= render "partials/banner" %> 
   <div id="content">
     <div class="container-fluid">
       <div class="main-content">
@@ -62,103 +24,12 @@
            <%= yield %> 
           </div>
         </div>
-        <div class="col-sm-2 col-xs-2 sidebar-left">
-            <div class="row top-sidebar-left">
-              <p><strong>MORE</strong></p>
-            </div>
-            <div class="mid-sidebar-left">
-              <h4>CATEGORY</h4>
-              <% Category.all.each do |f| %>
-              <div class="category-mid-sidebar-left">
-                <a href="<%= category_path(f)%>"><span  class="glyphicon glyphicon-folder-open"></span> <%= f.name_category %></a>
-              </div>
-              <% end -%>
-            </div>
-        </div>
-        <div class="col-sm-3 col-xs-3 sidebar-right">
-            <div class="row top-sidebar-right">
-              <p class="col-sm-5">FOLLOW:</p>
-              <ul class="col-sm-7 list-inline">
-                <li><a href="https://www.facebook.com/1Bookcase/" data-toggle="tooltip" data-placement="top" title="Follow on Facebook"><i class="fa fa-facebook fa-2x"></i></a></li>
-                <li><a href="https://twitter.com/1Bookcase" data-toggle="tooltip" data-placement="top" title="Follow on Twitter"><i class="fa fa-twitter fa-2x"></i></a></li>
-                <li><a href="https://plus.google.com/+1bookcase/posts" data-toggle="tooltip" data-placement="top" title="Follow on Google+"><i class="fa fa-google-plus fa-2x"></i></a></li>
-              </ul>
-            </div>
-            <div class="mid-sidebar-right">
-              <ul class=" nav nav-tabs">
-                <li class="col-sm-4 col-xs-4 active"><a data-toggle="tab" href="#popular-post"><i class="fa fa-star-o fa-3x"></i></a></li>
-                <li class="col-sm-4 col-xs-4 case2"><a data-toggle="tab" href="#new-post"><i class="fa fa-clock-o fa-3x"></i></a></li>
-                <li class="col-sm-4 col-xs-4 case3"><a data-toggle="tab" href="#new-comment"><i class="fa fa-commenting-o fa-3x"></i></a></li>
-              </ul>
-              <div class="tab-content">
-                <div id="popular-post" class ="tab-pane fade in active">
-                  <div class="popular-post">
-                    <% Article.order_desc.limit(10).each do |f| %>
-                      <div class="row content-popular-viewer">
-                        <div class="col-sm-4 col-xs-4">
-                          <a href="<%= article_path(f) %>"   title="<%= f.title %>"><%= image_tag f.avatar.url(:medium)%></a>
-                        </div>
-                        <div class="col-sm-8 col-xs-8">
-                          <a href="<%= article_path(f) %>" data-toggle="tooltip" data-placement="bottom" title="<%= f.title %>"><%= f.title %></a>
-                        </div>
-                      </div>
-                    <% end -%>
-                  </div>
-                </div>
-                <div id = "new-post" class ="tab-pane fade">
-                   <div class="new-post">
-                    <% Article.order_desc.limit(10).each do |f| %>
-                      <div class="row content-popular-viewer">
-                        <div class="col-sm-4 col-xs-4">
-                          <a href="<%= article_path(f) %>" data-toggle="tooltip" data-placement="bottom" title="<%= f.title %>"><%= image_tag f.avatar.url(:medium)%></a>
-                        </div>
-                        <div class="col-sm-8 col-xs-8">
-                          <a href="<%= article_path(f) %>" data-toggle="tooltip" data-placement="bottom" title="<%= f.title %>"><%= f.title %></a>
-                        </div>
-                      </div>
-                    <% end -%>
-                  </div>
-                </div>
-                <div id ="new-comment" class="tab-pane fade">
-                  <div class="new-comment">
-                    <% Comment.order_desc.limit(10).each do |f| %>
-                      <div class="row content-popular-viewer">
-                        <div class="col-sm-3 col-xs-3">
-                          <%= image_tag("wowebook/logo_user") %>
-                        </div>
-                        <div class="col-sm-9 col-xs-9">
-                        <p><%= f.user.name_user %> say:</p>
-                          <a href="<%= article_path(f.article)%>#currentComment"><%= sanitize(f.body) %></a>
-                        </div>
-                      </div>
-                    <% end -%>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="bot-sidebar-right">
-              <h5>USER ONLINE</h5>
-              <p><strong>13 Users</strong> Online</p>
-            </div>
-        </div> 
+        <%= render "partials/secondary_sidebar" %> 
+        <%= render "partials/sidebar" %>
       </div>       
     </div>        
   </div> 
-  <div id="footer">
-    <div class="container-fluid">
-    <div class="top-footer">
-      <p><a href="#" id="scroll"><i class="fa fa-angle-up fa-3x"></i></a></p>
-    </div>
-      <div class = "mid-footer">
-        <p>Wow! eBook © 2016. All Rights Reserved.</p>
-        <ul class="list-inline">
-                  <li><a href="https://www.facebook.com/1Bookcase/" data-toggle="tooltip" data-placement="top" title="Follow on Facebook"><i class="fa fa-facebook fa-2x"></i></a></li>
-                  <li><a href="https://twitter.com/1Bookcase" data-toggle="tooltip" data-placement="top" title="Follow on Twitter"><i class="fa fa-twitter fa-2x"></i></a></li>
-                  <li><a href="https://plus.google.com/+1bookcase/posts" data-toggle="tooltip" data-placement="top" title="Follow on Google+"><i class="fa fa-google-plus fa-2x"></i></a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <%= render "partials/footer" %>
 </div>  
 <script>
 tinymce.init({ selector:'textarea' , menubar: false });

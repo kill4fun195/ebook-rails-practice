@@ -24,6 +24,7 @@
 </table>
 <%= link_to "New user",new_user_path%>
 -->
+<!--
 <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
@@ -81,5 +82,11 @@
                   </div>
                 </div>
  </div>    
- <h3><%= link_to "New user",new_user_path , :style => "color:blue" %><h3>           
+ <h3><%= link_to "New user",new_user_path , :style => "color:blue" %><h3>   
+ -->
+ <%= datagrid_form_for @grid, :method => :get, :url => grid_users_path %>
+
+<%= paginate(@grid.assets) %>
+<%= datagrid_table @grid %>
+<%= paginate(@grid.assets) %>        
 

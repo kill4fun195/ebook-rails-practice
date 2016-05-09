@@ -1,0 +1,13 @@
+<div class="col-sm-2 col-xs-2 sidebar-left">
+    <div class="row top-sidebar-left">
+      <p><strong>MORE</strong></p>
+    </div>
+    <div class="mid-sidebar-left">
+      <h4>CATEGORY</h4>
+      <% Category.all.each do |f| %>
+      <div class="category-mid-sidebar-left">
+        <a href="<%= category_path(f)%>"><span  class="glyphicon glyphicon-folder-open"></span> <%= f.name_category %></a>
+      </div>
+      <% end -%>
+    </div>
+</div>

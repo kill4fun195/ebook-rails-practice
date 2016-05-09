@@ -1,0 +1,66 @@
+ <div class="col-sm-3 col-xs-3 sidebar-right">
+    <div class="row top-sidebar-right">
+      <p class="col-sm-5">FOLLOW:</p>
+      <ul class="col-sm-7 list-inline">
+        <li><a href="https://www.facebook.com/1Bookcase/" data-toggle="tooltip" data-placement="top" title="Follow on Facebook"><i class="fa fa-facebook fa-2x"></i></a></li>
+        <li><a href="https://twitter.com/1Bookcase" data-toggle="tooltip" data-placement="top" title="Follow on Twitter"><i class="fa fa-twitter fa-2x"></i></a></li>
+        <li><a href="https://plus.google.com/+1bookcase/posts" data-toggle="tooltip" data-placement="top" title="Follow on Google+"><i class="fa fa-google-plus fa-2x"></i></a></li>
+      </ul>
+    </div>
+    <div class="mid-sidebar-right">
+      <ul class=" nav nav-tabs">
+        <li class="col-sm-4 col-xs-4 active"><a data-toggle="tab" href="#popular-post"><i class="fa fa-star-o fa-3x"></i></a></li>
+        <li class="col-sm-4 col-xs-4 case2"><a data-toggle="tab" href="#new-post"><i class="fa fa-clock-o fa-3x"></i></a></li>
+        <li class="col-sm-4 col-xs-4 case3"><a data-toggle="tab" href="#new-comment"><i class="fa fa-commenting-o fa-3x"></i></a></li>
+      </ul>
+      <div class="tab-content">
+        <div id="popular-post" class ="tab-pane fade in active">
+          <div class="popular-post">
+            <% Article.order_desc.limit(10).each do |f| %>
+              <div class="row content-popular-viewer">
+                <div class="col-sm-4 col-xs-4">
+                  <a href="<%= article_path(f) %>"   title="<%= f.title %>"><%= image_tag f.avatar.url(:medium)%></a>
+                </div>
+                <div class="col-sm-8 col-xs-8">
+                  <a href="<%= article_path(f) %>" data-toggle="tooltip" data-placement="bottom" title="<%= f.title %>"><%= f.title %></a>
+                </div>
+              </div>
+            <% end -%>
+          </div>
+        </div>
+        <div id = "new-post" class ="tab-pane fade">
+           <div class="new-post">
+            <% Article.order_desc.limit(10).each do |f| %>
+              <div class="row content-popular-viewer">
+                <div class="col-sm-4 col-xs-4">
+                  <a href="<%= article_path(f) %>" data-toggle="tooltip" data-placement="bottom" title="<%= f.title %>"><%= image_tag f.avatar.url(:medium)%></a>
+                </div>
+                <div class="col-sm-8 col-xs-8">
+                  <a href="<%= article_path(f) %>" data-toggle="tooltip" data-placement="bottom" title="<%= f.title %>"><%= f.title %></a>
+                </div>
+              </div>
+            <% end -%>
+          </div>
+        </div>
+        <div id ="new-comment" class="tab-pane fade">
+          <div class="new-comment">
+            <% Comment.order_desc.limit(10).each do |f| %>
+              <div class="row content-popular-viewer">
+                <div class="col-sm-3 col-xs-3">
+                  <%= image_tag("wowebook/logo_user") %>
+                </div>
+                <div class="col-sm-9 col-xs-9">
+                <p><%= f.user.name_user %> say:</p>
+                  <a href="<%= article_path(f.article)%>#currentComment"><%= sanitize(f.body) %></a>
+                </div>
+              </div>
+            <% end -%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bot-sidebar-right">
+      <h5>USER ONLINE</h5>
+      <p><strong>13 Users</strong> Online</p>
+    </div>
+</div>
