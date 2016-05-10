@@ -5,7 +5,7 @@ class GridUsersGrid
   scope do
     User
   end
-  filter(:role, :enum, :select => proc { User.all.map {|c| [c.role] }})
+  filter(:role, :enum, :select => ["admin","member"])
   filter(:name_user) do |value|
     where("name_user LIKE '%#{value}%'")
   end

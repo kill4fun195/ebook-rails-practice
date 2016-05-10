@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
      @grid = GridUsersGrid.new(params[:grid_users_grid]) do |scope|
-      scope.page(params[:page])
+      scope.page(params[:page]).per(20)
     end
   end
   

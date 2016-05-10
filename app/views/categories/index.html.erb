@@ -1,3 +1,4 @@
+<!--
 <h1>Categories !!!</h1>
 <table class = "table">
   <tr class = "title">
@@ -16,3 +17,12 @@
   <% end -%>
 </table>
 <%= link_to "New category",new_category_path %>
+-->
+<div style="height:400px;">
+ <%= datagrid_form_for @grid, :method => :get, :url => categories_path %>
+
+<%= paginate(@grid.assets) %>
+<%= datagrid_table @grid %>
+<%= paginate(@grid.assets) %>   
+</div> 
+

@@ -3,6 +3,9 @@ class CategoriesController < ApplicationController
   skip_before_action :require_login ,only: [:show]
   def index
     @categories = Category.all
+     @grid = GridCategoriesGrid.new(params[:grid_categories_grid]) do |scope|
+      scope.page(params[:page]).per(20)
+    end
     render :layout => "backend"
   end
   def new

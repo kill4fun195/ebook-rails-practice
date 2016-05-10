@@ -8,6 +8,9 @@ class ArticlesController < ApplicationController
     else
       @articles = current_user.articles.order_desc
     end
+     @grid = GridArticlesGrid.new(params[:grid_articles_grid]) do |scope|
+      scope.page(params[:page]).per(5)
+    end
     render :layout => 'backend'
   end
 
