@@ -5,8 +5,10 @@ class GridCommentsGrid
     Comment
   end
 
-  filter(:id)
-
+  filter(:title_article) do |value|
+    joins(:article).where("articles.title LIKE '%#{value}%'")
+  end
+ 
   filter(:name_user) do |value|
     joins(:user).where("users.name_user LIKE '%#{value}%'")
   end

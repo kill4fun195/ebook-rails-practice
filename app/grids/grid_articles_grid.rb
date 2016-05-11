@@ -5,12 +5,19 @@ class GridArticlesGrid
   scope do
    Article.includes(:categories,:comments)
   end
-
-  filter(:id)
   
   filter(:title) do |value|
     where(" title LIKE '%#{value}%' ")
   end
+
+  filter(:descriptions) do |value|
+    where(" description LIKE '%#{value}%' ")
+  end
+  filter(:author, style: "display:hidden") do |value|
+    joins(:user).where("users.name_user LIKE '%#{value}%'")
+  end
+  filter(:created_at, :date, :range => true)
+  filter(:created_at, :date)
 
   column(:id)
   column(:title)

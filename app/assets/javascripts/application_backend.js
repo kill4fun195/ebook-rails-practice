@@ -18,4 +18,9 @@
 //= require tinymce.min
 //= require jquery.tinymce.min
 //= require backend/custom
+//= require moment
+//= require moment.min
+//= require daterangepicker
+//= require grid
+
 

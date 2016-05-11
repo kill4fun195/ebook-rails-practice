@@ -6,7 +6,6 @@ class GridCategoriesGrid
     Category
   end
   
-  filter(:id)
   filter(:name_category) do |value|
     where("name_category LIKE '%#{value}%'")
   end

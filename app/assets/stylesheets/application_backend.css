@@ -1,6 +1,7 @@
 /*
  *= require bootstrap_custom
  *= require datagrid
+ *= require daterangepicker
  *= require_tree ./backend
  */
 
