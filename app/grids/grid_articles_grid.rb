@@ -7,17 +7,21 @@ class GridArticlesGrid
   end
   
   filter(:title) do |value|
-    where(" title LIKE '%#{value}%' ")
+    where("title LIKE ?", "%#{value}%")
   end
 
   filter(:descriptions) do |value|
-    where(" description LIKE '%#{value}%' ")
+    where("description LIKE '%#{value}%'")
   end
+
   filter(:author, style: "display:hidden") do |value|
     joins(:user).where("users.name_user LIKE '%#{value}%'")
   end
-  filter(:created_at, :date, :range => true)
-  filter(:created_at, :date)
+
+  filter(:created_at ) do |value|
+    start_date, end_date = value.split("-").map(&:strip)
+    where("created_at >= ? AND created_at <= ?", Date.parse(start_date), Date.parse(end_date))
+  end
 
   column(:id)
   column(:title)
