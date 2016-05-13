@@ -13,6 +13,11 @@ class GridCommentsGrid
     joins(:user).where("users.name_user LIKE '%#{value}%'")
   end
 
+  filter(:created_at) do |value|
+    start_date,end_date = value.split("-").map(&:strip)
+    where("created_at >= ? AND created_at <= ?",Date.parse(start_date),Date.parse(end_date))
+  end
+
   column(:id)
   
   column(:body) do |model|
