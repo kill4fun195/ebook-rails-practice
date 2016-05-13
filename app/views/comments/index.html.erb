@@ -36,8 +36,7 @@
 </table>
 <%= link_to "New comment",new_comment_path %>
 -->
- <%= datagrid_form_for @grid, :method => :get, :url => comments_path %>
-
-<%= paginate(@grid.assets) %>
+<%= datagrid_form_for @grid, :method => :get, :url => articles_path %>
+<%= will_paginate @grid.assets, renderer: BootstrapPagination::Rails %>
 <%= datagrid_table @grid %>
-<%= paginate(@grid.assets) %>   
+<%= will_paginate @grid.assets, renderer: BootstrapPagination::Rails %>

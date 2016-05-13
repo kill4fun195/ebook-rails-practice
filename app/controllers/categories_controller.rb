@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all
      @grid = GridCategoriesGrid.new(params[:grid_categories_grid]) do |scope|
-      scope.page(params[:page]).per(20)
+      scope.page(params[:page]).per_page(15)
     end
     render :layout => "backend"
   end

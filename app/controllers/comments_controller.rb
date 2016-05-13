@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     if current_user.role == "admin"
       @comments = Comment.all
       @grid = GridCommentsGrid.new(params[:grid_comments_grid]) do |scope|
-        scope.page(params[:page]).per(20)
+        scope.page(params[:page]).per_page(20)
       end
     else
       @comments = current_user.comments

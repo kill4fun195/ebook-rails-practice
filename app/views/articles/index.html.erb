@@ -100,10 +100,10 @@
  </div>    
  <h3><%= link_to "New Article",new_article_path,:style => "color:blue" %></h3>  
  -->
- <%= datagrid_form_for @grid, :method => :get, :url => articles_path %>
-
-<%= paginate(@grid.assets) %>
+<%= datagrid_form_for @grid, :method => :get, :url => articles_path %>
+<%= will_paginate @grid.assets, renderer: BootstrapPagination::Rails %>
 <%= datagrid_table @grid %>
-<%= paginate(@grid.assets) %>
+<%= will_paginate @grid.assets, renderer: BootstrapPagination::Rails %>
+
      
 

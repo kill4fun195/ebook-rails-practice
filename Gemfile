@@ -52,4 +52,4 @@ group :development do
 end
 
 
-gem 'kaminari'
+gem 'will_paginate-bootstrap'
