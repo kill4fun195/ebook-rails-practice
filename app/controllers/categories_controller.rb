@@ -19,18 +19,15 @@ class CategoriesController < ApplicationController
   end
   def show
     @category = Category.find(params[:id])
-    @articles = @category.articles.all
-     i = 5
-        n = @category.articles.count
-        if (n % i == 0)
-          @t = n/i
-        else
-          @t = n/i + 1
-        end
-        @a = params[:page].to_i 
-        @c = @a - 1
-        @q = @c*i
-         render :layout => "frontend"
+    @articles = @category.articles.page(params[:page]).per_page(5).order_desc
+    @a = params[:page].to_i 
+    if (@category.articles.count % 2 == 0 )
+      @t = (@category.articles.count / 5) 
+    else
+      @t = (@category.articles.count / 5) + 1
+    end
+
+      render :layout => "frontend"
   end
   def edit
     @category = Category.find(params[:id])

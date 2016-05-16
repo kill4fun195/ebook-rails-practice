@@ -20,12 +20,5 @@
 //= require_tree .
 $(document).ready(function(){
     $("#tooltip").tooltip();
-      var params_search = $("#search").val();
-      var pages = parseInt($(".paging .paging-head span").text());
-      $('#pagination-demo').twbsPagination({
-        totalPages: pages,
-        visiblePages: 2,
-        href: '?&page={{number}}&search='+params_search
-    });
 });
 

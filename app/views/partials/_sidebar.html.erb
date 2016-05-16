@@ -1,15 +1,107 @@
- <div class="col-sm-3 col-xs-3 sidebar-right">
+<!-- small device -->
+<div id="sidebar-right-toggle" class="sidebar-left visible-sm hidden-xs hidden-md hidden-lg col-sm-1" style="relative">
+    <div class = "sidebar-right-toggle-right" style="position:relative;left:-285px;width:340px;background:#F0F0F0;display:none">
+       <div id="sidebar-right-toggle-right" class="top-sidebar-right" >
+        <div class="row">
+          <div class="col-sm-12 col-xs-12" style="text-align:center">
+            <p style="height:40px;margin-left: -10px;margin-top: 0px;"><strong><i class="fa fa-angle-double-right fa-3x" aria-hidden="true"></i></strong></p>
+          </div>  
+        </div>
+      </div>
+      <div class="top-sidebar-right" style="background:#F0F0F0;border-bottom:2px solid #E0E4E3">
+        <div class="row">
+          <div class="col-sm-5 col-xs-5">
+            <p style="color:#666">FOLLOW:</p>
+          </div>  
+          <div class="col-sm-7 col-xs-7">
+            <ul class="list-inline">
+              <li><a href="https://www.facebook.com/1Bookcase/" data-toggle="tooltip" data-placement="top" title="Follow on Facebook"><i style="color:#33363B" class="fa fa-facebook fa-2x"></i></a></li>
+              <li><a href="https://twitter.com/1Bookcase" data-toggle="tooltip" data-placement="top" title="Follow on Twitter"><i style="color:#33363B" class="fa fa-twitter fa-2x"></i></a></li>
+              <li><a href="https://plus.google.com/+1bookcase/posts" data-toggle="tooltip" data-placement="top" title="Follow on Google+"><i style="color:#33363B" class="fa fa-google-plus fa-2x"></i></a></li>
+            </ul>
+          </div>  
+        </div>
+      </div>
+      <div class="mid-sidebar-right" style="padding:0px 15px;">
+        <ul class="row nav nav-tabs">
+          <li class="col-sm-4 col-xs-4  active"><a data-toggle="tab" href="#popular-post1"><i class="fa fa-star-o fa-3x"></i></a></li>
+          <li class="col-sm-4 col-xs-4 case2"><a data-toggle="tab" href="#new-post1"><i class="fa fa-clock-o fa-3x"></i></a></li>
+          <li class="col-sm-4 col-xs-4 case3"><a data-toggle="tab" href="#new-comment1"><i class="fa fa-commenting-o fa-3x"></i></a></li>
+        </ul>
+        <div class="tab-content">
+          <div id="popular-post1" class ="tab-pane fade in active">
+            <div class="popular-post">
+              <% @popular_post.each do |f| %>
+                <div class="row content-popular-viewer">
+                  <div class="col-sm-4 col-xs-4 ">
+                    <a href="<%= article_path(f) %>"   title="<%= f.title %>"><%= image_tag f.avatar.url(:medium)%></a>
+                  </div>
+                  <div class="col-sm-8 col-xs-8 ">
+                    <a href="<%= article_path(f) %>" data-toggle="tooltip" data-placement="bottom" title="<%= f.title %>"><%= f.title %></a>
+                  </div>
+                </div>
+              <% end -%>
+            </div>
+          </div>
+          <div id = "new-post1" class ="tab-pane fade">
+             <div class="new-post">
+              <% @new_post.each do |f| %>
+                <div class="row content-popular-viewer">
+                  <div class="col-sm-4 col-xs-4">
+                    <a href="<%= article_path(f) %>" data-toggle="tooltip" data-placement="bottom" title="<%= f.title %>"><%= image_tag f.avatar.url(:medium)%></a>
+                  </div>
+                  <div class="col-sm-8 col-xs-8">
+                    <a href="<%= article_path(f) %>" data-toggle="tooltip" data-placement="bottom" title="<%= f.title %>"><%= f.title %></a>
+                  </div>
+                </div>
+              <% end -%>
+            </div>
+          </div>
+          <div id ="new-comment1" class="tab-pane fade">
+            <div class="new-comment">
+              <% @new_comment.each do |f| %>
+                <div class="row content-popular-viewer">
+                  <div class="col-sm-3 col-xs-3">
+                    <%= image_tag("wowebook/logo_user") %>
+                  </div>
+                  <div class="col-sm-9 col-xs-9">
+                  <p><%= f.user.name_user %> say:</p>
+                    <a href="<%= article_path(f.article)%>#currentComment"><%= sanitize(f.body) %></a>
+                  </div>
+                </div>
+              <% end -%>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bot-sidebar-right" style="text-align:center">
+        <h5>USER ONLINE</h5>
+        <p><strong>13 Users</strong> Online</p>
+      </div>
+    </div>
+    <div class = "sidebar-right-toggle-left" style="display:block">
+      <div id="sidebar-right-toggle-left" class="row top-sidebar-left" style="background:#D2691E">
+        <p  style="height:30px;margin-left: -10px;margin-top: 0px;"><strong><i class="fa fa-angle-double-left fa-3x" aria-hidden="true"></i></strong></p>
+      </div>
+    </div>
+</div>
+<!-- large device -->
+<div id="sidebar-right-large-device" class="col-sm-1 sidebar-right col-md-3 hidden-sm">
     <div class="row top-sidebar-right">
-      <p class="col-sm-5">FOLLOW:</p>
-      <ul class="col-sm-7 list-inline">
-        <li><a href="https://www.facebook.com/1Bookcase/" data-toggle="tooltip" data-placement="top" title="Follow on Facebook"><i class="fa fa-facebook fa-2x"></i></a></li>
-        <li><a href="https://twitter.com/1Bookcase" data-toggle="tooltip" data-placement="top" title="Follow on Twitter"><i class="fa fa-twitter fa-2x"></i></a></li>
-        <li><a href="https://plus.google.com/+1bookcase/posts" data-toggle="tooltip" data-placement="top" title="Follow on Google+"><i class="fa fa-google-plus fa-2x"></i></a></li>
-      </ul>
+      <div class="col-sm-5 col-xs-5">
+        <p>FOLLOW:</p>
+      </div>  
+      <div class="col-sm-7 col-xs-7">
+        <ul class="list-inline">
+          <li><a href="https://www.facebook.com/1Bookcase/" data-toggle="tooltip" data-placement="top" title="Follow on Facebook"><i class="fa fa-facebook fa-2x"></i></a></li>
+          <li><a href="https://twitter.com/1Bookcase" data-toggle="tooltip" data-placement="top" title="Follow on Twitter"><i class="fa fa-twitter fa-2x"></i></a></li>
+          <li><a href="https://plus.google.com/+1bookcase/posts" data-toggle="tooltip" data-placement="top" title="Follow on Google+"><i class="fa fa-google-plus fa-2x"></i></a></li>
+        </ul>
+      </div>  
     </div>
     <div class="mid-sidebar-right">
-      <ul class=" nav nav-tabs">
-        <li class="col-sm-4 col-xs-4 active"><a data-toggle="tab" href="#popular-post"><i class="fa fa-star-o fa-3x"></i></a></li>
+      <ul class="row nav nav-tabs">
+        <li class="col-sm-4 col-xs-4  active"><a data-toggle="tab" href="#popular-post"><i class="fa fa-star-o fa-3x"></i></a></li>
         <li class="col-sm-4 col-xs-4 case2"><a data-toggle="tab" href="#new-post"><i class="fa fa-clock-o fa-3x"></i></a></li>
         <li class="col-sm-4 col-xs-4 case3"><a data-toggle="tab" href="#new-comment"><i class="fa fa-commenting-o fa-3x"></i></a></li>
       </ul>
@@ -18,10 +110,10 @@
           <div class="popular-post">
             <% @popular_post.each do |f| %>
               <div class="row content-popular-viewer">
-                <div class="col-sm-4 col-xs-4">
+                <div class="col-sm-4 col-xs-4 ">
                   <a href="<%= article_path(f) %>"   title="<%= f.title %>"><%= image_tag f.avatar.url(:medium)%></a>
                 </div>
-                <div class="col-sm-8 col-xs-8">
+                <div class="col-sm-8 col-xs-8 ">
                   <a href="<%= article_path(f) %>" data-toggle="tooltip" data-placement="bottom" title="<%= f.title %>"><%= f.title %></a>
                 </div>
               </div>
@@ -64,3 +156,76 @@
       <p><strong>13 Users</strong> Online</p>
     </div>
 </div>
+<!--- from 990 to 1200 -->
+
+<div id="sidebar-right-medium-device" class="col-sm-1 sidebar-right col-md-4 hidden-sm hidden-xs">
+    <div class="row top-sidebar-right">
+      <div class="col-sm-5 col-xs-5">
+        <p>FOLLOW:</p>
+      </div>  
+      <div class="col-sm-7 col-xs-7">
+        <ul class="list-inline">
+          <li><a href="https://www.facebook.com/1Bookcase/" data-toggle="tooltip" data-placement="top" title="Follow on Facebook"><i class="fa fa-facebook fa-2x"></i></a></li>
+          <li><a href="https://twitter.com/1Bookcase" data-toggle="tooltip" data-placement="top" title="Follow on Twitter"><i class="fa fa-twitter fa-2x"></i></a></li>
+          <li><a href="https://plus.google.com/+1bookcase/posts" data-toggle="tooltip" data-placement="top" title="Follow on Google+"><i class="fa fa-google-plus fa-2x"></i></a></li>
+        </ul>
+      </div>  
+    </div>
+    <div class="mid-sidebar-right">
+      <ul class="row nav nav-tabs">
+        <li class="col-sm-4 col-xs-4  active"><a data-toggle="tab" href="#popular-post2"><i class="fa fa-star-o fa-3x"></i></a></li>
+        <li class="col-sm-4 col-xs-4 case2"><a data-toggle="tab" href="#new-post2"><i class="fa fa-clock-o fa-3x"></i></a></li>
+        <li class="col-sm-4 col-xs-4 case3"><a data-toggle="tab" href="#new-comment2"><i class="fa fa-commenting-o fa-3x"></i></a></li>
+      </ul>
+      <div class="tab-content">
+        <div id="popular-post2" class ="tab-pane fade in active">
+          <div class="popular-post">
+            <% @popular_post.each do |f| %>
+              <div class="row content-popular-viewer">
+                <div class="col-sm-4 col-xs-4 ">
+                  <a href="<%= article_path(f) %>"   title="<%= f.title %>"><%= image_tag f.avatar.url(:medium)%></a>
+                </div>
+                <div class="col-sm-8 col-xs-8 ">
+                  <a href="<%= article_path(f) %>" data-toggle="tooltip" data-placement="bottom" title="<%= f.title %>"><%= f.title %></a>
+                </div>
+              </div>
+            <% end -%>
+          </div>
+        </div>
+        <div id = "new-post2" class ="tab-pane fade">
+           <div class="new-post">
+            <% @new_post.each do |f| %>
+              <div class="row content-popular-viewer">
+                <div class="col-sm-4 col-xs-4">
+                  <a href="<%= article_path(f) %>" data-toggle="tooltip" data-placement="bottom" title="<%= f.title %>"><%= image_tag f.avatar.url(:medium)%></a>
+                </div>
+                <div class="col-sm-8 col-xs-8">
+                  <a href="<%= article_path(f) %>" data-toggle="tooltip" data-placement="bottom" title="<%= f.title %>"><%= f.title %></a>
+                </div>
+              </div>
+            <% end -%>
+          </div>
+        </div>
+        <div id ="new-comment2" class="tab-pane fade">
+          <div class="new-comment">
+            <% @new_comment.each do |f| %>
+              <div class="row content-popular-viewer">
+                <div class="col-sm-3 col-xs-3">
+                  <%= image_tag("wowebook/logo_user") %>
+                </div>
+                <div class="col-sm-9 col-xs-9">
+                <p><%= f.user.name_user %> say:</p>
+                  <a href="<%= article_path(f.article)%>#currentComment"><%= sanitize(f.body) %></a>
+                </div>
+              </div>
+            <% end -%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bot-sidebar-right">
+      <h5>USER ONLINE</h5>
+      <p><strong>13 Users</strong> Online</p>
+    </div>
+</div>
+<!--- End from 990 to 1200 -->

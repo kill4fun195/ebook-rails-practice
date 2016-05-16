@@ -28,10 +28,17 @@ p
 {
   float:right;
 }
+.navbar-nav li.dropdown
+{
+  position:relative;
+}
 .navbar-nav li.dropdown ul.dropdown-menu
 {
   background:#222222;
   border:none;
+  position:absolute;
+  left:0px;
+  width:100px;
 }
 .navbar-nav li.dropdown ul.dropdown-menu a
 {
@@ -45,38 +52,38 @@ p
 {
   opacity:0.6;
 }
-.navbar  > .col-sm-3
+.navbar   .search
 {
   position:relative;
 }
-.navbar  .col-sm-3 .toggle-search
+.navbar  .search .toggle-search
 {
-  width:80px;
+  width:70px;
   float:right;
   background:#202125;
   cursor:pointer;
   border-left:1px solid #33363B;
-  padding:0px 20px;
+  padding:0px 10px;
 }
-.navbar  .col-sm-3 .toggle-search i
+.navbar  .search .toggle-search i
 {
   color:white;
   padding:10px;
 }
-.navbar  .col-sm-3 .form-search
+.navbar  .search .form-search
 {
   position:absolute;
   right:15px;
-  top:49px;
+  top:70px;
   padding:10px;
   background:#202125;
   display:none;
 }
-.navbar  .col-sm-3 .form-search form 
+.navbar  .search .form-search form 
 {
   position:relative;
 }
-.navbar  .col-sm-3 .form-search form i
+.navbar  .search .form-search form i
 {
   position:absolute;
   top:8px;
@@ -84,7 +91,7 @@ p
   font-size:20px;
   opacity:0.5;
 }
-.navbar  .col-sm-3 .form-search form input
+.navbar  .search .form-search form input
 {
   padding:5px;
   width:300px;
@@ -98,20 +105,23 @@ p
 }
 .banner h1{
   margin-top:50px;
+  width:270px;
+  text-align:center;
+  padding-left:30px;
+  float:left;
 }
 .banner h1 a{
     color:white;
     font-size:40px;
 }
 .banner p{
-  margin-left:-60px;
   margin-top:60px;
 }
 #content
 {
   background:#EAEAEA;
 }
-#content > .container-fluid
+#content.container-fluid
 {
   padding-bottom:20px;
 
@@ -119,17 +129,12 @@ p
 .main-content
 {
   margin-top:-69px;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
     -webkit-box-shadow: 0px 3px 1px 0px rgba(216,216,216,1);
     -moz-box-shadow: 0px 3px 1px 0px rgba(216,216,216,1);
     box-shadow: 0px 3px 1px 0px rgba(216,216,216,1);
 }
 
-.main-content > .col-sm-7
+.main-content > .col-md-7
 {
   background:white;
 }
@@ -169,7 +174,7 @@ p
 .top-sidebar-right
 {
   background: #D2691E;
-  padding:10px;
+  padding:10.5px;
 }
 .top-sidebar-right p
 {
@@ -195,6 +200,7 @@ p
 .mid-sidebar-right .nav-tabs 
 {
   padding-top: 20px;
+  text-align:center;
 }
 .mid-sidebar-right .nav-tabs li
 {
@@ -230,7 +236,6 @@ p
 {
   padding-left:10px;
   display:block;
-  width:170px;
   color:#26272B;
   font-size:14px;
 }

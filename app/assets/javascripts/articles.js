@@ -1,7 +1,7 @@
 $(document).ready(function(){  
-  $(".navbar  .col-sm-3 .toggle-search").click(function(){
+  $(".navbar  .search .toggle-search").click(function(){
     $(".form-search").toggle();
-    $(".navbar  .col-sm-3 .form-search form input").focus();
+    $(".navbar  .search .form-search form input").focus();
   })
   $('#scroll').click(function(){ 
         $("html, body").animate({ scrollTop: 0 }, 1000); 
@@ -81,9 +81,10 @@ $(document).ready(function(){
   slideWidth: 360,
   slideMargin: 10
   });
-   $('ul.nav li.dropdown').hover(function() {
-  $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
-  }, function() {
-  $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+
+  $('ul.nav li.dropdown').hover(function() {
+    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+    }, function() {
+    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
   }); 
 });

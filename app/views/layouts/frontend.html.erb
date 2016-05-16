@@ -14,20 +14,19 @@
 </head>
 <body id="#body">
 <div class="wraper">
-  <%= render "partials/menu" %>  
+  <%= render "partials/menu" %> 
   <%= render "partials/banner" %> 
-  <div id="content">
-    <div class="container-fluid">
-      <div class="main-content">
-        <div class="col-sm-7 col-xs-7">
+  <div class="clearfix"></div>
+  <div id="content" class="container-fluid">
+      <div class="main-content row">
+        <div class="col-sm-10 col-md-7">
           <div class="content-left">
            <%= yield %> 
           </div>
         </div>
         <%= render "partials/secondary_sidebar" %> 
         <%= render "partials/sidebar" %>
-      </div>       
-    </div>        
+      </div>             
   </div> 
   <%= render "partials/footer" %>
 </div>  

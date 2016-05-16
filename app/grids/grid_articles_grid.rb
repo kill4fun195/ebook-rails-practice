@@ -38,7 +38,7 @@ class GridArticlesGrid
     model.comments.size
   end
   column(:linkdownload) do |model|
-    model.linkdownload.truncate(50)
+    model.linkdownload.truncate(10)
   end
   column(:weight)
   column(:image,html: true) do |model|
