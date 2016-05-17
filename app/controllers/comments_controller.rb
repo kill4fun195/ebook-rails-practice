@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     else
       @comments = current_user.comments
       @grid = GridCommentsGrid.new(params[:grid_comments_grid]) do |scope|
-        scope.page(params[:page])
+        scope.page(params[:page]).per_page(20)
       end
     end
     @article_ids = Article.ids

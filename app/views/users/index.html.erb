@@ -84,7 +84,7 @@
  </div>    
  <h3><%= link_to "New user",new_user_path , :style => "color:blue" %><h3>   
  -->
-<%= datagrid_form_for @grid, :method => :get, :url => articles_path %>
+<%= datagrid_form_for @grid, :method => :get, :url => users_path %>
 <%= will_paginate @grid.assets, renderer: BootstrapPagination::Rails %>
 <%= datagrid_table @grid %>
 <%= will_paginate @grid.assets, renderer: BootstrapPagination::Rails %>       
