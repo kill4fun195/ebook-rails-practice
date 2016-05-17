@@ -17,6 +17,10 @@ class Article < ActiveRecord::Base
   scope :order_desc, -> { order(created_at: :desc) }
 
   scope :search ,->(search){where("title LIKE ? OR description LIKE ?", "%#{search}%","%#{search}%")}
+
+  #friendly_id
+  extend FriendlyId
+  friendly_id :title, use: :slugged
   
 
 end

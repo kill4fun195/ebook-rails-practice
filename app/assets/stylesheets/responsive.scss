@@ -18,120 +18,125 @@
         text-align:center;
         padding-left:0px;
       }
-      .article
-      {
-        margin:0px;
-      }
-      .article .left-article
-      {
-        padding:0px;
-        position:relative;
-      }
-     .article .left-article img
-      {
-        width: 100%;
-        height: 100%;
-      }
-      .article .left-article .comment
-      {
-        position:absolute;
-        right:-5px;
-        top:15px;
-      }
-      .head-right-article ul 
-      {
-        font-size:11px;
-        padding-left:5px;
-      }
-      .sidebar-right
-      {
-        width:100%;
-      }
-      .mid-sidebar-right ul li
-      {
-        text-align:center;
-      }
-      .mid-sidebar-right  .content-popular-viewer > .col-xs-4 img
-      {
-        width:100%;
-        height:100%;
-      }
-      .mid-sidebar-right .content-popular-viewer > .col-xs-8 a
-      {
-        font-size:18px;
-        margin-left:-20px;
-        width:100%;
-      }
-      .mid-sidebar-right .content-popular-viewer > .col-xs-3 img
-      {
-        width:120%;
-        height:100%;
-      }
-      .mid-sidebar-right .content-popular-viewer > .col-xs-9 
-      {
-        font-size:17px;
-        line-height:20px;
-      }
-      .mid-sidebar-right .content-popular-viewer > .col-xs-9 a
-      {
-        display:block;
-        margin-top:-10px;
-      }
-       .bot-sidebar-right
-      {
-        text-align:center;
-      }
-      #footer .mid-footer
-      {
-        text-align:center;
-      }
-      #footer .mid-footer ul 
-      {
-        width:100%;
-        padding:10px;
-      }
-      .pagination
-      {
-        font-size:12px;
-      }
-    /**** End Layout*****/
+    .article
+    {
+      margin:0px;
+    }
+    .article .left-article
+    {
+      padding:0px;
+      position:relative;
+    }
+   .article .left-article img
+    {
+      width: 100%;
+      height: 100%;
+    }
+    .article .left-article .comment
+    {
+      position:absolute;
+      right:-5px;
+      top:15px;
+    }
+    .head-right-article ul 
+    {
+      font-size:11px;
+      padding-left:5px;
+    }
+    .sidebar-right
+    {
+      width:100%;
+    }
+    .mid-sidebar-right ul li
+    {
+      text-align:center;
+    }
+    .mid-sidebar-right  .content-popular-viewer > .col-xs-4 img
+    {
+      width:100%;
+      height:100%;
+    }
+    .mid-sidebar-right .content-popular-viewer > .col-xs-8 a
+    {
+      font-size:18px;
+      margin-left:-20px;
+      width:100%;
+    }
+    .mid-sidebar-right .content-popular-viewer > .col-xs-3 img
+    {
+      width:120%;
+      height:100%;
+    }
+    .mid-sidebar-right .content-popular-viewer > .col-xs-9 
+    {
+      font-size:17px;
+      line-height:20px;
+    }
+    .mid-sidebar-right .content-popular-viewer > .col-xs-9 a
+    {
+      display:block;
+      margin-top:-10px;
+    }
+     .bot-sidebar-right
+    {
+      text-align:center;
+    }
+    #footer .mid-footer
+    {
+      text-align:center;
+    }
+    #footer .mid-footer ul 
+    {
+      width:100%;
+      padding:10px;
+    }
+    .pagination
+    {
+      font-size:12px;
+    }
+  /**** End Layout*****/
 
-    /***** Show_Article *****/
-      .content-left
-      {
-        padding:0px 5px;
-      }
-      .top-content-left .comment 
-      {
-        font-size:14px;
-      }
-      .top-content-left .article-categories
-      {
-        padding-left:10px;
-      }
-      .top-content-left .article-categories li
-      {
-        padding:3px;
-      }
-      .top-content-left .article-categories li a
-      {
-        font-size:15px;
-      }
-      .content-show-article img 
-      {
-        width:200px;
-        height:200px;
-      }
-      .user-comment-show-article > .col-xs-10 ul li
-      {
-        font-size:10px;
-      }
+  /***** Show_Article *****/
+    .content-left
+    {
+      padding:0px 5px;
+    }
+    .top-content-left .comment 
+    {
+      font-size:14px;
+    }
+    .top-content-left .article-categories
+    {
+      padding-left:10px;
+    }
+    .top-content-left .article-categories li
+    {
+      padding:3px;
+    }
+    .top-content-left .article-categories li a
+    {
+      font-size:15px;
+    }
+    .content-show-article img 
+    {
+      width:200px;
+      height:200px;
+    }
+    .user-comment-show-article > .col-xs-10 ul li
+    {
+      font-size:10px;
+    }
 
-    /***** End Show_Article *****/
+  /***** End Show_Article *****/
   }
 /******** END Front_end ***********/
 @media only screen and (min-device-width : 480px) and (max-device-width : 768px) {
-
+  .banner h1
+  {
+    width:100%;
+    text-align:center;
+    padding-left:0px;
+  }
   .sidebar-right
   {
     width:100%;

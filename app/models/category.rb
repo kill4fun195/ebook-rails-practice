@@ -7,4 +7,8 @@ class Category < ActiveRecord::Base
 
   scope :order_desc, -> { order(created_at: :desc) }
 
+  #friendly_id 
+  extend FriendlyId
+  friendly_id :name_category, use: :slugged
+
 end

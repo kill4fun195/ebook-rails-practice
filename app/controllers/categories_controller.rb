@@ -18,7 +18,7 @@ class CategoriesController < ApplicationController
     redirect_to category_path(@category)
   end
   def show
-    @category = Category.find(params[:id])
+    @category = Category.friendly.find(params[:id])
     @articles = @category.articles.page(params[:page]).per_page(5).order_desc
     @a = params[:page].to_i 
     if (@category.articles.count % 2 == 0 )
