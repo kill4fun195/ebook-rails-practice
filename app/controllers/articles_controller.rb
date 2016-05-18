@@ -54,7 +54,7 @@ class ArticlesController < ApplicationController
     render :layout => 'frontend'
   end
   def update
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
     @article.update(article_params)
     @article.category_articles.destroy_all
     if @article.errors.empty?
@@ -66,7 +66,7 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
   end
   def destroy
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
     @article.destroy
     redirect_to articles_path
   end
