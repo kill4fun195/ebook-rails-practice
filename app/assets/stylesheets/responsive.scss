@@ -131,6 +131,10 @@
   }
 /******** END Front_end ***********/
 @media only screen and (min-device-width : 480px) and (max-device-width : 768px) {
+  .navbar .search .form-search{
+    left:10px;
+    top:50px;
+  }
   .banner h1
   {
     width:100%;
