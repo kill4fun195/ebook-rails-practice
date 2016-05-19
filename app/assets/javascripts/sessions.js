@@ -17,11 +17,10 @@ $(document).ready(function(){
       success: function(response) {
         if($(response).find(".notice").text()=="invalid")
         {
-          alert("dang nhap sai");
+          $(".login_account").html("sai tai khoan hoac mat khau");
         }
         if($(response).find(".notice").text()=="logged")
         {
-          alert("dang nhap thanh cong");
           window.location = window.location
         }
       }
