@@ -25,11 +25,11 @@ class GridArticlesGrid
 
   column(:id)
   column(:title)
-  column(:details) do |model|
-    model.details.truncate(100)
-  end
   column(:description) do |model|
     model.description.truncate(100)
+  end
+  column(:details) do |model|
+    model.details.truncate(100)
   end
   column(:author) do |model|
     model.user.name_user
