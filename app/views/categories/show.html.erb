@@ -25,14 +25,16 @@
   </div>
 </div>
 <% end -%>
-<div class="paging">
-   <p class = "paging-head"><i class="fa fa-file-text-o"></i> Page 
-   <% if @a == 0 %>
-    <%= @a = 1 %>
-   <% else %>
-    <%= @a %>
-   <% end -%>
-    of <span><%= @t %></span></p>
-   <%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
-</div>
+<% if @articles.count > 5 %>
+  <div class="paging">
+     <p class = "paging-head"><i class="fa fa-file-text-o"></i> Page 
+     <% if @a == 0 %>
+      <%= @a = 1 %>
+     <% else %>
+      <%= @a %>
+     <% end -%>
+      of <span><%= @t %></span></p>
+     <%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
+  </div>
+<% end -%>
 
