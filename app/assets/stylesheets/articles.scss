@@ -65,7 +65,7 @@ color:#D2693E;
   z-index: 110;
 }
 
-.article .left-article .comment:after {
+.article  .left-article .comment:after {
   content: "";
   display: block;
   left: -5px;
@@ -80,7 +80,7 @@ color:#D2693E;
 
 .article .left-article .comment:hover
 {
-  padding-right:12px;
+  padding-right:15px;
 }
 .article .head-right-article ul li a
 {
