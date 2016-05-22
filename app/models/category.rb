@@ -1,4 +1,6 @@
 class Category < ActiveRecord::Base
+  resourcify
+  #associate
   has_many :articles,through: :category_articles
   has_many :category_articles ,dependent: :destroy
 

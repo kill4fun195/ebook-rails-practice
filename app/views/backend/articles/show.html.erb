@@ -1,0 +1,151 @@
+<% if flash[:notice] %>
+        <div class="notice" ><%= flash[:notice] %></div>
+<% end %>
+  <div class="row top-content-left">
+    <div class="col-sm-8 col-xs-10">
+          <ul class="list-inline article-categories ">
+            <% @article.categories.each do |f| %>
+              <li><%= link_to f.name_category, category_path(f)%></li><span><strong>/</strong></span>
+            <% end -%>
+          </ul>
+    </div>  
+    <div class="col-sm-4 xol-xs-2">
+      <a href="<%= article_path(@article)%>#currentComment" class="comment"><i class="fa fa-comments-o"></i> <%= @article.comments.count %></a>
+    </div>   
+  </div>
+  <p class = "introduce">Good news! Our friend site will continue updating latest books at <a href="https://www.google.com/search?q=1bookcase.com&ie=utf-8&oe=utf-8">https://1bookcase.com/</a>.</p>
+  <h2><%= @article.title %></h2>
+  <ul class="list-inline">
+    <li><i class="fa fa-clock-o fa-fw"></i><%= @article.created_at.strftime("%m/%d/%y")%></li>.
+    <% if(@article.comments.count == 0)%>
+      <li><i class="fa fa-comments-o fa-fw"></i><a href="<%= article_path(@article)%>#currentComment">NO RESPONSES</a></li>.
+    <% else %>
+      <li><a href="<%= article_path(@article)%>#currentComment"><i class="fa fa-comments-o fa-fw"></i><%= @article.comments.count %> RESPONES</a></li>.
+    <% end -%>
+    <li><i class="fa fa-eye"></i> <%= @article.viewer %></li>.
+    <li><i class="fa fa-user"></i> <%= @article.user.name_user %></li>
+  </ul>
+  <div class="clearfix">
+    <div class="content-show-article">
+      <%= image_tag @article.avatar.url(:medium)%>
+      <span><%= sanitize @article.description %></span>
+      <span><%= sanitize @article.details %></span>
+    </div>
+  </div>
+  <div class="clearfix download">
+  <% if @article.linkdownload != nil%>
+  <a href="<%= @article.linkdownload %>" target="_blank" ><button class="btn btn-warning btn-download"><i class="fa fa-download"></i> Download [<%= @article.weight %>]</button></a>
+  <%else%>
+  <a href="" target="_blank" ><button class="btn btn-warning btn-download"><i class="fa fa-download"></i> Download</button></a>
+  <% end -%>
+  </div>
+  <div class="clearfix">
+    <div class="introducce-show-article">
+      <h4><i class="fa fa-hand-o-right"> </i>YOU MAY ALSO LIKE...</h4>
+      <ul class="bxslider">
+        <% @article.categories.first.articles.each do |f| %>
+          <li><a href="<%= article_path(f)%>"><%= image_tag f.avatar.url(:medium)%><span><%= f.title %></span></a></li>
+        <% end -%>
+      </ul>
+    </div>
+  </div>
+    <a name="currentComment"></a>
+    <div class="comment-show-article">
+      <h4><%= @article.comments.count %> RESPONSES</h4>
+      <ul class="list-inline top-comment-show-article">
+        <li class="active"><a href="#"><i class="fa fa-comments-o"></i> Comments <span class="badge"><%=@article.comments.count%></span></a></li>
+        <li><a href="#"><i class="fa fa-share"></i> Pingbacks <span class="badge">0</span></a></li>
+      </ul>
+      <% @comments.each do |f| %>
+      <div class="row clearfix user-comment-show-article">
+          <div class="col-sm-1 col-xs-2">
+            <%= image_tag("wowebook/logo_user")%>
+          </div>
+          <div class="col-sm-11 col-xs-10">
+            <ul class="list-inline">
+              <li><strong><%= f.user.name_user %></strong></li>
+              <li class="time"><i class="fa fa-clock-o"></i><%= f.created_at.strftime("%m/%d/%Y at %I:%M%p ") %></li>
+            </ul>
+            <div><%= sanitize(f.body) %></div>
+        </div>
+      </div>
+      <% end -%>
+      <% if @comments.count == 0 %>
+      <p>No one comment, you be the first to comment</p>
+      <%else%>
+       <div class="paging">
+          <%= will_paginate @comments, renderer: BootstrapPagination::Rails %>
+       </div>
+       <% end -%>
+    </div>
+ <% if current_user != nil &&  %>
+    <div class="login-article">
+      <%= form_for "comment" , url: article_comments_path(@article.id) do |c| %>
+       <fieldset>
+          <legend>Comment:</legend>
+          <p>
+            Thinking for this article 
+          </p>
+          <p>
+           <%= c.text_area :body %>
+          </p>
+          <p>
+            <%= c.submit "Write Comment" %>
+          </p>
+          </fieldset>
+      <% end -%>
+    </div>
+  <% else %>
+     <div class="no-login-article">
+      <h3>Leave a Reply </h3>
+      <p>You must be <a href="#myModal" data-toggle="modal">logged in</a> to post a comment.</p>
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <ul class="nav nav-tabs">
+              <li class="active"><a data-toggle="tab" href="#home">Login</a></li>
+              <li><a data-toggle="tab" href="#menu1">Create account</a></li>
+            </ul>
+            <div class="tab-content">
+               <div id="home" class="tab-pane fade in active">
+                  <%= form_for @session, url: sessions_path do |f| %>
+                    <p>  
+                      <%= f.text_field :email ,:placeholder => "Email Address"%>
+                    </p>
+                    <p>
+                      <%= f.text_field :password ,:placeholder => "Password" %>
+                    </p>
+                    <p>
+                    <%= f.submit "Login",class: :"loggin-account" ,id: :"loggin-account"  %>
+                    </p>
+                    <p class="login_account" style="color:red;"></p>
+                    <% end -%>
+                </div>
+                <div id="menu1" class="tab-pane fade">
+                  <%= form_for :user , url: users_path , :html => {:id => "new-user"} do |f|%>
+                    <p>
+                      <%= f.label :name_user %>:
+                      <br>
+                      <%= f.text_field :name_user ,:placeholder => "Your username"  %>
+                    </p>
+                    <p>
+                      <%= f.label :password %>:
+                      <br>
+                      <%= f.text_field :password , :placeholder => "your password" %>
+                    </p>
+                    <p>
+                      <%= f.label :email %>:
+                      <br>
+                      <%= f.text_field :email , :placeholder => "Your email" %>
+                    </p>
+                    <p> <%= f.submit "Create account" , class: :"loggin-account", id: :"create-account"%></p>
+                      <% end -%>
+                </div>
+            </div>   
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end -%>
+  <p class="dangnhap"></p>

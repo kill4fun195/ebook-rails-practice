@@ -42,9 +42,9 @@ class GridCommentsGrid
   column(:action, header: "Chuc nang", html: true) do |model|
     render(
       "datagrid/actions", 
-      edit_path: edit_comment_path(model), 
-      view_path: comment_path(model),
-      delete_path: comment_path(model)
+      edit_path: edit_backend_comment_path(model), 
+      view_path: backend_comment_path(model),
+      delete_path: backend_comment_path(model)
     )
   end
 end

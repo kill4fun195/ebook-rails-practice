@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-
+  resourcify
   #relations
   belongs_to :user
   has_many :categories, through: :category_articles

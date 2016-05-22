@@ -1,0 +1,8 @@
+<%= form_for [:backend,@category]  do |f| %>
+<p>
+  <%= f.label :Category_name %>
+  <br>
+  <%= f.text_field :name_category %>
+</p>
+<p><%= f.submit %></p>
+<% end -%>

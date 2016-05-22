@@ -53,18 +53,23 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-  resources :articles do
-    resources :comments, controller: "articles/comments"
+  namespace 'backend' do
+    resources :articles
+    resources :users
+    resources :categories
+    resources :comments
+    resources :sessions
+    resources :jqueries
+    resources :bootstraps
+    resources :backends
   end
 
-  resources :users
-  resources :categories
-  resources :comments
-  resources :sessions
-  resources :jqueries
-  resources :bootstraps
-  resources :backends
+  namespace 'frontend' do
+    resources :articles, only: [:show] do
+      resources :comments, controller: "articles/comments", only: [:create]
+    end
+    resources :categories, only: [:show]
+  end
 
   root 'frontends#index'
 

@@ -1,16 +1,14 @@
   <div class="row top-content-left">
-          <p><strong>Wow! eBook</strong> The best eBook site ever!</p>
+          <p class="show-category col-sm-12"><strong><i class="fa fa-folder-open"></i> CATEGORY:</strong> <%= @category.name_category %></p>
   </div>
 <p class = "introduce">Good news! Our friend site will continue updating latest books at <a href="https://www.google.com/search?q=1bookcase.com&ie=utf-8&oe=utf-8">https://1bookcase.com/</a>.</p>
-
-<% if @articles.present? %>
 <% @articles.each do |article| %>
 <div class = "row article">
   <div class="col-sm-4 col-xs-3 left-article">
      <a href="<%= frontend_article_path(article) %>" data-toggle="tooltip" data-placement="bottom" title="<%= article.title %>"><%= image_tag article.avatar.url(:medium)%></a>
     <a class="comment" href="<%= frontend_article_path(article)%>#currentComment"><i class="fa fa-comments-o"></i> <%= article.comments.count %></a>
   </div>
-  <div class="col-sm-8 col-xs-9  right-article">
+  <div class="col-sm-8 col-xs-9 right-article">
     <div class="head-right-article">
       <ul class="list-inline">
         <% article.categories.each do |f| %>
@@ -36,15 +34,7 @@
       <%= @a %>
      <% end -%>
       of <span><%= @t %></span></p>
-        <%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
+     <%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
   </div>
 <% end -%>
-
-<% else %>
-  <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
-<% end %>
-
-
-
-
 

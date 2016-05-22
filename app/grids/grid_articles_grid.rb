@@ -53,9 +53,9 @@ class GridArticlesGrid
   column(:action, header: "Chuc nang", html: true) do |model|
     render(
       "datagrid/actions", 
-      edit_path: edit_article_path(model.id), 
-      view_path: article_path(model),
-      delete_path: article_path(model.id)
+      edit_path: edit_backend_article_path(model.id), 
+      view_path: backend_article_path(model),
+      delete_path: backend_article_path(model.id)
     )
   end
 end

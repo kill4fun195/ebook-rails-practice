@@ -23,9 +23,9 @@ class GridCategoriesGrid
   column(:action, header: "Chuc nang", html: true) do |model|
     render(
       "datagrid/actions", 
-      edit_path: edit_category_path(model.id), 
-      view_path: category_path(model),
-      delete_path: category_path(model.id)
+      edit_path: edit_backend_category_path(model.id), 
+      view_path: backend_category_path(model),
+      delete_path: backend_category_path(model.id)
     )
   end
 end

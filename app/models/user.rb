@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  resourcify
+  rolify 
   #association
   has_many :articles , dependent: :destroy
   has_many :comments , dependent: :destroy
@@ -7,7 +9,6 @@ class User < ActiveRecord::Base
   validates :email, confirmation: true
   validates :name_user, length: { minimum: 5 }
   validates :password, length: { in: 3..20 }
-  validates :role, presence: true
 
   #search
   def authenticate(user_password)
