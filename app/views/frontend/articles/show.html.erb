@@ -5,12 +5,12 @@
     <div class="col-sm-8 col-xs-10">
           <ul class="list-inline article-categories ">
             <% @article.categories.each do |f| %>
-              <li><%= link_to f.name_category, frontend_category_path(f)%></li><span><strong>/</strong></span>
+              <li><%= link_to f.name_category, category_path(f)%></li><span><strong>/</strong></span>
             <% end -%>
           </ul>
     </div>  
     <div class="col-sm-4 xol-xs-2">
-      <a href="<%= frontend_article_path(@article)%>#currentComment" class="comment"><i class="fa fa-comments-o"></i> <%= @article.comments.count %></a>
+      <a href="<%= article_path(@article)%>#currentComment" class="comment"><i class="fa fa-comments-o"></i> <%= @article.comments.count %></a>
     </div>   
   </div>
   <p class = "introduce">Good news! Our friend site will continue updating latest books at <a href="https://www.google.com/search?q=1bookcase.com&ie=utf-8&oe=utf-8">https://1bookcase.com/</a>.</p>
@@ -18,9 +18,9 @@
   <ul class="list-inline">
     <li><i class="fa fa-clock-o fa-fw"></i><%= @article.created_at.strftime("%m/%d/%y")%></li>.
     <% if(@article.comments.count == 0)%>
-      <li><i class="fa fa-comments-o fa-fw"></i><a href="<%= frontend_article_path(@article)%>#currentComment">NO RESPONSES</a></li>.
+      <li><i class="fa fa-comments-o fa-fw"></i><a href="<%= article_path(@article)%>#currentComment">NO RESPONSES</a></li>.
     <% else %>
-      <li><a href="<%= frontend_article_path(@article)%>#currentComment"><i class="fa fa-comments-o fa-fw"></i><%= @article.comments.count %> RESPONES</a></li>.
+      <li><a href="<%= article_path(@article)%>#currentComment"><i class="fa fa-comments-o fa-fw"></i><%= @article.comments.count %> RESPONES</a></li>.
     <% end -%>
     <li><i class="fa fa-eye"></i> <%= @article.viewer %></li>.
     <li><i class="fa fa-user"></i> <%= @article.user.name_user %></li>
@@ -44,7 +44,7 @@
       <h4><i class="fa fa-hand-o-right"> </i>YOU MAY ALSO LIKE...</h4>
       <ul class="bxslider">
         <% @article.categories.first.articles.each do |f| %>
-          <li><a href="<%= frontend_article_path(f)%>"><%= image_tag f.avatar.url(:medium)%><span><%= f.title %></span></a></li>
+          <li><a href="<%= article_path(f)%>"><%= image_tag f.avatar.url(:medium)%><span><%= f.title %></span></a></li>
         <% end -%>
       </ul>
     </div>
@@ -80,7 +80,7 @@
     </div>
  <% if current_user != nil &&  %>
     <div class="login-article">
-      <%= form_for :comment , url: frontend_article_comments_path(@article.id) do |c| %>
+      <%= form_for :comment , url: article_comments_path(@article.id) do |c| %>
        <fieldset>
           <legend>Comment:</legend>
           <p>
@@ -109,15 +109,15 @@
             </ul>
             <div class="tab-content">
                <div id="home" class="tab-pane fade in active">
-                  <%= form_for @session, url: backend_sessions_path do |f| %>
+                  <%= form_for @session, url: sessions_path do |f| %>
                     <p>  
-                      <%= f.text_field :email ,:placeholder => "Email Address"%>
+                      <%= f.text_field :name_user ,:placeholder => "Account"%>
                     </p>
                     <p>
                       <%= f.text_field :password ,:placeholder => "Password" %>
                     </p>
                     <p>
-                    <%= f.submit "Login",class: :"loggin-account" ,id: :"loggin-account"  %>
+                    <%= f.submit "Login" %>
                     </p>
                     <p class="login_account" style="color:red;"></p>
                     <% end -%>
@@ -139,7 +139,7 @@
                       <br>
                       <%= f.text_field :email , :placeholder => "Your email" %>
                     </p>
-                    <p> <%= f.submit "Create account" , class: :"loggin-account", id: :"create-account"%></p>
+                    <p> <%= f.submit "Create account" %></p>
                       <% end -%>
                 </div>
             </div>   

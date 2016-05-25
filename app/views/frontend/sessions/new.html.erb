@@ -1,0 +1,35 @@
+<body style="background:#F7F7F7;">
+  <div class="">
+    <div id="wrapper">
+      <div id="login" class=" form"> 
+       <section class="login_content">
+        <%= form_for @session, url: sessions_path do |f| %>
+          <h1 style="color:#73879C;">Login Form</h1>
+          <p>
+            <%= f.text_field :name_user ,class: "form-control" ,placeholder: "Username" %>
+          </p>
+          <p>
+            <%= f.text_field :password ,class: "form-control", placeholder: "Password" %>
+          </p>
+          <p>
+            <%= f.submit "Login" ,class: "btn btn-default submit" %>
+          </p>
+            <div class="clearfix"></div>
+            <div class="separator" style="text-align:center;font-size:15px;">
+              <p class="change_link">New to site?
+                <a href="<%= new_backend_user_path %>" class="to_register"> Create Account </a>
+              </p>
+              <div class="clearfix"></div>
+              <br />
+              <div>
+                <h1 style="color:#73879C;"><i class="fa fa-paw" style="font-size: 26px;"></i> Gentelella Alela!</h1>
+
+                <p>©2015 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+              </div>
+            </div>
+          <% end -%>
+         </section>
+      </div>
+    </div>
+  </div>
+</body>

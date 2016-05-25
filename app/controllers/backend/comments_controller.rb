@@ -32,13 +32,13 @@ class Backend::CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.update(comment_params)
 
-    redirect_to comments_path
+    redirect_to backend_comments_path
   end
 
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to comments_path
+    redirect_to backend_comments_path
   end
 
   private

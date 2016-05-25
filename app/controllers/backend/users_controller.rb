@@ -25,7 +25,7 @@ class Backend::UsersController < ApplicationController
      @user.add_role :member
      redirect_to root_path
     else
-      redirect_to new_user_path
+      redirect_to new_backend_user_path
     end
   end
 
@@ -36,12 +36,12 @@ class Backend::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    redirect_to users_path
+    redirect_to backend_users_path
   end
   
   def destroy
     @user = User.find(params[:id]).destroy
-    redirect_to users_path
+    redirect_to backend_users_path
   end
 
   private

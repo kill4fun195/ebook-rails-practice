@@ -54,7 +54,7 @@ class GridArticlesGrid
     render(
       "datagrid/actions", 
       edit_path: edit_backend_article_path(model.id), 
-      view_path: backend_article_path(model),
+      view_path: backend_article_path(model.id),
       delete_path: backend_article_path(model.id)
     )
   end

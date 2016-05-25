@@ -7,21 +7,21 @@
 <% @articles.each do |article| %>
 <div class = "row article">
   <div class="col-sm-4 col-xs-3 left-article">
-     <a href="<%= frontend_article_path(article) %>" data-toggle="tooltip" data-placement="bottom" title="<%= article.title %>"><%= image_tag article.avatar.url(:medium)%></a>
-    <a class="comment" href="<%= frontend_article_path(article)%>#currentComment"><i class="fa fa-comments-o"></i> <%= article.comments.count %></a>
+     <a href="<%= article_path(article) %>" data-toggle="tooltip" data-placement="bottom" title="<%= article.title %>"><%= image_tag article.avatar.url(:medium)%></a>
+    <a class="comment" href="<%= article_path(article)%>#currentComment"><i class="fa fa-comments-o"></i> <%= article.comments.count %></a>
   </div>
   <div class="col-sm-8 col-xs-9  right-article">
     <div class="head-right-article">
       <ul class="list-inline">
         <% article.categories.each do |f| %>
-        <li><%= link_to f.name_category  , frontend_category_path(f) %></li>
+        <li><%= link_to f.name_category  , category_path(f) %></li>
         <% end -%>
         <li>Viewer: <%= article.viewer%></li>
         <span><%= article.created_at.strftime("%v") %></span>
       </ul>
     </div>
     <div class="body-right-article">
-      <h3><a href="<%= frontend_article_path(article) %>" data-toggle="tooltip" data-placement="bottom" title="<%= article.title %>"><%= article.title %></a></h3>
+      <h3><a href="<%= article_path(article) %>" data-toggle="tooltip" data-placement="bottom" title="<%= article.title %>"><%= article.title %></a></h3>
       <div class="content-body-right-article"><%= simple_format(article.description) %></div>
     </div>
   </div>

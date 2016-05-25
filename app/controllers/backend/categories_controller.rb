@@ -17,11 +17,11 @@ class Backend::CategoriesController < ApplicationController
   def create
     @category = Category.create(category_params)
 
-    redirect_to category_path(@category)
+    redirect_to backend_category_path(@category.id)
   end
 
   def show
-    @category = Category.friendly.find(params[:id])
+    @category = Category.find(params[:id])
     @articles = @category.articles.page(params[:page]).per_page(5).order_desc
     @a = params[:page].to_i 
     if (@category.articles.count % 2 == 0 )
@@ -36,15 +36,15 @@ class Backend::CategoriesController < ApplicationController
   end
 
   def update
-    @category = Category.friendly.find(params[:id])
+    @category = Category.find(params[:id])
     @category.update(category_params)
-    redirect_to categories_path
+    redirect_to backend_categories_path
   end
 
   def destroy
-    @category = Category.friendly.find(params[:id])
+    @category = Category.find(params[:id])
     @category.destroy
-    redirect_to categories_path
+    redirect_to backend_categories_path
   end
 
   private

@@ -58,17 +58,21 @@ Rails.application.routes.draw do
     resources :users
     resources :categories
     resources :comments
-    resources :sessions
     resources :jqueries
     resources :bootstraps
-    resources :backends
   end
 
-  namespace 'frontend' do
+  scope module: "backend" do
+    resources :backends , only: [:index]
+  end
+
+  scope module: "frontend" do
     resources :articles, only: [:show] do
       resources :comments, controller: "articles/comments", only: [:create]
     end
     resources :categories, only: [:show]
+    resources :sessions
+    resources :users , only: [:new,:create]
   end
 
   root 'frontends#index'

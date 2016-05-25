@@ -8,8 +8,8 @@
           </button>
           <div class="hidden-sm hidden-md hidden-lg search">
               <% if current_user %>
-                hello,<strong><%=link_to current_user.name_user,backend_backends_path,style: "color:blue;text-decoration:underline" %></strong>,
-                <%= link_to "Logout", backend_session_path(current_user) , method: :delete %>
+                hello,<strong><%=link_to current_user.name_user,backends_path,style: "color:blue;text-decoration:underline" %></strong>,
+                <%= link_to "Logout", session_path(current_user) , method: :delete %>
               <% end -%>
             <div class="toggle-search" style="float:left;margin-left:10px;padding-bottom:5px;"><i class="fa fa-search fa-2x"></i></div>
             <div class="form-search ">
@@ -27,15 +27,15 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Category <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                  <% @categories .each do |f| %>
-                  <li><%= link_to f.name_category,frontend_category_path(f) %></li>
+                  <li><%= link_to f.name_category,category_path(f) %></li>
                  <% end -%>
                 </ul>
               </li>  
           </ul>
           <div style="margin-bottom:-30px;padding-top:15px;text-align:center;color:white" class="hidden-xs">
             <% if current_user %>
-              hello,<strong><%=link_to current_user.name_user,backend_backends_path,style: "color:blue;text-decoration:underline" %></strong>,
-              <%= link_to "Logout", backend_session_path(current_user) , method: :delete %>
+              hello,<strong><%=link_to current_user.name_user,backends_path,style: "color:blue;text-decoration:underline" %></strong>,
+              <%= link_to "Logout", session_path(current_user) , method: :delete %>
             <% end -%>
           </div>
           <div class="hidden-xs search">

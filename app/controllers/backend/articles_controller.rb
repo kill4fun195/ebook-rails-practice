@@ -27,25 +27,22 @@ class  Backend::ArticlesController < ApplicationController
       @article.category_articles.create(category_id: cat_id)
       end
     end
-    redirect_to article_path(@article)
+    redirect_to backend_article_path(@article.id)
   end
 
   def show
-    
+    @article = Article.find(params[:id])
      @session = User.new
     if current_user
       flash.now.notice = "logged"
     else
       flash.now.notice = "invalid"
     end
-    @article = Article.friendly.find(params[:id])
     @comments = @article.comments.order_desc.page(params[:page]).per_page(10)
-    a = @article.viewer.to_i + 1
-    @article.update(viewer: a)
   end
 
   def update
-    @article = Article.friendly.find(params[:id])
+    @article = Article.find(params[:id])
     @article.update(article_params)
     @article.category_articles.destroy_all
     if @article.errors.empty?
@@ -54,12 +51,13 @@ class  Backend::ArticlesController < ApplicationController
         @article.category_articles.create(category_id: c)
       end
     end
-    redirect_to articles_path
+    redirect_to backend_articles_path
   end
+
   def destroy
-    @article = Article.friendly.find(params[:id])
+    @article = Article.find(params[:id])
     @article.destroy
-    redirect_to articles_path
+    redirect_to backend_articles_path
   end
   private 
   def article_params

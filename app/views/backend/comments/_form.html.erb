@@ -4,7 +4,7 @@
     menubar: false
   });
   </script>
-  <%= form_for @comment do |f| %>
+<%= form_for [:backend,@comment] do |f| %>
 <p>
   <%= f.label :Body %>
   <br>

@@ -1,4 +1,4 @@
-<%= form_for [:backend,@category]  do |f| %>
+<%= form_for @category, url: backend_category_path(@category.id) do |f| %>
 <p>
   <%= f.label :Category_name %>
   <br>
