@@ -9,7 +9,7 @@
           <div class="hidden-sm hidden-md hidden-lg search">
               <% if current_user %>
                 hello,<strong><%=link_to current_user.name_user,backends_path,style: "color:blue;text-decoration:underline" %></strong>,
-                <%= link_to "Logout", session_path(current_user) , method: :delete %>
+                <%= link_to "Logout", destroy_user_session_path , method: :delete %>
               <% end -%>
             <div class="toggle-search" style="float:left;margin-left:10px;padding-bottom:5px;"><i class="fa fa-search fa-2x"></i></div>
             <div class="form-search ">
@@ -35,7 +35,7 @@
           <div style="margin-bottom:-30px;padding-top:15px;text-align:center;color:white" class="hidden-xs">
             <% if current_user %>
               hello,<strong><%=link_to current_user.name_user,backends_path,style: "color:blue;text-decoration:underline" %></strong>,
-              <%= link_to "Logout", session_path(current_user) , method: :delete %>
+              <%= link_to "Logout", destroy_user_session_path , method: :delete %>
             <% end -%>
           </div>
           <div class="hidden-xs search">

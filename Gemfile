@@ -58,3 +58,4 @@ gem 'friendly_id', '~> 5.1.0'
 
 gem 'cancancan'
 gem 'rolify'
+gem 'devise'

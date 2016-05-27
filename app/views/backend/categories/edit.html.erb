@@ -1,2 +1,9 @@
 <h1>Edit Category !!!</h1>
-<%= render "form" %>
+<%= form_for @category, url: backend_category_path(@category.id) do |f| %>
+  <p>
+  <%= f.label :Category_name %>
+  <br>
+  <%= f.text_field :name_category %>
+  </p>
+  <p><%= f.submit %></p>
+<% end -%>

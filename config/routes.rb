@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -55,7 +56,6 @@ Rails.application.routes.draw do
   #   end
   namespace 'backend' do
     resources :articles
-    resources :users
     resources :categories
     resources :comments
     resources :jqueries
@@ -71,8 +71,6 @@ Rails.application.routes.draw do
       resources :comments, controller: "articles/comments", only: [:create]
     end
     resources :categories, only: [:show]
-    resources :sessions
-    resources :users , only: [:new,:create]
   end
 
   root 'frontends#index'
