@@ -1,0 +1,51 @@
+
+<body style="background:#F7F7F7;font-size:14px;color:#73879C;">
+  <div id="wrapper">
+   <section class="login_content">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+      <h1>Sign up</h1>
+      <div class="field">
+        <%= f.label :name_user %><br />
+        <%= f.text_field :name_user, autofocus: true, class: "form-control" %>
+      </div>
+      
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off" , class: "form-control"%>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" , class: "form-control"%>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up" , class: "btn btn-default submit"%>
+      </div>
+      <div class="clearfix"></div>
+      <div class="separator">
+
+        <p class="change_link">Already a member ?
+          <a href="<%= new_user_session_path %>" class="to_register"> Log in </a>
+        </p>
+        <div class="clearfix"></div>
+        <br />
+        <div>
+          <h1><i class="fa fa-paw" style="font-size: 26px;"></i> Gentelella Alela!</h1>
+
+          <p>©2015 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+        </div>
+      </div>
+      <% end %>
+   </section>
+  </div>
+</body>
