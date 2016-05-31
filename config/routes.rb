@@ -61,8 +61,7 @@ Rails.application.routes.draw do
     resources :articles
     resources :categories
     resources :comments
-    resources :jqueries
-    resources :bootstraps
+    resources :users
   end
 
   scope module: "backend" do

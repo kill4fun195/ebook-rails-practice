@@ -32,20 +32,38 @@
                 </ul>
               </li>  
           </ul>
-          <div style="margin-bottom:-30px;padding-top:15px;text-align:center;color:white" class="hidden-xs">
-            <% if current_user %>
-              hello,<strong><%=link_to current_user.name_user,backends_path,style: "color:blue;text-decoration:underline" %></strong>,
-              <%= link_to "Logout", destroy_user_session_path , method: :delete %>
-            <% end -%>
-          </div>
-          <div class="hidden-xs search">
-           <div class="toggle-search"><i class="fa fa-search fa-2x"></i></div>
-            <div class="form-search">
+          <div class="hidden-xs large_search" style="float:left;padding-left: 5%;width:50%;margin-top:10px">
+            <div class="form-large-search">
               <%= form_tag root_path, method: "get" do %>
-                 <i class="fa fa-search "></i>
-                <%= text_field_tag :search , params[:search], :placeholder => "To search type and hit enter", autofocus: true %>
+                 <i class="fa fa-search " style="position:relative;left:30px"></i>
+                <%= text_field_tag :search , params[:search], :placeholder => "To search type and hit enter", autofocus: true ,style: "width:95%;padding:2px 30px;height:35px;"%>
              <% end %>
            </div>
+          </div>
+          <div class="hidden-xs group-btn-large-screen" style="width:27%;float:right;margin-top:10px">
+            <% if current_user.blank? %>
+                <div class ="btn-sign-in-large-scrren" style="float:right;padding-right:20px">
+                  <a href="<%=  new_user_session_path %>"><button type="button" class="btn btn-primary">Sign In</button></a>
+                </div>
+                <div class ="btn-sign-up-large-scrren" style="float:right;padding-right:20px">
+                  <a href="<%= new_user_registration_path %>" ><button type="button" class="btn btn-default">Sign Up</button></a>
+                </div>
+             <% else %> 
+                <div class="after-login-frontend" style="float:right;padding-right:20px;position:relative">
+                  <a id = "toogle-user-info" style="cursor:pointer"><img alt="" src="/assets/backend-images/img.jpg" style="width:40px;height:35px"></a>
+                  <div class="toogle-user-info" style="background: #82ABD4 none repeat scroll 0 0;display: block;line-height: 30px;padding: 5px 0 0 0px;position: absolute;right: 5px;top: 47px;width: 175px;display:none;border-radius: 0 0 0 5px;">
+                    <p style="width: 0;position:relative;right: -130px;top: -25px;height: 0;border-style: solid;border-width: 0 6px 10.4px 6px;border-color: transparent transparent #82ABD4 transparent;line-height: 0px;_border-color: #000000 #000000 #007bff #000000;_filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');"></p>
+                    <ul style="margin-top:-30px">
+                      <a href="<%= backends_path %>"><li>Infomation</li></a>
+                      <a href="<%= %>"><li>profile</li></a>
+                      <a href="<%= destroy_user_session_path %>" data-method="delete"><li>Log out</li></a>
+                    </ul>
+                  </div>
+                </div>
+                <div style="float:right;padding-right:20px">
+                  <a href="<%= new_backend_article_path %>"><button type="button" class="btn btn-default">Post Article</button></a>
+                </div>
+             <% end -%>
           </div>
         </div><!--/.nav-collapse -->
       </div>

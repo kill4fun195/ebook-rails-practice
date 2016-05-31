@@ -3,6 +3,9 @@ $(document).ready(function(){
     $(".form-search").toggle();
     $(".navbar  .search .form-search form input").focus();
   })
+  $(".after-login-frontend #toogle-user-info").click(function(){
+    $(".toogle-user-info").toggle();
+  })
   $('#scroll').click(function(){ 
         $("html, body").animate({ scrollTop: 0 }, 1000); 
         return false; 

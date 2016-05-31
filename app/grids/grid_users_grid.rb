@@ -15,7 +15,6 @@ class GridUsersGrid
 
   column(:id)
   column(:name_user)
-  column(:password)
   column(:email)
   column(:created_at) do |model|
     model.created_at.to_date

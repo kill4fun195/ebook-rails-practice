@@ -8,6 +8,19 @@ class User < ActiveRecord::Base
 
   #rolify
   rolify   
+  after_create :default_role
+
+  #method edit
+  def update_info(params)
+    self.assign_attributes(params)
+    if self.valid?
+    else
+    self.errors.add(:current_password, current_password.blank? ? :blank : :invalid)
+
+    p "ERRPOR!"
+    p self.errors.full_messages.to_sentence
+    end
+  end
 
   #asociation       
   has_many :articles , dependent: :destroy
@@ -16,5 +29,12 @@ class User < ActiveRecord::Base
   #scope
   scope :order_asc, -> { order(created_at: :asc) }
   scope :order_desc, -> { order(created_at: :desc) }
+
+  private
+
+  def default_role
+    self.add_role "member"
+  end
+
 
 end
