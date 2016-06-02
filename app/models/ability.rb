@@ -11,6 +11,7 @@ class Ability
 
       if user.has_role? :member
         can :read, :all
+        can :create, Article
       end
     #
     # The first argument to `can` is the action you are giving the user
