@@ -50,7 +50,13 @@
                 </div>
              <% else %> 
                 <div class="after-login-frontend" style="float:right;padding-right:20px;position:relative">
-                  <a id = "toogle-user-info" style="cursor:pointer"><img alt="" src="/assets/backend-images/img.jpg" style="width:40px;height:35px"></a>
+                  <a id = "toogle-user-info" style="cursor:pointer">
+                    <% if current_user.image == nil%>
+                      <img alt="" src="/assets/backend-images/img.jpg" style="width:40px;height:35px">
+                    <%else%>
+                      <img alt="" src="<%= current_user.image %>" style="width:40px;height:35px">
+                    <% end -%>
+                  </a>
                   <div class="toogle-user-info" style="background: #82ABD4 none repeat scroll 0 0;display: block;line-height: 30px;padding: 5px 0 0 0px;position: absolute;right: 5px;top: 47px;width: 175px;display:none;border-radius: 0 0 0 5px;">
                     <p style="width: 0;position:relative;right: -130px;top: -25px;height: 0;border-style: solid;border-width: 0 6px 10.4px 6px;border-color: transparent transparent #82ABD4 transparent;line-height: 0px;_border-color: #000000 #000000 #007bff #000000;_filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');"></p>
                     <ul style="margin-top:-30px">
