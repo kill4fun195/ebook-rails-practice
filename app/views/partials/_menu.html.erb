@@ -55,7 +55,7 @@
                     <p style="width: 0;position:relative;right: -130px;top: -25px;height: 0;border-style: solid;border-width: 0 6px 10.4px 6px;border-color: transparent transparent #82ABD4 transparent;line-height: 0px;_border-color: #000000 #000000 #007bff #000000;_filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');"></p>
                     <ul style="margin-top:-30px">
                       <a href="<%= backends_path %>"><li>Infomation</li></a>
-                      <a href="<%= %>"><li>profile</li></a>
+                      <a href="<%= backend_user_path(current_user.id) %>"><li>profile</li></a>
                       <a href="<%= destroy_user_session_path %>" data-method="delete"><li>Log out</li></a>
                     </ul>
                   </div>

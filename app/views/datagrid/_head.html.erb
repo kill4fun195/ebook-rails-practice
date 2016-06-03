@@ -1,10 +1,8 @@
 <tr>
   <% grid.html_columns(*options[:columns]).each do |column| %>
-    <th class="<%= datagrid_column_classes(grid, column) %>" style="text-align:center">
-         <%= column.header %>
-         <div style="min-width:40px">
-         <%= datagrid_order_for(grid, column, options) if column.supports_order? && options[:order] %>
-         </div>
+    <th class="<%= datagrid_column_classes(grid, column) %>" style="white-space:nowrap">
+       <%= column.header %>  
+       <%= datagrid_order_for(grid, column, options) if column.supports_order? && options[:order] %>
     </th>
   <% end %>
 </tr>

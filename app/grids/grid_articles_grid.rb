@@ -10,10 +10,6 @@ class GridArticlesGrid
     where("title LIKE ?", "%#{value}%")
   end
 
-  filter(:descriptions) do |value|
-    where("description LIKE '%#{value}%'")
-  end
-
   filter(:author, style: "display:hidden") do |value|
     joins(:user).where("users.name_user LIKE '%#{value}%'")
   end
@@ -25,12 +21,6 @@ class GridArticlesGrid
 
   column(:id)
   column(:title)
-  column(:description) do |model|
-    model.description.truncate(100)
-  end
-  column(:details) do |model|
-    model.details.truncate(100)
-  end
   column(:author) do |model|
     model.user.name_user
   end
@@ -38,7 +28,7 @@ class GridArticlesGrid
     model.comments.size
   end
   column(:linkdownload) do |model|
-    model.linkdownload.truncate(10)
+    model.linkdownload.truncate(20)
   end
   column(:weight)
   column(:image,html: true) do |model|

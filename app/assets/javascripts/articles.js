@@ -25,7 +25,6 @@ $(document).ready(function(){
     form = $(this).parents("form");
     _this = $(this);
     _this.attr("disabled", true);
-    _this.addClass("loading");
     $.ajax({  
       url: form.attr("action"),
       type: "POST",
@@ -37,7 +36,6 @@ $(document).ready(function(){
         comments = $("<div></div>").append(response).find(".comment-show-article");
         $("body .comment-show-article").html(comments.html());
         _this.removeAttr("disabled");
-        _this.removeClass("loading");
         tinyMCE.activeEditor.setContent('');
       }
     });
