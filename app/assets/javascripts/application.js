@@ -17,6 +17,7 @@
 //= require bootstrap-init
 //= require tinymce.min
 //= require jquery.tinymce.min
+//= require twitter/typeahead.min
 //= require_tree .
 $(document).ready(function(){
     $("#tooltip").tooltip();
