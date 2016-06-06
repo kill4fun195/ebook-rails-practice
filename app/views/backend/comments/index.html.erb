@@ -1,5 +1,36 @@
-
-<%= datagrid_form_for @grid, :method => :get, :url => backend_comments_path %>
-<%= will_paginate @grid.assets, renderer: BootstrapPagination::Rails %>
-<%= datagrid_table @grid %>
-<%= will_paginate @grid.assets, renderer: BootstrapPagination::Rails %>
+<table  class="display responsive no-wrap datatable">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Body</th>
+            <th>Title Article</th>
+            <th>Name User</th>
+            <th>Create_at</th>
+            <th>Approve</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.id %></td>
+        <td><%= comment.body %></td>
+        <td><%= comment.article.title %></td>
+        <td><%= comment.user.name_user %></td>
+        <td><%= comment.created_at %></td>
+        <td>
+          <% if (comment.approve == nil ) %>
+           <%= check_box_tag "approve", nil ,false %>chua xac nhan
+          <% elsif (comment.approve == false) %>
+            <%= check_box_tag "approve", false ,false %>khong xac nhan
+          <% else %>
+            <%= check_box_tag "approve", true ,true %>xac nhan
+          <% end -%>
+        </td>
+        <td><%= link_to "Show", backend_comment_path(comment)%></td>
+        <td><%= link_to "Edit", edit_backend_comment_path(comment)%></td>
+        <td><%= link_to "Delete", backend_comment_path(comment), method: :delete%></td>
+      </tr>
+    <% end -%>
+</table>
