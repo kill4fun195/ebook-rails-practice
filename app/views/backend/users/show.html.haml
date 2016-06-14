@@ -1,0 +1,29 @@
+%div{:style => "min-height:600px"}
+  %div{:style => "text-align:center;font-size:25px"}
+    %h1{:style => "color:blue"}
+      Infomation of User:
+      %span{:style => "color:red"}
+        = @user.name_user
+        %span
+  %div{:style => "font-size:15px;"}
+    %p
+      %strong Name_user:
+      = @user.name_user
+    %p
+      %strong Email:
+      = @user.email
+    %p
+      %strong Sign_in_count:
+      = @user.sign_in_count
+    %p
+      %strong Current_sign_in_at:
+      = @user.current_sign_in_at
+    %p
+      %strong Last_sign_in_at:
+      = @user.last_sign_in_at
+    %p
+      %strong Current_sign_in_ip:
+      = @user.current_sign_in_ip
+    %p
+      %strong Last_sign_in_ip::
+      = @user.last_sign_in_ip

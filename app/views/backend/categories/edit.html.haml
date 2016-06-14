@@ -1,0 +1,7 @@
+%h1 Edit Category !!!
+= form_for @category, url: backend_category_path(@category.id) do |f|
+  %p
+    = f.label :Category_name
+    %br/
+    = f.text_field :name_category
+  %p= f.submit

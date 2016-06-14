@@ -1,0 +1,194 @@
+/ small device
+#sidebar-right-toggle.sidebar-left.visible-sm.hidden-xs.hidden-md.hidden-lg.col-sm-1{:style => "relative"}
+  .sidebar-right-toggle-right{:style => "position:relative;left:-275px;width:340px;background:#F0F0F0;display:none"}
+    #sidebar-right-toggle-right.top-sidebar-right
+      .row
+        .col-sm-12.col-xs-12{:style => "text-align:center"}
+          %p{:style => "height:40px;margin-left: -10px;margin-top: 0px;"}
+            %strong
+              %i.fa.fa-angle-double-right.fa-3x{"aria-hidden" => "true"}
+    .top-sidebar-right{:style => "background:#F0F0F0;border-bottom:2px solid #E0E4E3"}
+      .row
+        .col-sm-5.col-xs-5
+          %p{:style => "color:#666"} FOLLOW:
+        .col-sm-7.col-xs-7
+          %ul.list-inline
+            %li
+              %a{"data-placement" => "top", "data-toggle" => "tooltip", :href => "https://www.facebook.com/1Bookcase/", :title => "Follow on Facebook"}
+                %i.fa.fa-facebook.fa-2x{:style => "color:#33363B"}
+            %li
+              %a{"data-placement" => "top", "data-toggle" => "tooltip", :href => "https://twitter.com/1Bookcase", :title => "Follow on Twitter"}
+                %i.fa.fa-twitter.fa-2x{:style => "color:#33363B"}
+            %li
+              %a{"data-placement" => "top", "data-toggle" => "tooltip", :href => "https://plus.google.com/+1bookcase/posts", :title => "Follow on Google+"}
+                %i.fa.fa-google-plus.fa-2x{:style => "color:#33363B"}
+    .mid-sidebar-right{:style => "padding:0px 15px;"}
+      %ul.row.nav.nav-tabs
+        %li.col-sm-4.col-xs-4.active
+          %a{"data-toggle" => "tab", :href => "#popular-post1"}
+            %i.fa.fa-star-o.fa-3x
+        %li.col-sm-4.col-xs-4.case2
+          %a{"data-toggle" => "tab", :href => "#new-post1"}
+            %i.fa.fa-clock-o.fa-3x
+        %li.col-sm-4.col-xs-4.case3
+          %a{"data-toggle" => "tab", :href => "#new-comment1"}
+            %i.fa.fa-commenting-o.fa-3x
+      .tab-content
+        #popular-post1.tab-pane.fade.in.active
+          .popular-post
+            - @popular_post.each do |f|
+              .row.content-popular-viewer
+                .col-sm-4.col-xs-4
+                  %a{:href => "#{article_path(f)}", :title => "#{f.title}"}= image_tag f.avatar.url(:medium)
+                .col-sm-8.col-xs-8
+                  %a{"data-placement" => "bottom", "data-toggle" => "tooltip", :href => "#{article_path(f)}", :style => "padding:0px", :title => "#{f.title}"}= f.title
+        #new-post1.tab-pane.fade
+          .new-post
+            - @new_post.each do |f|
+              .row.content-popular-viewer
+                .col-sm-4.col-xs-4
+                  %a{"data-placement" => "bottom", "data-toggle" => "tooltip", :href => "#{article_path(f)}", :title => "#{f.title}"}= image_tag f.avatar.url(:medium)
+                .col-sm-8.col-xs-8{:style => "padding:0px"}
+                  %a{"data-placement" => "bottom", "data-toggle" => "tooltip", :href => "#{article_path(f)}", :title => "#{f.title}"}= f.title
+        #new-comment1.tab-pane.fade
+          .new-comment
+            - @new_comment.each do |f|
+              .row.content-popular-viewer
+                .col-sm-3.col-xs-3
+                  = image_tag("wowebook/logo_user")
+                .col-sm-9.col-xs-9{:style => "padding:0px"}
+                  %p
+                    = f.user.name_user
+                    say:
+                  %a{:href => "#{article_path(f.article)}#currentComment"}= sanitize(f.body)
+    .bot-sidebar-right{:style => "text-align:center"}
+      %h5 USER ONLINE
+      %p
+        %strong 13 Users
+        Online
+  .sidebar-right-toggle-left{:style => "display:block"}
+    #sidebar-right-toggle-left.row.top-sidebar-left{:style => "background:#D2691E"}
+      %p{:style => "height:30px;margin-left: -10px;margin-top: 0px;"}
+        %strong
+          %i.fa.fa-angle-double-left.fa-3x{"aria-hidden" => "true"}
+/ large device
+#sidebar-right-large-device.col-sm-1.sidebar-right.col-md-3.hidden-sm
+  .row.top-sidebar-right
+    .col-sm-5.col-xs-5
+      %p FOLLOW:
+    .col-sm-7.col-xs-7
+      %ul.list-inline
+        %li
+          %a{"data-placement" => "top", "data-toggle" => "tooltip", :href => "https://www.facebook.com/1Bookcase/", :title => "Follow on Facebook"}
+            %i.fa.fa-facebook.fa-2x
+        %li
+          %a{"data-placement" => "top", "data-toggle" => "tooltip", :href => "https://twitter.com/1Bookcase", :title => "Follow on Twitter"}
+            %i.fa.fa-twitter.fa-2x
+        %li
+          %a{"data-placement" => "top", "data-toggle" => "tooltip", :href => "https://plus.google.com/+1bookcase/posts", :title => "Follow on Google+"}
+            %i.fa.fa-google-plus.fa-2x
+  .mid-sidebar-right
+    %ul.row.nav.nav-tabs
+      %li.col-sm-4.col-xs-4.active
+        %a{"data-toggle" => "tab", :href => "#popular-post"}
+          %i.fa.fa-star-o.fa-3x
+      %li.col-sm-4.col-xs-4.case2
+        %a{"data-toggle" => "tab", :href => "#new-post"}
+          %i.fa.fa-clock-o.fa-3x
+      %li.col-sm-4.col-xs-4.case3
+        %a{"data-toggle" => "tab", :href => "#new-comment"}
+          %i.fa.fa-commenting-o.fa-3x
+    .tab-content
+      #popular-post.tab-pane.fade.in.active
+        .popular-post
+          - @popular_post.each do |f|
+            .row.content-popular-viewer
+              .col-sm-4.col-xs-4
+                %a{:href => "#{article_path(f)}", :title => "#{f.title}"}= image_tag f.avatar.url(:medium)
+              .col-sm-8.col-xs-8
+                %a{"data-placement" => "bottom", "data-toggle" => "tooltip", :href => "#{article_path(f)}", :title => "#{f.title}"}= f.title
+      #new-post.tab-pane.fade
+        .new-post
+          - @new_post.each do |f|
+            .row.content-popular-viewer
+              .col-sm-4.col-xs-4
+                %a{"data-placement" => "bottom", "data-toggle" => "tooltip", :href => "#{article_path(f)}", :title => "#{f.title}"}= image_tag f.avatar.url(:medium)
+              .col-sm-8.col-xs-8
+                %a{"data-placement" => "bottom", "data-toggle" => "tooltip", :href => "#{article_path(f)}", :title => "#{f.title}"}= f.title
+      #new-comment.tab-pane.fade
+        .new-comment
+          - @new_comment.each do |f|
+            .row.content-popular-viewer
+              .col-sm-3.col-xs-3
+                = image_tag("wowebook/logo_user")
+              .col-sm-9.col-xs-9
+                %p
+                  = f.user.name_user
+                  say:
+                %a{:href => "#{article_path(f.article)}#currentComment"}= sanitize(f.body)
+  .bot-sidebar-right
+    %h5 USER ONLINE
+    %p
+      %strong 13 Users
+      Online
+/ - from 990 to 1200
+#sidebar-right-medium-device.col-sm-1.sidebar-right.col-md-4.hidden-sm.hidden-xs
+  .row.top-sidebar-right
+    .col-sm-5.col-xs-5
+      %p FOLLOW:
+    .col-sm-7.col-xs-7
+      %ul.list-inline
+        %li
+          %a{"data-placement" => "top", "data-toggle" => "tooltip", :href => "https://www.facebook.com/1Bookcase/", :title => "Follow on Facebook"}
+            %i.fa.fa-facebook.fa-2x
+        %li
+          %a{"data-placement" => "top", "data-toggle" => "tooltip", :href => "https://twitter.com/1Bookcase", :title => "Follow on Twitter"}
+            %i.fa.fa-twitter.fa-2x
+        %li
+          %a{"data-placement" => "top", "data-toggle" => "tooltip", :href => "https://plus.google.com/+1bookcase/posts", :title => "Follow on Google+"}
+            %i.fa.fa-google-plus.fa-2x
+  .mid-sidebar-right
+    %ul.row.nav.nav-tabs
+      %li.col-sm-4.col-xs-4.active
+        %a{"data-toggle" => "tab", :href => "#popular-post2"}
+          %i.fa.fa-star-o.fa-3x
+      %li.col-sm-4.col-xs-4.case2
+        %a{"data-toggle" => "tab", :href => "#new-post2"}
+          %i.fa.fa-clock-o.fa-3x
+      %li.col-sm-4.col-xs-4.case3
+        %a{"data-toggle" => "tab", :href => "#new-comment2"}
+          %i.fa.fa-commenting-o.fa-3x
+    .tab-content
+      #popular-post2.tab-pane.fade.in.active
+        .popular-post
+          - @popular_post.each do |f|
+            .row.content-popular-viewer
+              .col-sm-4.col-xs-4
+                %a{:href => "#{article_path(f)}", :title => "#{f.title}"}= image_tag f.avatar.url(:medium)
+              .col-sm-8.col-xs-8
+                %a{"data-placement" => "bottom", "data-toggle" => "tooltip", :href => "#{article_path(f)}", :title => "#{f.title}"}= f.title
+      #new-post2.tab-pane.fade
+        .new-post
+          - @new_post.each do |f|
+            .row.content-popular-viewer
+              .col-sm-4.col-xs-4
+                %a{"data-placement" => "bottom", "data-toggle" => "tooltip", :href => "#{article_path(f)}", :title => "#{f.title}"}= image_tag f.avatar.url(:medium)
+              .col-sm-8.col-xs-8
+                %a{"data-placement" => "bottom", "data-toggle" => "tooltip", :href => "#{article_path(f)}", :title => "#{f.title}"}= f.title
+      #new-comment2.tab-pane.fade
+        .new-comment
+          - @new_comment.each do |f|
+            .row.content-popular-viewer
+              .col-sm-3.col-xs-3
+                = image_tag("wowebook/logo_user")
+              .col-sm-9.col-xs-9
+                %p
+                  = f.user.name_user
+                  say:
+                %a{:href => "#{article_path(f.article)}#currentComment"}= sanitize(f.body)
+  .bot-sidebar-right
+    %h5 USER ONLINE
+    %p
+      %strong 13 Users
+      Online
+/ - End from 990 to 1200

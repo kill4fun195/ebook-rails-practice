@@ -1,0 +1,7 @@
+%h1 New Category !!!
+= form_for @category,url: backend_categories_path do |f|
+  %p
+    = f.label :Category_name
+    %br/
+    = f.text_field :name_category
+  %p= f.submit

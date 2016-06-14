@@ -1,0 +1,53 @@
+.sidebar-left.visible-sm.hidden-xs.hidden-md.hidden-lg.col-sm-1
+  .sidebar-left-toggle-right{:style => "display:none"}
+    #sidebar-left-visible{:style => "position: relative;width: 250px;left: -180px;background:#F0F0F0"}
+      #sidebar-left-toggle-right.top-sidebar-left{:style => "text-align:center"}
+        %p{:style => "height:30px;margin-left: -10px;margin-top: 0px;"}
+          %strong
+            %i.fa.fa-angle-double-right.fa-3x{"aria-hidden" => "true"}
+      .mid-sidebar-left{:style => "padding-left:20px"}
+        %h4 CATEGORY
+        - @categories.each do |f|
+          .category-mid-sidebar-left
+            %a{:href => "#{category_path(f)}"}
+              %span.glyphicon.glyphicon-folder-open
+              = f.name_category
+      .border-sidebar-left{:style => "height:1240px"}
+  .sidebar-left-toggle-left
+    #sidebar-left-toggle-left.row.top-sidebar-left
+      %p{:style => "height:30px;margin-left: -10px;margin-top: 0px;"}
+        %i.fa.fa-angle-double-left.fa-3x{"aria-hidden" => "true"}
+    .border-sidebar-left{:style => "height:1450px"}
+#sidebar-left-large-device.col-sm-1.sidebar-left.hidden-xs.col-md-2.hidden-sm
+  .row.top-sidebar-left
+    %p
+      %strong MORE
+  .mid-sidebar-left
+    %h4 CATEGORY
+    - @categories.each do |f|
+      .category-mid-sidebar-left
+        %a{:href => "#{category_path(f)}"}
+          %span.glyphicon.glyphicon-folder-open
+          = f.name_category
+/ - from 990 to 1200
+#sidebar-left-medium-device.sidebar-left.sidebar-left.hidden-xs.col-md-1.hidden-sm
+  .sidebar-left-toggle-right1{:style => "display:none;position:relative"}
+    #sidebar-left-visible{:style => "position: relative;width: 250px;left: -165px;background:#F0F0F0"}
+      #sidebar-left-toggle-right1.top-sidebar-left{:style => "text-align:center"}
+        %p{:style => "height:30px;margin-left: -10px;margin-top: 0px;"}
+          %strong
+            %i.fa.fa-angle-double-right.fa-3x{"aria-hidden" => "true"}
+      .mid-sidebar-left{:style => "padding-left:20px"}
+        %h4 CATEGORY
+        - @categories.each do |f|
+          .category-mid-sidebar-left
+            %a{:href => "#{category_path(f)}"}
+              %span.glyphicon.glyphicon-folder-open
+              = f.name_category
+      .border-sidebar-left{:style => "height:1345px"}
+  .sidebar-left-toggle-left1{:style => "display:block"}
+    #sidebar-left-toggle-left1.row.top-sidebar-left
+      %p{:style => "height:30px;margin-top: 0px;"}
+        %i.fa.fa-angle-double-left.fa-3x{"aria-hidden" => "true"}
+    .border-sidebar-left
+/ - End from 990 to 1200

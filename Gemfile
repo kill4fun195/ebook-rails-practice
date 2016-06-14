@@ -65,3 +65,4 @@ gem 'cancancan'
 gem 'rolify'
 gem 'devise'
 gem 'omniauth-facebook'
+gem "haml-rails", "~> 0.9"

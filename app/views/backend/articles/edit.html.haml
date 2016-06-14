@@ -1,0 +1,41 @@
+:javascript
+  tinymce.init({
+    selector: 'textarea',
+    menubar: false
+  });
+%h1 Edit Article!!!
+= form_for @article,url: backend_article_path(@article.id) do |f|
+  %p
+    = f.label :Title
+    %br/
+    = f.text_field :title
+  %p
+    = f.label :Description
+    %br/
+    = f.text_area  :description
+  %p
+    = f.label :Details
+    %br/
+    = f.text_area  :details
+  %p
+    = f.label :Linkdownload
+    %br/
+    = f.text_field :linkdownload
+  %p
+    = f.label :Weight
+    %br/
+    = f.text_field :weight
+  %p
+    = f.label :Image
+    %br/
+    = f.file_field :avatar
+  %p
+  %td= image_tag f.object.avatar.url(:thumb)
+  %p
+    - @categories.each do |c|
+      - checked = (@category_ids.include? c.id)? true : false
+      %p
+        = check_box_tag "category_id[]", c.id, checked
+        = c.name_category
+  %p
+    = f.submit

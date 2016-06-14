@@ -1,0 +1,10 @@
+%div
+  - if (approve == nil )
+    = check_box_tag "approve", nil ,false
+    chua xac nhan
+  - elsif (approve == false)
+    = check_box_tag "approve", false ,false
+    khong xac nhan
+  - else
+    = check_box_tag "approve", true ,true
+    xac nhan

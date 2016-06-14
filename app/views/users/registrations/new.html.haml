@@ -1,0 +1,29 @@
+%body{:style => "background:#F7F7F7;font-size:14px;color:#73879C;"}
+  #wrapper
+    %section.login_content
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = devise_error_messages!
+        %h1 Sign up
+        .field
+          = f.text_field :name_user, autofocus: true, class: "form-control" , placeholder: |
+            "Name_user"                                                                    |
+        .field
+          = f.email_field :email, autofocus: true, class: "form-control" ,placeholder: "Email"
+        .field
+          = f.password_field :password, autocomplete: "off" , class: "form-control" , placeholder: "Password (6 characters minimum)"
+        .field
+          = f.password_field :password_confirmation, autocomplete: "off" , class: "form-control" ,placeholder: "Password confirmation"
+        .actions
+          = f.submit "Sign up" , class: "btn btn-default submit"
+        .clearfix
+        .separator
+          %p.change_link
+            Already a member ?
+            %a.to_register{:href => new_user_session_path} Log in
+          .clearfix
+          %br/
+          %div
+            %h1
+              %i.fa.fa-paw{:style => "font-size: 26px;"}
+              Gentelella Alela!
+            %p ©2015 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms

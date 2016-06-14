@@ -1,0 +1,43 @@
+%table#example.display.responsive.no-wrap.datatable
+  %thead
+    %tr
+      %th Id
+      %th Body
+      %th Title Article
+      %th Name User
+      %th Create_at
+      %th Approve
+      %th
+      %th
+      %th
+  %tfoot
+    %th Id
+    %th Body
+    %th Title Article
+    %th Name User
+    %th Create_at
+    %th{:style => "display:none"} Approve
+    %th{:style => "display:none"}
+    %th{:style => "display:none"}
+    %th{:style => "display:none"}
+  %tbody
+    - @comments.each do |comment|
+      %tr
+        %td= comment.id
+        %td= comment.body
+        %td= comment.article.title
+        %td= comment.user.name_user
+        %td= comment.created_at
+        %td
+          - if (comment.approve == nil )
+            = check_box_tag "approve", nil ,false
+            chua xac nhan
+          - elsif (comment.approve == false)
+            = check_box_tag "approve", false ,false
+            khong xac nhan
+          - else
+            = check_box_tag "approve", true ,true
+            xac nhan
+        %td= link_to "Show", backend_comment_path(comment)
+        %td= link_to "Edit", edit_backend_comment_path(comment)
+        %td= link_to "Delete", backend_comment_path(comment), method: :delete

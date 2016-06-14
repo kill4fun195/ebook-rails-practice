@@ -1,0 +1,5 @@
+%div{:style => "height:400px;"}
+  = datagrid_form_for @grid, :method => :get, :url => backend_categories_path
+  = will_paginate @grid.assets, renderer: BootstrapPagination::Rails
+  = datagrid_table @grid
+  = will_paginate @grid.assets, renderer: BootstrapPagination::Rails
