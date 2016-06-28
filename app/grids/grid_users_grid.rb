@@ -9,6 +9,7 @@ class GridUsersGrid
   filter(:name_user) do |value|
     where("name_user LIKE '%#{value}%'")
   end
+  
   filter(:email) do |value|
     where("email LIKE '%#{value}%'")
   end

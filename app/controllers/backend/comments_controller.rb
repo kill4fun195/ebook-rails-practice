@@ -2,12 +2,10 @@ class Backend::CommentsController < ApplicationController
   load_and_authorize_resource
   layout "backend"
   def index
-      @comments = current_user.comments
-      @grid = GridCommentsGrid.new(params[:grid_comments_grid]) do |scope|
-        scope.page(params[:page]).per_page(20)
-      end
-    @article_ids = Article.ids
-    @user_ids = User.ids
+    respond_to do |format|
+    format.html
+    format.json { render json: CommentDatatable.new(view_context) }
+    end
   end
 
   def new 
@@ -26,13 +24,19 @@ class Backend::CommentsController < ApplicationController
 
   def edit
     @comment = Comment.find(params[:id])
+    render layout: false
   end
 
   def update
     @comment = Comment.find(params[:id])
     @comment.update(comment_params)
-
-    redirect_to backend_comments_path
+    respond_to do |format|
+      format.html { redirect_to backend_comments_path }
+      format.json do 
+        render json: { comment: @comment.as_json(include: { article: { only: [:title] } }, only: [:id, :body]) } 
+      end
+    end
+    
   end
 
   def destroy
@@ -44,6 +48,6 @@ class Backend::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:body,:approve,:article_id)
+    params.require(:comment).permit(:body, :approve,:article_id)
   end
 end

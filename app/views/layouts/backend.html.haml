@@ -156,13 +156,8 @@
                           %i.fa.fa-angle-right
         / /top navigation
         / page content
-        .right_col{:role => "main"}
+        .right_col{:role => "main",:style => "max-height:7000px" }
           = yield
         / /page content
         / footer content
-        %footer
-          .pull-right
-            Gentelella - Bootstrap Admin Template by
-            %a{:href => "https://colorlib.com"} Colorlib
-          .clearfix
         / /footer content

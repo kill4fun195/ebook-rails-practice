@@ -1,43 +1,20 @@
-%table#example.display.responsive.no-wrap.datatable
+
+%table#comments-table.display.no-wrap{"data-source" => backend_comments_path(format: :json)}
   %thead
     %tr
       %th Id
       %th Body
+      %th Author
       %th Title Article
-      %th Name User
-      %th Create_at
-      %th Approve
+      %th Created_at
       %th
       %th
       %th
-  %tfoot
-    %th Id
-    %th Body
-    %th Title Article
-    %th Name User
-    %th Create_at
-    %th{:style => "display:none"} Approve
-    %th{:style => "display:none"}
-    %th{:style => "display:none"}
-    %th{:style => "display:none"}
-  %tbody
-    - @comments.each do |comment|
-      %tr
-        %td= comment.id
-        %td= comment.body
-        %td= comment.article.title
-        %td= comment.user.name_user
-        %td= comment.created_at
-        %td
-          - if (comment.approve == nil )
-            = check_box_tag "approve", nil ,false
-            chua xac nhan
-          - elsif (comment.approve == false)
-            = check_box_tag "approve", false ,false
-            khong xac nhan
-          - else
-            = check_box_tag "approve", true ,true
-            xac nhan
-        %td= link_to "Show", backend_comment_path(comment)
-        %td= link_to "Edit", edit_backend_comment_path(comment)
-        %td= link_to "Delete", backend_comment_path(comment), method: :delete
+  %tbody                                 
+.modal.fade{role: :dialog, id: "myModalEdit"}
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        %button.close{type: :button,"data-dismiss" => "modal"} &times;
+        %h4.modal-title Modal Edit       
+        .content-myModalEdit  

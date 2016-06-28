@@ -1,8 +1,4 @@
-:javascript
-  tinymce.init({
-    selector: 'textarea',
-    menubar: false
-  });
+
 = form_for [:backend,@comment] do |f|
   %p
     = f.label :Body
@@ -13,3 +9,4 @@
     %br/
     = f.collection_select :article_id ,Article.all, :id , :title
   %p= f.submit
+
