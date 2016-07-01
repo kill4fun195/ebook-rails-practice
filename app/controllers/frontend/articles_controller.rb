@@ -1,6 +1,13 @@
 class Frontend::ArticlesController < ApplicationController
   skip_before_action :require_login
   layout "frontend"
+  def index
+     @articles = Article.all.select(:id, :title).where("lower(title) like ?", "%#{params[:query].to_s.downcase}%")
+     respond_to do |format|
+    format.html # render index.html
+    format.json { render :json => @articles.pluck(:title) }
+     end
+  end
   def show
     
      @session = User.new

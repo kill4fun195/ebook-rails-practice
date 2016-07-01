@@ -1,159 +1,31 @@
-- if flash[:notice]
-  .notice= flash[:notice]
-.row.top-content-left
-  .col-sm-8.col-xs-10
-    %ul.list-inline.article-categories
-      - @article.categories.each do |f|
-        %li= link_to f.name_category, category_path(f)
-        %span
-          %strong /
-  .col-sm-4.xol-xs-2
-    %a.comment{:href => "#{article_path(@article)}#currentComment"}
-      %i.fa.fa-comments-o
-      = @article.comments.count
-%p.introduce
-  Good news! Our friend site will continue updating latest books at
-  = succeed "." do
-    %a{:href => "https://www.google.com/search?q=1bookcase.com&ie=utf-8&oe=utf-8"} https://1bookcase.com/
-%h2= @article.title
-%ul.list-inline
-  %li>
-    %i.fa.fa-clock-o.fa-fw
-    = @article.created_at.strftime("%m/%d/%y")
-  \.
-  - if(@article.comments.count == 0)
-    %li>
-      %i.fa.fa-comments-o.fa-fw
-      %a{:href => "#{article_path(@article)}#currentComment"} NO RESPONSES
-    \.
-  - else
-    %li>
-      %a{:href => "#{article_path(@article)}#currentComment"}
-        %i.fa.fa-comments-o.fa-fw
-        = @article.comments.count
-        RESPONES
-    \.
-  = succeed "." do
-    %li
-      %i.fa.fa-eye
-      = @article.viewer
-  %li
-    %i.fa.fa-user
-    = @article.user.name_user
-.clearfix
-  .content-show-article
-    = image_tag @article.avatar.url(:medium)
-    %span= sanitize @article.description
-    %span= sanitize @article.details
-.clearfix.download
-  - if @article.linkdownload != nil
-    %a{:href => "#{@article.linkdownload}", :target => "_blank"}
-      %button.btn.btn-warning.btn-download
-        %i.fa.fa-download
-        Download [#{@article.weight}]
-  - else
-    %a{:href => "", :target => "_blank"}
-      %button.btn.btn-warning.btn-download
-        %i.fa.fa-download
-        Download
-.clearfix
-  .introducce-show-article
-    %h4
-      %i.fa.fa-hand-o-right>
-      YOU MAY ALSO LIKE...
-    %ul.bxslider
-      - @article.categories.first.articles.each do |f|
-        %li
-          %a{:href => "#{article_path(f)}"}
-            = image_tag f.avatar.url(:medium)
-            %span= f.title
-%a{:name => "currentComment"}
-.comment-show-article
-  %h4
-    = @article.comments.count
-    RESPONSES
-  %ul.list-inline.top-comment-show-article
-    %li.active
-      %a{:href => "#"}
-        %i.fa.fa-comments-o
-        Comments
-        %span.badge= @article.comments.count
-    %li
-      %a{:href => "#"}
-        %i.fa.fa-share
-        Pingbacks
-        %span.badge 0
-  - @comments.each do |f|
-    .row.clearfix.user-comment-show-article
-      .col-sm-1.col-xs-2
-        = image_tag("wowebook/logo_user")
-      .col-sm-11.col-xs-10
-        %ul.list-inline
-          %li
-            %strong= f.user.name_user
-          %li.time
-            %i.fa.fa-clock-o
-            = f.created_at.strftime("%m/%d/%Y at %I:%M%p ")
-        %div= sanitize(f.body)
-  - if @comments.count == 0
-    %p No one comment, you be the first to comment
-  - else
-    .paging
-      = will_paginate @comments, renderer: BootstrapPagination::Rails
-- if current_user != nil &&
-.login-article
-  = form_for "comment" , url: article_comments_path(@article.id) do |c|
-    %fieldset
-      %legend Comment:
-      %p
-        Thinking for this article
-      %p
-        = c.text_area :body
-      %p
-        = c.submit "Write Comment"
-- else
-  .no-login-article
-    %h3 Leave a Reply
-    %p
-      You must be
-      %a{"data-toggle" => "modal", :href => "#myModal"} logged in
-      to post a comment.
-    / Modal
-    #myModal.modal.fade{:role => "dialog"}
-      .modal-dialog.modal-sm
-        .modal-content
-          %ul.nav.nav-tabs
-            %li.active
-              %a{"data-toggle" => "tab", :href => "#home"} Login
-            %li
-              %a{"data-toggle" => "tab", :href => "#menu1"} Create account
-          .tab-content
-            #home.tab-pane.fade.in.active
-              = form_for @session, url: sessions_path do |f|
-                %p
-                  = f.text_field :email ,:placeholder => "Email Address"
-                %p
-                  = f.text_field :password ,:placeholder => "Password"
-                %p
-                  = f.submit "Login",class: :"loggin-account" ,id: :"loggin-account"
-                %p.login_account{:style => "color:red;"}
-            #menu1.tab-pane.fade
-              = form_for :user , url: users_path , :html => {:id => "new-user"} do |f|
-                %p
-                  = f.label :name_user
-                  \:
-                  %br/
-                  = f.text_field :name_user ,:placeholder => "Your username"
-                %p
-                  = f.label :password
-                  \:
-                  %br/
-                  = f.text_field :password , :placeholder => "your password"
-                %p
-                  = f.label :email
-                  \:
-                  %br/
-                  = f.text_field :email , :placeholder => "Your email"
-                %p
-                  = f.submit "Create account" , class: :"loggin-account", id: :"create-account"
-%p.dangnhap
+#backend-show-article{:style => "min-height:450px"}
+  %p
+    %strong Title:
+    = @article.title
+  %p
+    %strong Details:
+    = @article.details.truncate(50)
+  %p
+    %strong Description:
+    = @article.description.truncate(50) 
+  %p
+    %strong Author:
+    = @article.user.name_user  
+  %p
+    %strong Image:
+    = image_tag @article.avatar.url(:thumb)  
+  %p
+    %strong Viewer:
+    = @article.viewer
+  %p  
+    %strong Link_download:
+    = @article.linkdownload 
+  %p
+    %strong Weight:
+    = @article.weight
+  %p
+    %strong Created_at:
+    = @article.created_at 
+  %p
+    %strong Updated_at:
+    = @article.updated_at   

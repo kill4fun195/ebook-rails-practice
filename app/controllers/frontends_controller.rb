@@ -16,6 +16,5 @@ class FrontendsController < ApplicationController
       @t = (@articles.count / 5) + 1
     end
 
-  end 
-
+  end
 end

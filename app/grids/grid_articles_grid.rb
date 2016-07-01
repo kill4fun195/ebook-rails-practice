@@ -7,7 +7,7 @@ class GridArticlesGrid
   end
   
   filter(:title) do |value|
-    where("title LIKE ?", "%#{value}%")
+    where("lower(title) LIKE ?", "%#{value}%")
   end
 
   filter(:author, style: "display:hidden") do |value|

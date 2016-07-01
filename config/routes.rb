@@ -70,7 +70,7 @@ Rails.application.routes.draw do
   end
 
   scope module: "frontend" do
-    resources :articles, only: [:show] do
+    resources :articles, only: [:show,:index] do
       resources :comments, controller: "articles/comments", only: [:create]
     end
     resources :categories, only: [:show]
