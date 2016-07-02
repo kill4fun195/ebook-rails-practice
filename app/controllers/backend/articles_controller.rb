@@ -2,12 +2,19 @@ class  Backend::ArticlesController < ApplicationController
   load_and_authorize_resource
   layout "backend"
   def index
-    @articles = Article.order_desc
-    @grid = GridArticlesGrid.new(params[:grid_articles_grid]) do |scope|
-      scope.page(params[:page]).per_page(5)
+    if current_user.has_role? :member
+      @grid = GridArticlesGrid.new(params[:grid_articles_grid]) do |scope|
+        scope.where(user_id: current_user.id).page(params[:page]).per_page(5)
+      end
     end
-  end
 
+    if current_user.has_role? :admin
+      @grid = GridArticlesGrid.new(params[:grid_articles_grid]) do |scope|
+        scope.page(params[:page]).per_page(5)
+      end
+    end
+  end 
+  
   def new
     @article = Article.new
     @categories = Category.all

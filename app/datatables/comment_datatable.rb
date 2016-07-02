@@ -50,7 +50,11 @@ class CommentDatatable < AjaxDatatablesRails::Base
 
   def get_raw_records
     # insert query here
-    Comment.joins(:user,:article)
+    if options[:user].has_role? :member
+     Comment.where(user_id: options[:user].id).joins(:article,:user)
+    else
+     Comment.joins(:article,:user)
+    end
   end
 
   # ==== Insert 'presenter'-like methods below if necessary

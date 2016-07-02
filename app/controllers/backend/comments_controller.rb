@@ -4,7 +4,7 @@ class Backend::CommentsController < ApplicationController
   def index
     respond_to do |format|
     format.html
-    format.json { render json: CommentDatatable.new(view_context) }
+    format.json { render json: CommentDatatable.new(view_context, { user: current_user }) }
     end
   end
 
