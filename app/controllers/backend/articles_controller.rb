@@ -13,6 +13,13 @@ class  Backend::ArticlesController < ApplicationController
         scope.page(params[:page]).per_page(5)
       end
     end
+
+    if current_user.has_role? :editor
+      @grid = GridArticlesGrid.new(params[:grid_articles_grid]) do |scope|
+        scope.page(params[:page]).per_page(5)
+      end
+    end
+
   end 
   
   def new

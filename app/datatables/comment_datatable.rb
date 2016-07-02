@@ -41,6 +41,7 @@ class CommentDatatable < AjaxDatatablesRails::Base
         record.user.name_user,
         record.article.title,
         record.created_at,
+        record.approve,
         link_to("show",backend_comment_path(record)),
         link_to("edit", "#{}","data-toggle" => "modal","data-target" => "#myModalEdit","id" => "comment-edit-"+ "#{record.id}",class: "modal-edit"),
         link_to("delete", backend_comment_path(record),method: :delete)

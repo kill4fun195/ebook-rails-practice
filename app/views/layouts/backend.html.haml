@@ -46,32 +46,52 @@
                     %ul.nav.child_menu
                       %li
                         %a{:href => backends_path} Infomation
-                  %li
-                    %a
-                      %i.fa.fa-edit
-                      Forms
-                      %span.fa.fa-chevron-down
-                    %ul.nav.child_menu
-                      %li
-                        %a{:href => new_backend_article_path} Form Create Article
-                      - if current_user.has_role? :admin  
+                  - if current_user.has_role? :editor 
+                    %li
+                      %a
+                        %i.fa.fa-table
+                        Tables
+                        %span.fa.fa-chevron-down
+                      %ul.nav.child_menu
                         %li
-                          %a{:href => new_backend_category_path} Form Create Category
-                  %li
-                    %a
-                      %i.fa.fa-table
-                      Tables
-                      %span.fa.fa-chevron-down
-                    %ul.nav.child_menu
-                      %li
-                        %a{:href => backend_articles_path} Article Index
-                      %li
-                        %a{:href => backend_comments_path} Comment Index   
-                      - if current_user.has_role? :admin   
+                          %a{:href => backend_articles_path} Article Index
+
+                  - elsif current_user.has_role? :comment_manager 
+                    %li
+                      %a
+                        %i.fa.fa-table
+                        Tables
+                        %span.fa.fa-chevron-down
+                      %ul.nav.child_menu
                         %li
-                          %a{:href => backend_categories_path} Category Index
+                          %a{:href => backend_comments_path} Comment Index 
+                  - else                 
+                    %li
+                      %a
+                        %i.fa.fa-edit
+                        Forms
+                        %span.fa.fa-chevron-down
+                      %ul.nav.child_menu
                         %li
-                          %a{:href => backend_users_path} User Index
+                          %a{:href => new_backend_article_path} Form Create Article
+                        - if current_user.has_role? :admin  
+                          %li
+                            %a{:href => new_backend_category_path} Form Create Category
+                    %li
+                      %a
+                        %i.fa.fa-table
+                        Tables
+                        %span.fa.fa-chevron-down
+                      %ul.nav.child_menu
+                        %li
+                          %a{:href => backend_articles_path} Article Index
+                        %li
+                          %a{:href => backend_comments_path} Comment Index   
+                        - if current_user.has_role? :admin   
+                          %li
+                            %a{:href => backend_categories_path} Category Index
+                          %li
+                            %a{:href => backend_users_path} User Index
             / /sidebar menu
             / /menu footer buttons
             .sidebar-footer.hidden-small

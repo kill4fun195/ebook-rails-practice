@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   resourcify
 
   #rolify
-  rolify   
+  rolify 
   after_create :default_role
 
   #method edit

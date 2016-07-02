@@ -14,7 +14,7 @@ $(document).ready(function() {
         id = $(this).attr("id");
         a = id.split("-");
         b = parseInt(a[2]);
-        url = "http://localhost:3000/backend/comments/"+b;
+        url = "/backend/comments/"+b;
         $.get(url,function(response){
             comment_show = $("<div></div>").append(response).find("#backend-comment-show");
             $(".content-myModalShow").html(comment_show.html());  
@@ -27,7 +27,7 @@ $(document).ready(function() {
         id = $(this).attr("id");
         a = id.split("-");
         b = parseInt(a[2]);
-        url = "http://localhost:3000/backend/comments/"+b+"/edit";
+        url = "/backend/comments/"+b+"/edit";
         tinymce.editors = [];
         $.get(url,function(response){
             comment_edit = $("<div></div>").append(response).find("#backend-comment-edit");
