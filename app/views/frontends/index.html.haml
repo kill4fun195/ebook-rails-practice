@@ -17,8 +17,12 @@
       .col-sm-8.col-xs-9.right-article
         .head-right-article
           %ul.list-inline
-            - article.categories.each do |f|
-              %li= link_to f.name_category  , category_path(f)
+            - if article.categories.size > 0
+              - article.categories.each do |f|
+                %li= link_to f.name_category  , category_path(f)
+            - else
+              - article.tags.each do |f|
+                %li= link_to f.name_tag  , tag_path(f)    
             %li
               Viewer: #{article.viewer}
             %span= article.created_at.strftime("%v")

@@ -2,11 +2,6 @@ task :it_ebook_create_article_list => :environment do
   require 'mechanize'
   agent = Mechanize.new 
   page = agent.get("http://it-ebooks.info/")
-  array_details = Array.new
-  array_description = Array.new
-  array_weight = Array.new
-  array_linkdownload = Array.new
-  array_avatar = Array.new
   array_title = Array.new
   i = -1 
   page.search("table tr")[4].search("td.top table tr td:eq(2) a").each do |item|
@@ -18,6 +13,12 @@ task :it_ebook_create_article_list => :environment do
   end
   i=0
   while i < array_title.size.to_i
+    array_details = Array.new
+    array_description = Array.new
+    array_weight = Array.new
+    array_linkdownload = Array.new
+    array_avatar = Array.new
+    tag_ids = Array.new
     article = page.link_with(:text => array_title[i].to_s).click
     array_description[i] = article.search("table.ebook_view tr td")[1].search("span").to_s
     n = 1
@@ -26,25 +27,28 @@ task :it_ebook_create_article_list => :environment do
         next
       end
       if n == 3
-        n += 1
-         article.search("table.ebook_view tr td")[1].search("span + table tr")[2].search("a").each do |item| 
-          item.attr("href").value = "#"
-         end
-        array_details[i] = array_details[i].to_s + "<tr><td>By: </td>" + "<td><b>" + article.search("table.ebook_view tr td")[1].search("span + table tr")[2].to_s.split("b>")[2]+"b></td></tr>" + "<br>"
+        n +=1
+        array_details[i] = array_details[i].to_s + article.search("table.ebook_view tr td")[1].search("span + table tr")[2].to_s.gsub(/<b item.+<\/b><b>/,"<b>") + "<br>"
         next
       end
-      array_details[i] =  array_details[i].to_s + item.to_s + "<br>"
+      array_details[i] = array_details[i].to_s + item.to_s + "<br>"
       n += 1
+    end
+    article.search("table.ebook_view tr td:eq(2) span a").each do |item|
+      tag_ids.push(Tag.find_by(name_tag: item.text.titlecase).id)
     end
     array_weight[i] = article.search("table.ebook_view tr td")[1].search("span + table tr")[7].text.split(":")[1].to_s
     array_linkdownload[i] = article.search("table.ebook_view tr td")[1].search("span + table tr")[10].search("td")[1].search("a").attr("href").text.to_s
     array_avatar[i] = "http://it-ebooks.info" + article.search("table.ebook_view tr td")[0].search("img")[0].attr("src").to_s
     article = Article.create(title: array_title[i],details: array_details[i],description: array_description[i],user_id: 1 ,avatar: array_avatar[i].to_s,linkdownload: array_linkdownload[i],weight: array_weight[i])
-    category_ids = [50,51]
-    category_ids.each do |cat_id|
-        article.category_articles.create(category_id: cat_id)
+    if tag_ids.size > 0
+      tag_ids.each do |tag_id|
+        article.tag_articles.create(tag_id: tag_id)
       end
-
+    else
+      article.category_articles.create(category_id: 68)
+    end  
+    puts "create succsess book st.#{i+1}"
     i += 1
   end
 
@@ -86,7 +90,7 @@ task :it_ebook_create_tag_list => :environment do
        end
     end
     page_num_next = 2
-    while page_num_next < 3
+    while page_num_next < 40
       array_title_next_page = Array.new
       next_url = 'http://it-ebooks.info/publisher/'+page_num.to_s+'/' +'page/'+page_num_next.to_s+'/'
       next_page = agent.get(next_url)
@@ -116,6 +120,9 @@ task :it_ebook_create_tag_list => :environment do
     a[i] = array_tag[i].titlecase
   end
   a = a.uniq
+  (0..a.size-1).each do |i|
+    Tag.create(name_tag: a[i])
+  end
 
 end
 

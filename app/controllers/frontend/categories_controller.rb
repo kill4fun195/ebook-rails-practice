@@ -1,5 +1,4 @@
 class Frontend::CategoriesController < ApplicationController
-  skip_before_action :require_login
   layout "frontend"
   def show
     @category = Category.friendly.find(params[:id])

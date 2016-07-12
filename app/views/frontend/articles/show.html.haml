@@ -1,10 +1,16 @@
 .row.top-content-left
   .col-sm-8.col-xs-10
     %ul.list-inline.article-categories
-      - @article.categories.each do |f|
-        %li= link_to f.name_category, category_path(f)
-        %span
-          %strong /
+      - if @article.categories.size > 0
+        - @article.categories.each do |f|
+          %li= link_to f.name_category, category_path(f)
+          %span
+            %strong /
+      - else 
+        - @article.tags.each do |f|
+          %li= link_to f.name_tag, tag_path(f)
+          %span
+            %strong /      
   .col-sm-4.xol-xs-2
     %a.comment{:href => "#{article_path(@article)}#currentComment"}
       %i.fa.fa-comments-o
@@ -60,11 +66,18 @@
       %i.fa.fa-hand-o-right>
       YOU MAY ALSO LIKE...
     %ul.bxslider
-      - @article.categories.first.articles.each do |f|
-        %li
-          %a{:href => "#{article_path(f)}"}
-            = image_tag f.avatar.url(:medium)
-            %span= f.title
+      - if @article.categories.size > 0
+        - @article.categories.first.articles.each do |f|
+          %li
+            %a{:href => "#{article_path(f)}"}
+              = image_tag f.avatar.url(:medium)
+              %span= f.title
+      - else
+        - @article.tags.first.articles.each do |f|
+          %li
+            %a{:href => "#{article_path(f)}"}
+              = image_tag f.avatar.url(:medium)
+              %span= f.title        
 %a{:name => "currentComment"}
 .comment-show-article
   %h4

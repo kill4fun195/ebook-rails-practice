@@ -1,0 +1,7 @@
+%h1 New Tag !!!
+= form_for @tag,url: backend_tags_path do |f|
+  %p
+    = f.label :Tag_name
+    %br/
+    = f.text_field :name_tag
+  %p= f.submit

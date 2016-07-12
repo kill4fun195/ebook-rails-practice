@@ -1,5 +1,4 @@
 class Frontend::ArticlesController < ApplicationController
-  skip_before_action :require_login
   layout "frontend"
   def index
      @articles = Article.all.select(:id, :title).where("lower(title) like ?", "%#{params[:query].to_s.downcase}%")

@@ -1,6 +1,5 @@
 class Backend::CategoriesController < ApplicationController
   load_and_authorize_resource
-  skip_before_action :require_login ,only: [:show]
   layout "backend"
 
   def index

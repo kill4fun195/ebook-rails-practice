@@ -5,6 +5,8 @@ class Article < ActiveRecord::Base
   has_many :categories, through: :category_articles
   has_many :category_articles,dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :tags, through: :tag_articles
+  has_many :tag_articles,dependent: :destroy
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
 
   #validations

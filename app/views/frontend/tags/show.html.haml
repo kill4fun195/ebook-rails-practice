@@ -1,0 +1,41 @@
+.row.top-content-left
+  %p.show-category.col-sm-12
+    %strong
+      %i.fa.fa-folder-open
+      TAG:
+    = @tag.name_tag
+%p.introduce
+  Good news! Our friend site will continue updating latest books at
+  = succeed "." do
+    %a{:href => "https://www.google.com/search?q=1bookcase.com&ie=utf-8&oe=utf-8"} https://1bookcase.com/
+- @articles.each do |article|
+  .row.article
+    .col-sm-4.col-xs-3.left-article
+      %a{"data-placement" => "bottom", "data-toggle" => "tooltip", :href => "#{article_path(article)}", :title => "#{article.title}"}= image_tag article.avatar.url(:medium)
+      %a.comment{:href => "#{article_path(article)}#currentComment"}
+        %i.fa.fa-comments-o
+        = article.comments.count
+    .col-sm-8.col-xs-9.right-article
+      .head-right-article
+        %ul.list-inline
+          - article.tags.each do |f|
+            %li= link_to f.name_tag  , tag_path(f)
+          %li
+            Viewer: #{article.viewer}
+          %span= article.created_at.strftime("%v")
+      .body-right-article
+        %h3
+          %a{"data-placement" => "bottom", "data-toggle" => "tooltip", :href => "#{article_path(article)}", :title => "#{article.title}"}= article.title
+        .content-body-right-article= simple_format(article.description)
+- if @articles.count > 5
+  .paging
+    %p.paging-head
+      %i.fa.fa-file-text-o
+      Page
+      - if @a == 0
+        = @a = 1
+      - else
+        = @a
+      of
+      %span= @t
+    = will_paginate @articles, renderer: BootstrapPagination::Rails
