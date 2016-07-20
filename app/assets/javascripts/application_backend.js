@@ -18,6 +18,7 @@
 //= require tinymce.min
 //= require jquery.tinymce.min
 //= require backend/custom
+//= require datagrid
 //= require moment
 //= require moment.min
 //= require daterangepicker

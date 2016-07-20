@@ -28,6 +28,10 @@ p
 {
   float:right;
 }
+.height-dropdown-menu
+{
+  height:1000px;
+}
 .navbar-nav li.dropdown
 {
   position:relative;
@@ -38,7 +42,12 @@ p
   border:none;
   position:absolute;
   left:0px;
-  width:100px;
+  width:350%;
+}
+.navbar-nav li.dropdown ul.dropdown-menu li 
+{
+  width:50%;
+  float:left;
 }
 .navbar-nav li.dropdown ul.dropdown-menu a
 {
@@ -94,7 +103,7 @@ p
 .navbar  .search .form-search form input
 {
   padding:5px;
-  width:300px;
+  width:100%;
   padding-left:30px;
 }
 .toogle-user-info ul li
@@ -170,13 +179,14 @@ p
 .category-mid-sidebar-left a
 {
   color:#33363B;
-  font-size:16px;
+  font-size:15px;
   opacity:0.8;
 }
 .category-mid-sidebar-left a span 
 {
   opacity:0.3;
   font-size:10px;
+  padding-right:5px;
 }
 .category-mid-sidebar-left a:hover 
 {

@@ -49,5 +49,11 @@ $(document).ready(function(){
     }
   );
 
+  $("ul.nav li.dropdown a.dropdown-toggle").click(function(){
+     $("div.navbar-collapse ul.nav").toggleClass("height-dropdown-menu");
+  });
+
+
+
 });
 

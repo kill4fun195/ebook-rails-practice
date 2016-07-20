@@ -2,6 +2,7 @@ $(document).ready(function() {
     // Setup - add a text input to each footer cell
      $('#comments-table').dataTable({
         "processing": true,
+        "responsive": true,
         "serverSide": true,
         "ajax": $('#comments-table').data('source'),
         "pagingType": "full_numbers",

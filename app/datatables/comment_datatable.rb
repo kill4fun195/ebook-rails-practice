@@ -37,7 +37,7 @@ class CommentDatatable < AjaxDatatablesRails::Base
         # comma separated list of the values for each cell of a table row
         # example: record.attribute,
         record.id,
-        record.body,
+        record.body.truncate(20),
         record.user.name_user,
         record.article.title,
         record.created_at,

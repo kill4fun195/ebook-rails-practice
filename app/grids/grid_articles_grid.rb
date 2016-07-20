@@ -20,7 +20,9 @@ class GridArticlesGrid
   end
 
   column(:id)
-  column(:title)
+  column(:title) do |model|
+    model.title.truncate(50)
+  end
   column(:author) do |model|
     model.user.name_user
   end

@@ -77,6 +77,8 @@
                         - if current_user.has_role? :admin  
                           %li
                             %a{:href => new_backend_category_path} Form Create Category
+                          %li
+                            %a{:href => new_backend_tag_path} Form Create Tag
                     %li
                       %a
                         %i.fa.fa-table
@@ -92,6 +94,8 @@
                             %a{:href => backend_categories_path} Category Index
                           %li
                             %a{:href => backend_users_path} User Index
+                          %li
+                            %a{:href => backend_tags_path} Tag Index  
             / /sidebar menu
             / /menu footer buttons
             .sidebar-footer.hidden-small
@@ -182,4 +186,9 @@
           = yield
         / /page content
         / footer content
+        %footer
+          .pull-right 
+            Gentelella - Bootstrap Admin Template by
+            %a{:href => "https://colorlib.com"} Colorlib
+          .clearfix  
         / /footer content
