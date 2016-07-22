@@ -7,6 +7,10 @@ table.dataTable thead .sorting::after, table.dataTable thead .sorting_asc::after
     right: 15px;
     top: 8px;
 }
+#comments-table
+{
+  width:105% !important;
+}
 #comments-table_paginate
 {
   height:60px;
