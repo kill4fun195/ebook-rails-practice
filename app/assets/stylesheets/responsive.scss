@@ -1,6 +1,10 @@
 /******** Front_end smart_phone ***********/
   @media only screen and (min-device-width : 320px) and (max-device-width : 480px){
   /**** Layout*****/
+    .height-dropdown-menu
+    {
+      height:1000px;
+    }
     .navbar .search .form-search
       {
         position: absolute;
@@ -135,6 +139,10 @@
   }
 /******** END Front_end ***********/
 @media only screen and (min-device-width : 480px) and (max-device-width : 768px) {
+  .height-dropdown-menu
+  {
+    height:1000px;
+  }
   .navbar .search .form-search{
     left:10px;
     top:50px;
