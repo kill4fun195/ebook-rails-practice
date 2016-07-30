@@ -67,7 +67,7 @@ task :wowebook_create_article_list => :environment do
       array_avatar[i] = "http://" + article.search(".entry-inner p img").attr("src").to_s.split("//")[1].to_s
       array_details[i] = "<h3>Book Details</h3>"+"\n" + article.search(".entry-inner h3 + ul").to_s
       text_article = "<p>" + article.search(".entry-inner").to_s.split("<h3>")[0].split("\"><br>")[1].to_s
-      name_tag.each{|tag|  text_article.gsub!(/\b#{tag}\b/i, "<a href='/tag/#{tag.downcase}'>#{tag.capitalize}</a>") }
+      name_tag.each{|tag|  text_article.sub!(/\b#{tag}\b/i, "<a href='/tag/#{tag.downcase}'>#{tag.capitalize}</a>") }
       array_description[i] = text_article
       article = Article.create(title: array_title[i],details: array_details[i],description: array_description[i],user_id: 1 ,avatar: array_avatar[i].to_s,linkdownload: array_linkdownload[i],weight: array_weight[i])
       category_ids.each do |cat_id|
