@@ -36,9 +36,19 @@ class  Backend::ArticlesController < ApplicationController
   def create 
     @article = current_user.articles.create(article_params)
     if @article.errors.empty?
+      text = @article.description
+      tag = []
+      Tag.all.each{|x| tag.push(x.name_tag)}
+      tag_article = []
+      tag.each{|x| if text.include?(x) == true ; tag_article.push(x) end }
+      tag_id = []
+      tag_article.each{|x| tag_id.push(Tag.find_by_name_tag(x).id)}
+      tag_id.each do |x|
+         @article.tag_articles.create(tag_id: x)
+      end
       category_ids = params[:category_id]
       category_ids.each do |cat_id|
-      @article.category_articles.create(category_id: cat_id)
+        @article.category_articles.create(category_id: cat_id)
       end
     end
     redirect_to backend_article_path(@article.id)

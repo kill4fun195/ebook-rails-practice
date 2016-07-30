@@ -31,11 +31,9 @@ task :wowebook_create_article_list => :environment do
   require 'mechanize'
   agent = Mechanize.new 
   name_tag = []
-  (0..Tag.all.size - 1).each do |i|
-    name_tag[i] = Tag.all[i].name_tag
-  end
+  Tag.all.each{|x| name_tag.push(x.name_tag)}
   page_num = 1
-  while page_num < 4
+  while page_num < 2
     url = 'http://www.wowebook.pw/page/' +page_num.to_s+'/'
     page = agent.get(url)
     array_title = Array.new
@@ -71,10 +69,16 @@ task :wowebook_create_article_list => :environment do
       text_article = "<p>" + article.search(".entry-inner").to_s.split("<h3>")[0].split("\"><br>")[1].to_s
       name_tag.each{|tag|  text_article.gsub!(/\b#{tag}\b/i, "<a href='/tag/#{tag.downcase}'>#{tag.capitalize}</a>") }
       array_description[i] = text_article
-
       article = Article.create(title: array_title[i],details: array_details[i],description: array_description[i],user_id: 1 ,avatar: array_avatar[i].to_s,linkdownload: array_linkdownload[i],weight: array_weight[i])
       category_ids.each do |cat_id|
         article.category_articles.create(category_id: cat_id)
+      end
+      tag_article = []
+      name_tag.each{|x| if text_article.include?(x) == true ; tag_article.push(x) end }
+      tag_id = []
+      tag_article.each{|x| tag_id.push(Tag.find_by_name_tag(x).id)}
+      tag_id.each do |x|
+         article.tag_articles.create(tag_id: x)
       end
           puts "create thanh cong trang thu #{page_num} bai thu #{i}"
       i+=1
