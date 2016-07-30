@@ -19,11 +19,12 @@ before_action :configure_sign_up_params, only: [:create]
 
   # PUT /resource
   def update
-    super
-    @user = current_user
-    email_with_name = %("#{@user.name_user}" <#{@user.email}>)
-    mail(to: email_with_name, subject: 'Welcome to My Awesome Site')
-    byebug
+    super do |user|
+      if user.errors.empty?
+        @user = current_user
+        UserNotifier.send_edit_email(@user).deliver
+      end
+    end
   end
 
   # DELETE /resource
