@@ -7,15 +7,15 @@ Rails.application.configure do
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.default_url_options = { :host => 'https://ebookviet.herokuapp.com' }
 
-  config.action_mailer.smtp_settings = {
-  :address => "smtp.sendgrid.com",
+ActionMailer::Base.smtp_settings = {
+  :address => "smtp.gmail.com",
   :port => "587",
-  :domain => "heroku.com",
-  :user_name => "kill4fun195",
-  :password => "vandao195",
-  :authentication => :plain,
+  :domain => "gmail.com",
+  :user_name => "nhannv.nustechnology@gmail.com",
+  :password => "123456789!@#$%",
+  :authentication => "login",
   :enable_starttls_auto => true
-  }
+}
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
