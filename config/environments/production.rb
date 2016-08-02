@@ -13,7 +13,7 @@ Rails.application.configure do
   :domain => "bookviet.herokuapp.com",
   :user_name => "nhannv.nustechnology@gmail.com",
   :password => "123456789!@#$%",
-  :authentication => "login",
+  :authentication => :plain,
   :enable_starttls_auto => true
   }
   # Settings specified here will take precedence over those in config/application.rb.

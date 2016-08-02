@@ -40,7 +40,7 @@ task :it_ebook_create_article_list => :environment do
     array_weight[i] = article.search("table.ebook_view tr td")[1].search("span + table tr")[7].text.split(":")[1].to_s
     array_linkdownload[i] = article.search("table.ebook_view tr td")[1].search("span + table tr")[10].search("td")[1].search("a").attr("href").text.to_s
     array_avatar[i] = "http://it-ebooks.info" + article.search("table.ebook_view tr td")[0].search("img")[0].attr("src").to_s
-    article = Article.create(title: array_title[i],details: array_details[i],description: array_description[i],user_id: 1 ,avatar: array_avatar[i].to_s,linkdownload: array_linkdownload[i],weight: array_weight[i])
+    article = Article.create(title: array_title[i],details: array_details[i],description: array_description[i],user_id: 1 ,avatar: array_avatar[i].to_s,linkdownload: array_linkdownload[i],weight: array_weight[i],viewer: 1)
     if tag_ids.size > 0
       tag_ids.each do |tag_id|
         article.tag_articles.create(tag_id: tag_id)

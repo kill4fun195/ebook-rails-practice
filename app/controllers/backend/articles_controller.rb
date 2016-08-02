@@ -50,6 +50,7 @@ class  Backend::ArticlesController < ApplicationController
       category_ids.each do |cat_id|
         @article.category_articles.create(category_id: cat_id)
       end
+      @article.update(viewer: 1)
     end
     redirect_to backend_article_path(@article.id)
   end

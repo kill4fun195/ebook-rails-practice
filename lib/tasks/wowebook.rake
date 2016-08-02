@@ -69,7 +69,7 @@ task :wowebook_create_article_list => :environment do
       text_article = "<p>" + article.search(".entry-inner").to_s.split("<h3>")[0].split("\"><br>")[1].to_s
       name_tag.each{|tag|  text_article.sub!(/\b#{tag}\b/i, "<a href='/tag/#{tag.downcase}'>#{tag.capitalize}</a>") }
       array_description[i] = text_article
-      article = Article.create(title: array_title[i],details: array_details[i],description: array_description[i],user_id: 1 ,avatar: array_avatar[i].to_s,linkdownload: array_linkdownload[i],weight: array_weight[i])
+      article = Article.create(title: array_title[i],details: array_details[i],description: array_description[i],user_id: 1 ,avatar: array_avatar[i].to_s,linkdownload: array_linkdownload[i],weight: array_weight[i],viewer: 1)
       category_ids.each do |cat_id|
         article.category_articles.create(category_id: cat_id)
       end
