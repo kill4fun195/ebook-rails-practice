@@ -8,12 +8,12 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { :host => 'https://ebookviet.herokuapp.com' }
 
 ActionMailer::Base.smtp_settings = {
-  :address => "smtp.sendgrid.com",
-  :port => "587",
-  :domain => "heroku.com",
-  :user_name => "kill4fun195",
-  :password => "vandao195",
+  :address        => 'smtp.sendgrid.net',
+  :port           => '587',
   :authentication => :plain,
+  :user_name      => ENV['kill4fun195'],
+  :password       => ENV['vandao195'],
+  :domain         => 'heroku.com',
   :enable_starttls_auto => true
 }
   # Settings specified here will take precedence over those in config/application.rb.
