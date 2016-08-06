@@ -1,4 +1,10 @@
 Rails.application.configure do
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -40,6 +46,4 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
   Paperclip.options[:command_path] = 'C:\Program Files (x86)\GnuWin32\bin'
   Paperclip.options[:command_path] = "/usr/local/bin/"
-  
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end

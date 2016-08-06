@@ -5,6 +5,14 @@
     {
       height:1000px;
     }
+    .navbar-nav li.dropdown ul.dropdown-menu
+    {
+      width:100%;
+    }
+    .navbar-nav li.dropdown ul.dropdown-menu li 
+    {
+      width:100%;
+    }
     .navbar .search .form-search
       {
         position: absolute;
@@ -142,6 +150,14 @@
   .height-dropdown-menu
   {
     height:1000px;
+  }
+  .navbar-nav li.dropdown ul.dropdown-menu
+  {
+    width:100%;
+  }
+  .navbar-nav li.dropdown ul.dropdown-menu li 
+  {
+    width:100%;
   }
   .navbar .search .form-search{
     left:10px;
