@@ -33,7 +33,7 @@ task :wowebook_create_article_list => :environment do
   name_tag = []
   Tag.all.each{|x| name_tag.push(x.name_tag)}
   page_num = 1
-  while page_num < 2
+  while page_num < 20
     url = 'http://www.wowebook.pw/page/' +page_num.to_s+'/'
     page = agent.get(url)
     array_title = Array.new
@@ -46,11 +46,11 @@ task :wowebook_create_article_list => :environment do
     i=0
 
     while i < 10
-    array_details = Array.new
-    array_description = Array.new
-    array_weight = Array.new
-    array_linkdownload = Array.new
-    array_avatar = Array.new
+    array_details = Array.new(10)
+    array_description = Array.new(10)
+    array_weight = Array.new(10)
+    array_linkdownload = Array.new(10)
+    array_avatar = Array.new(10)
     array_category = Array.new(10){Array.new}
     article = page.link_with(:text => array_title[i].to_s).click
     size_array_category = article.search("ul li.category a").length
@@ -63,7 +63,11 @@ task :wowebook_create_article_list => :environment do
       page_download = article.link_with(:text => "").click
       doc = Nokogiri::HTML page_download.body
       array_weight[i] = doc.search("h1.title sup").text.to_s
-      next if  array_weight[i] == "".to_s
+      if  array_weight[i] == "".to_s
+        puts "Die link !!!"
+        i+=1
+        next
+      end
       array_avatar[i] = "http://" + article.search(".entry-inner p img").attr("src").to_s.split("//")[1].to_s
       array_details[i] = "<h3>Book Details</h3>"+"\n" + article.search(".entry-inner h3 + ul").to_s
       text_article = "<p>" + article.search(".entry-inner").to_s.split("<h3>")[0].split("\"><br>")[1].to_s
