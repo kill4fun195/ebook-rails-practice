@@ -41,7 +41,7 @@
           = @a
         of
         %span= @t+1
-      = will_paginate @articles, renderer: BootstrapPagination::Rails
+      = will_paginate @articles, inner_window: 1, outer_window: 1, renderer: BootstrapPagination::Rails
 - else
   %p
     There are no posts containing the term(s) #{params[:search]}.

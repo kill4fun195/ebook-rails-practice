@@ -59,7 +59,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  resources :records
   
   namespace 'backend' do
     resources :articles

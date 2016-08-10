@@ -32,8 +32,8 @@ task :wowebook_create_article_list => :environment do
   agent = Mechanize.new 
   name_tag = []
   Tag.all.each{|x| name_tag.push(x.name_tag)}
-  page_num = 1
-  while page_num < 20
+  page_num = 100
+  while page_num < 110
     url = 'http://www.wowebook.pw/page/' +page_num.to_s+'/'
     page = agent.get(url)
     array_title = Array.new
@@ -64,7 +64,7 @@ task :wowebook_create_article_list => :environment do
       doc = Nokogiri::HTML page_download.body
       array_weight[i] = doc.search("h1.title sup").text.to_s
       if  array_weight[i] == "".to_s
-        puts "Die link !!!"
+        puts "Die link trang thu #{page_num} bai thu #{i + 1} !!!"
         i+=1
         next
       end
@@ -84,7 +84,7 @@ task :wowebook_create_article_list => :environment do
       tag_id.each do |x|
          article.tag_articles.create(tag_id: x)
       end
-          puts "create thanh cong trang thu #{page_num} bai thu #{i}"
+          puts "create thanh cong trang thu #{page_num} bai thu #{i + 1}"
       i+=1
     end
     page_num += 1
