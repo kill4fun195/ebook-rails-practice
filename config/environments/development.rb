@@ -1,5 +1,7 @@
 Rails.application.configure do
 
+  config.react.variant = :development
+  config.react.addons = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default :charset => "utf-8"

@@ -70,3 +70,4 @@ gem "haml-rails", "~> 0.9"
 gem 'nokogiri'
 gem 'mechanize'
 gem 'whenever', :require => false
+gem 'react-rails'

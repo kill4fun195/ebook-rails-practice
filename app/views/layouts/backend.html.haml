@@ -30,7 +30,8 @@
                 %img.img-circle.profile_img{:alt => "...", :src => "/assets/backend-images/img.jpg"}/
               .profile_info
                 %span Welcome,
-                %h2 John Doe
+                %h2
+                  = current_user.name_user
             / /menu profile quick info
             %br/
             / sidebar menu
@@ -123,7 +124,7 @@
                     %span.fa.fa-angle-down
                   %ul.dropdown-menu.dropdown-usermenu.pull-right
                     %li
-                      %a{:href => "javascript:;"} Profile
+                      = link_to "Profile" , backend_user_path(current_user)
                     %li
                       %a{:href => "javascript:;"}
                         %span.badge.bg-red.pull-right 50%

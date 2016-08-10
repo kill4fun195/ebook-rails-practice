@@ -18,6 +18,9 @@
 //= require tinymce.min
 //= require jquery.tinymce.min
 //= require twitter/typeahead.min
+//= require react
+//= require react_ujs
+//= require components
 //= require_tree .
 $(document).ready(function(){
     $("#tooltip").tooltip();
