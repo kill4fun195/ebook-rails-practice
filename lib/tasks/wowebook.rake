@@ -33,7 +33,7 @@ task :wowebook_create_article_list => :environment do
   name_tag = []
   Tag.all.each{|x| name_tag.push(x.name_tag)}
   page_num = 100
-  while page_num < 110
+  while page_num < 120
     url = 'http://www.wowebook.pw/page/' +page_num.to_s+'/'
     page = agent.get(url)
     array_title = Array.new
