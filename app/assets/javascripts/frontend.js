@@ -53,7 +53,5 @@ $(document).ready(function(){
      $("div.navbar-collapse ul.nav").toggleClass("height-dropdown-menu");
   });
 
-
-
 });
 

@@ -1,6 +1,6 @@
 $(document).ready(function() {
     // Setup - add a text input to each footer cell
-     $('#comments-table').dataTable({
+    $('#comments-table').dataTable({
         "processing": true,
         "responsive": true,
         "serverSide": true,
@@ -9,18 +9,9 @@ $(document).ready(function() {
         // optional, if you want full pagination controls.
         // Check dataTables documentation to learn more about
         // available options.
-      });
-    $("body").on('click', ".modal-show", function(e){
-        var a,b,id,url;
-        id = $(this).attr("id");
-        a = id.split("-");
-        b = parseInt(a[2]);
-        url = "/backend/comments/"+b;
-        $.get(url,function(response){
-            comment_show = $("<div></div>").append(response).find("#backend-comment-show");
-            $(".content-myModalShow").html(comment_show.html());  
-        })
     });
+
+
     $("body").on('click', ".modal-edit", function(e,index){
         var a,b,id,url;
         this_body = $(this).parents("tr").find("td:eq(1)");
