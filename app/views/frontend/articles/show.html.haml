@@ -174,3 +174,7 @@
                   = f.password_field :password_confirmation, autocomplete: "off"
                 .actions
                   = f.submit "Sign up"
+- if current_user == nil                  
+  #content-facebook                   
+    .fb-like{"data-href" => "https://developers.facebook.com/docs/plugins/", "data-layout" => "standard", "data-action" => "like", "data-size" => "small", "data-show-faces" => "true", "data-share" => "true"}                   
+    .fb-comments{"data-href" => "http://localhost:3000/articles/#{@article.slug}", "data-numposts" => "5"}                  
