@@ -11,25 +11,22 @@ class Ability
 
       if user.has_role? :member
         can :read, :all
-        can :create, Article
-        can :edit, Article
-        can :update, Article
-        can :destroy, Article
-        can :create, Comment
-        can :edit, Comment
-        can :update, Comment
-        can :destroy, Comment
-        cannot :read, Category
-        cannot :read, User
+        can :manage, Article
+        can :manage, Comment
+        cannot :manage, Category
+        cannot :manage, User
+        cannot :manage, Tag
       end
 
       if user.has_role? :comment_manager
         can :read, :all
-        can :update, Comment
+        cannot :update, Comment
+        cannot :destroy, Comment
         cannot :edit, Comment
-        cannot :read, Article
-        cannot :read, Category
-        cannot :read, User
+        cannot :manage, Article
+        cannot :manage, Category
+        cannot :manage, User
+        cannot :manage, Tag
       end
 
       if user.has_role? :editor
@@ -37,9 +34,10 @@ class Ability
         can :edit, Article
         can :update, Article
         cannot :destroy, Article
-        cannot :read, Comment
-        cannot :read, Category
-        cannot :read, User
+        cannot :manage, Comment
+        cannot :manage, Category
+        cannot :manage, User
+        cannot :manage, Tag
       end
     #
     # The first argument to `can` is the action you are giving the user
