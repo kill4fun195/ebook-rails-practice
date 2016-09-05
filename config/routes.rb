@@ -77,7 +77,6 @@ Rails.application.routes.draw do
       resources :comments, controller: "articles/comments", only: [:create]
     end
     resources :categories, only: [:show]
-    resources :tags, only: [:show]
   end
 
   root 'frontends#index'

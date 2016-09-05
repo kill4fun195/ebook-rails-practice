@@ -21,17 +21,17 @@
     %a{:href => "https://www.google.com/search?q=1bookcase.com&ie=utf-8&oe=utf-8"} https://1bookcase.com/
 %h2= @article.title
 %ul.list-inline
-  %li>
+  %li
     %i.fa.fa-clock-o.fa-fw
     = @article.created_at.strftime("%m/%d/%y")
   \.
   - if(@article.comments.count == 0)
-    %li>
+    %li
       %i.fa.fa-comments-o.fa-fw
       %a{:href => "#{article_path(@article)}#currentComment"} NO RESPONSES
     \.
   - else
-    %li>
+    %li
       %a{:href => "#{article_path(@article)}#currentComment"}
         %i.fa.fa-comments-o.fa-fw
         = @article.comments.count

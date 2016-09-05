@@ -3,6 +3,7 @@ class Frontend::Articles::CommentsController < ApplicationController
     @artile = Article.find(params[:article_id])
     @comment = @artile.comments.create(comment_params)
     redirect_to  article_path(@artile), notice: @comment.errors.full_messages.to_sentence
+    byebug
   end
 
   private

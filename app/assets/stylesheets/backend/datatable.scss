@@ -1,11 +1,11 @@
 table.dataTable thead .sorting::after, table.dataTable thead .sorting_asc::after, table.dataTable thead .sorting_desc::after
- {
-    display: block;
-    font-family: "Glyphicons Halflings";
-    opacity: 0.5;
-    position: absolute;
-    right: 15px;
-    top: 8px;
+{
+  display: block;
+  font-family: "Glyphicons Halflings";
+  opacity: 0.5;
+  position: absolute;
+  right: 15px;
+  top: 8px;
 }
 #comments-table
 {
@@ -17,39 +17,39 @@ table.dataTable thead .sorting::after, table.dataTable thead .sorting_asc::after
 }
 /******** Responsive Datatable ***************/
 @media screen and (max-width: 767px) {
-    li.paginate_button.previous {
-        display: inline;
-    }
- 
-    li.paginate_button.next {
-        display: inline;
-    }
- 
-    li.paginate_button {
-        display: none;
-    }
-    div.dataTables_paginate span {
+  li.paginate_button.previous {
+      display: inline;
+  }
+
+  li.paginate_button.next {
+      display: inline;
+  }
+
+  li.paginate_button {
       display: none;
-    }
-    #comments-table_info{
-      text-align: center;
-      width: 100%;
-    }
-    div.dataTables_paginate {
-      width:100%;
-      text-align:center;
-    }
-    div.dataTables_paginate ul.pagination {
-      margin: 2px 0;
-      white-space: nowrap;
-      margin-top:30px;
-    }
-    div.dataTables_paginate ul.pagination li{
-      padding:0px !important;
-    }
-    #comments-table {
-      width:100% !important;
-    }
+  }
+  div.dataTables_paginate span {
+    display: none;
+  }
+  #comments-table_info{
+    text-align: center;
+    width: 100%;
+  }
+  div.dataTables_paginate {
+    width:100%;
+    text-align:center;
+  }
+  div.dataTables_paginate ul.pagination {
+    margin: 2px 0;
+    white-space: nowrap;
+    margin-top:30px;
+  }
+  div.dataTables_paginate ul.pagination li{
+    padding:0px !important;
+  }
+  #comments-table {
+    width:100% !important;
+  }
 
 }
 /******** END  Datatable ***************/

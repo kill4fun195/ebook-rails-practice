@@ -32,19 +32,6 @@ $(document).ready(function(){
     return false;
   });
 
-  $("body").on('click', ".comment-show-article .paging li span", function(e){
-    var i = Number($(this).text().trim());
-
-    $.ajax({ 
-      url: window.location.href+"?page="+ i,
-      success: function(response) {
-        comments = $("<div></div>").append(response).find(".comment-show-article");
-        $("body .comment-show-article").html(comments.html());
-      }
-    });
-    return false;
-  });
-
   $(".article .body-right-article .content-body-right-article").each(function(index){
     if($(this).text().length > 200 )
     {
