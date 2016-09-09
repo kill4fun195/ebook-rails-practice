@@ -14,7 +14,7 @@ class Ability
         can :manage, Article
         can :manage, Comment
         cannot :manage, Category
-        cannot :manage, User
+        can :manage, User
         cannot :manage, Tag
       end
 

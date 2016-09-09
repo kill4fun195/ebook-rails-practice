@@ -64,7 +64,9 @@ Rails.application.routes.draw do
     resources :articles
     resources :categories
     resources :comments
-    resources :users
+    resources :users do
+      put 'update_image', on: :member
+    end
     resources :tags
   end
 
@@ -81,5 +83,6 @@ Rails.application.routes.draw do
 
   root 'frontends#index'
   get '/tag/:id' => 'frontend/tags#show'
+
 
 end

@@ -15,15 +15,21 @@ class  Backend::UsersController < ApplicationController
     @user =  User.find(params[:id])
   end
 
+  def update_image
+    @user =  User.find(params[:id])
+    @user.update(:avatar_user => params["user"]["avatar_user"])
+    redirect_to backend_users_path
+  end
+
   def update
-     @user = User.find(params[:id])
-     if @user.update_password_with_password(user_params)
-      # Sign in the user by passing validation in case their password changed
-      sign_in @user, :bypass => true
-      redirect_to backend_users_path
-    else
-      render "edit"
-    end
+   @user = User.find(params[:id])
+   if @user.update_password_with_password(user_params)
+    # Sign in the user by passing validation in case their password changed
+    sign_in @user, :bypass => true
+    redirect_to backend_users_path
+   else
+    render "edit"
+  end
   end
 
   def destroy
