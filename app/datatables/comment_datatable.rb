@@ -56,7 +56,6 @@ class CommentDatatable < AjaxDatatablesRails::Base
     else
      Comment.joins(:article,:user)
     end
-    byebug
   end
 
   # ==== Insert 'presenter'-like methods below if necessary
